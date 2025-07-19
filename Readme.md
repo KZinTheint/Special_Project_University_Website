@@ -1,1 +1,1 @@
-this is the special project.
+This is the special project.
