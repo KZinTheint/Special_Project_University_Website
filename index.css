@@ -158,3 +158,314 @@
   transform: scaleX(1);
   transform-origin: left;
 }
+.hero-section {
+  height: 80vh;
+  background: url("images/Miit_Main_Building.jpg") no-repeat center center/cover;
+  position: relative;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.carousel-inner img {
+  width: 100%;
+  height: 70vh;
+  object-fit: cover;
+}
+
+.navbar-brand img {
+  border-radius: 50%;
+}
+
+.dropdown-hover {
+  position: relative;
+}
+
+.hover-card {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 999;
+  min-width: 250px;
+  width: auto;
+}
+
+.dropdown-hover:hover .hover-card {
+  display: block;
+}
+
+.carousel-inner img {
+  width: 100%;
+  height: 70vh;
+  object-fit: cover;
+}
+
+.navbar-brand img {
+  border-radius: 50%;
+}
+
+.dropdown-hover {
+  position: relative;
+}
+
+.hover-card {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 999;
+  min-width: 250px;
+  width: auto;
+}
+
+.dropdown-hover:hover .hover-card {
+  display: block;
+}
+
+.card-body ul li {
+  list-style: none;
+  min-width: 150px;
+  padding: 10px;
+  border-bottom: 1px dashed #868282;
+  background: transparent;
+  border-radius: 0;
+  text-align: left;
+}
+
+.carousel-inner img {
+  width: 100%;
+  height: 70vh;
+  object-fit: cover;
+}
+
+.navbar-brand img {
+  border-radius: 50%;
+}
+
+.dropdown-hover {
+  position: relative;
+}
+
+.hover-card {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 999;
+  min-width: 250px;
+  width: auto;
+}
+
+.dropdown-hover:hover .hover-card {
+  display: block;
+}
+
+.card-body ul li {
+  list-style: none;
+  min-width: 150px;
+  padding: 10px;
+  border-bottom: 1px dashed #868282;
+  background: transparent;
+  border-radius: 0;
+  text-align: left;
+}
+
+.card-body ul li a {
+  text-decoration: none;
+  color: black;
+  font-size: 15px;
+  text-align: left;
+}
+
+.card-body ul li:last-child {
+  border-bottom: none;
+}
+
+.card-body ul li:hover {
+  background-color: rgba(50, 235, 238, 0.5);
+  transition: 0.5s;
+}
+
+/* Navbar spacing */
+.navbar-nav .nav-item {
+  margin-right: 1.5rem;
+}
+
+.navbar-nav .nav-item:last-child {
+  margin-right: 0;
+}
+
+/* Headlines in cyan */
+.news-heading {
+  color: #00bcd4;
+}
+
+/* Keep other text black */
+.news-item p,
+.news-item small,
+section.container p {
+  color: black;
+}
+
+/* Read More buttons */
+.read-more-btn {
+  border-color: #00bcd4;
+  color: #00bcd4;
+}
+
+.read-more-btn:hover {
+  background-color: #00bcd4;
+  color: #fff;
+}
+
+#eventsCarousel img {
+  height: 250px;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .news-item p {
+    font-size: 0.9rem;
+  }
+}
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4faff;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.university-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e9f4fb;
+  padding: 60px 80px;
+  flex-wrap: wrap;
+}
+
+.university-section .content {
+  flex: 1 1 60%;
+}
+
+.university-section h1 {
+  color: #007080;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.university-section p {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  color: #555;
+  margin-top: 30px;
+   font-family: 'Times New Roman', Times, serif; 
+}
+
+.read-more {
+  background-color: #007080;
+  color: white;
+  padding: 14px 30px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.read-more:hover {
+  background-color: #005a60;
+}
+
+.logo {
+  flex: 1 1 30%;
+  text-align: center;
+}
+
+.logo img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+
+.quote-section {
+  display: flex;
+  justify-content: center;     /* Horizontal centering */
+  align-items: center;         /* Vertical centering */
+  height: 300px;               /* You can change this height */
+  text-align: center;          /* Text alignment inside the container */
+  background-color: #f0f8ff;   /* Optional background */
+  padding: 20px;
+  margin-top: 0px;
+  
+}
+
+.quote-section h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #007080;
+  margin: 0;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+}
+
+.stats-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+}
+
+.stat-box {
+  text-align: center;
+  color: #b3b3b3;
+}
+
+.stat-box img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.stat-box h2 {
+  color: #00c3e3;
+  margin: 5px 0;
+  font-size: 2.5rem;
+}
+
+.stat-box p {
+  margin: 0;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+footer h5 {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+footer p,
+footer li,
+footer a {
+  font-size: 14px;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+
