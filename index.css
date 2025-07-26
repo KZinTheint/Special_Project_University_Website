@@ -1,3 +1,4 @@
+
 .hero-section {
       height: 80vh;
       background: url("images/Miit_Main_Building.jpg") no-repeat center center/cover;
@@ -491,6 +492,7 @@ footer a {
 footer a:hover {
   text-decoration: underline;
 }
+
 body {
         font-family: Arial, sans-serif;
         background: #f8f9fa;
@@ -531,5 +533,4 @@ body {
         letter-spacing: 1px;
         text-transform: uppercase;
       }
-
 
