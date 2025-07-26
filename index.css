@@ -93,7 +93,7 @@
 
 /* Make navbar links bigger */
 .navbar-nav .nav-link {
-  font-size: 1.3rem; /* Increase as desired */
+  font-size: 1rem; /* Increase as desired */
   position: relative;
   overflow: hidden;
 }
@@ -144,6 +144,30 @@
 .navbar-brand strong {
   margin-right: 2.5rem; /* Add space between text and Home link */
   font-size: 1.3rem;
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+
+
+.scrolled #miitLogo {
+    transform: scale(1.5) translateY(15px); /* Grows to 1.5 times and moves down 15px */
+    /* Adjust scale and translateY values as needed */
+}
+
+.scrolled .navbar-brand .navbar-title {
+    opacity: 0; /* Fade out */
+    transform: translateX(20px); /* Move slightly to the side */
+    pointer-events: none; /* Make it unclickable when hidden */
+}
+
+#miitLogo {
+    transform: scale(1) translateY(0px); /* Initial state */
+    transition: transform 0.3s ease-out; /* Smooth transition */
+    transform-origin: top center; /* Ensure scaling grows downwards from the center */
+    margin-top: 0px; /* Adjust as needed */
+    height: 50px; /* Maintain initial height visually */
+    width: 50px; /* Maintain initial width visually */
+    object-fit: contain; /* Ensure image scales within bounds without distortion */
 }
 
 .dropdown-hover:hover > .nav-link,
