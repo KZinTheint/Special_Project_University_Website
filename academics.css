@@ -1,0 +1,70 @@
+.hero-section {
+    height: 40vh;
+    position: relative;
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.program-title {
+    color: #007080;
+    font-weight: bold;
+    border-bottom: 3px solid #00bcd4;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+.program-card {
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+}
+
+.program-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
+
+.program-card .card-title {
+    color: #003366;
+    font-weight: bold;
+}
+
+.program-card .img-fluid {
+    height: 100%;
+    object-fit: cover;
+}
+
+.program-card ul {
+    padding-left: 20px;
+}
+
+.why-miit-section {
+    background-color: #f8f9fa;
+    padding: 50px 0;
+    border-radius: 8px;
+}
+
+.why-miit-section h2 {
+    color: #007080;
+    font-weight: bold;
+}
+
+.feature-box i {
+    font-size: 40px;
+    color: #00bcd4;
+    margin-bottom: 15px;
+}
+
+.feature-box h5 {
+    font-weight: bold;
+    color: #003366;
+}
