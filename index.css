@@ -87,11 +87,7 @@
         border-bottom: none;
     }
 
-    .card-body ul li:hover{
-        background-color:rgba(185, 194, 194, 0.5);
-        transition: 0.5s;
-        
-    }
+    
 .container{
     transition: 0.5s;
 }
