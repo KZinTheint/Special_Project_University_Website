@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learning Management System - Myanmar Institute Of Information Technology</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .lms-header {
+      padding: 80px 0 40px 0;
+      background: linear-gradient(135deg, #27a3bf 0%, #9774bb 100%);
+      color: white;
+    }
+    
+    .lms-content {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      margin-top: -50px;
+      position: relative;
+      z-index: 10;
+    }
+    
+    .login-section {
+      background: linear-gradient(135deg, #27a3bf 0%, #764ba2 100%);
+      color: white;
+      border-radius: 15px;
+      padding: 30px;
+      margin-bottom: 30px;
+    }
+    
+    .login-form {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 25px;
+      backdrop-filter: blur(10px);
+    }
+    
+    .login-form input {
+      background: rgba(255, 255, 255, 0.9);
+      border: none;
+      border-radius: 8px;
+      padding: 12px 15px;
+      margin-bottom: 15px;
+    }
+    
+    .login-btn {
+      background: #ffd700;
+      color: #212529;
+      border: none;
+      border-radius: 25px;
+      padding: 12px 30px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .login-btn:hover {
+      background: #ffed4e;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+    }
+    
+    .feature-card {
+      background: white;
+      border: 2px solid #e9ecef;
+      border-radius: 15px;
+      padding: 25px;
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+      text-align: center;
+      height: 100%;
+    }
+    
+    .feature-card:hover {
+      border-color: #27a3bf;
+      box-shadow: 0 8px 25px rgba(39, 163, 191, 0.15);
+      transform: translateY(-5px);
+    }
+    
+    .feature-icon {
+      font-size: 3rem;
+      color: #27a3bf;
+      margin-bottom: 20px;
+    }
+    
+    .feature-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #27a3bf;
+      margin-bottom: 15px;
+    }
+    
+    .feature-description {
+      color: #6c757d;
+      line-height: 1.6;
+    }
+    
+    .stats-section {
+      background: #f8f9fa;
+      border-radius: 15px;
+      padding: 30px;
+      margin-bottom: 30px;
+    }
+    
+    .stat-card {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #27a3bf;
+      margin-bottom: 10px;
+    }
+    
+    .stat-label {
+      color: #6c757d;
+      font-weight: 500;
+    }
+    
+    .help-section {
+      background: linear-gradient(135deg, #27a3bf 0%, #9774bb 100%);
+      color: white;
+      border-radius: 15px;
+      padding: 30px;
+      margin-bottom: 30px;
+    }
+    
+    .help-card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 15px;
+      backdrop-filter: blur(10px);
+    }
+    
+    .help-card h5 {
+      color: #ffd700;
+      margin-bottom: 10px;
+    }
+    
+    .contact-info {
+      background: #f8f9fa;
+      border-radius: 15px;
+      padding: 30px;
+    }
+    
+    .contact-info i {
+      margin-right: 10px;
+      color: #27a3bf;
+    }
+    
+    .quick-links {
+      background: #f8f9fa;
+      border-radius: 15px;
+      padding: 30px;
+    }
+    
+    .quick-links a {
+      color: #27a3bf;
+      text-decoration: none;
+      display: block;
+      padding: 8px 0;
+      border-bottom: 1px solid #dee2e6;
+      transition: all 0.3s ease;
+    }
+    
+    .quick-links a:hover {
+      color: #764ba2;
+      padding-left: 10px;
+    }
+    
+    .breadcrumb {
+      background: transparent;
+      padding: 0;
+    }
+    
+    .breadcrumb-item a {
+      color: #667eea;
+      text-decoration: none;
+    }
+    
+    .breadcrumb-item.active {
+      color: #6c757d;
+    }
+    
+    /* Apply the original hover effect from index.css */
+    .navbar-nav .nav-link::after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 3px;
+      background: #00bcd4; /* Accent color */
+      transform: scaleX(0);
+      transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+      transform-origin: right;
+    }
+    
+    .navbar-nav .nav-link:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+    
+    .navbar-nav .nav-link.active:not(:hover)::after {
+      transform: scaleX(0);
+    }
+    
+    /* Ensure Bootstrap dropdown works properly */
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 1000;
+      min-width: 200px;
+      padding: 0.5rem 0;
+      margin: 0.125rem 0 0;
+      font-size: 1rem;
+      color: #212529;
+      text-align: left;
+      list-style: none;
+      background-color: #fff;
+      background-clip: padding-box;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      border-radius: 0.375rem;
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);
+    }
+    .moodle-logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain; 
+  border-radius: 10px;
+  padding-right: 5px;
+}
+
+    .dropdown-menu.show {
+      display: block !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top" id="mainNavbar">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="main.html">
+        <img src="images/MIIT_Logo.png" alt="MIIT Logo" width="50" height="50" class="me-2" id="miitLogo" />
+        <strong class="navbar-title">Myanmar Institute of Information Technology</strong>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="main.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Admission</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Academic
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="academic-calendar.html">Academic Calendar</a></li>
+              <li><a class="dropdown-item" href="academic-programs.html">Academic Programs</a></li>
+              <li><a class="dropdown-item" href="academic-rules.html">Academic Rules</a></li>
+              <li><a class="dropdown-item active" href="lms-module.html">LMS Moodle</a></li>
+              <li><a class="dropdown-item" href="student-registration.html">Student Registration</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Faculties</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Library</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Journal</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Collaboration</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header Section -->
+  <section class="lms-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav aria-label="breadcrumb">
+            
+          </nav>
+          <h1 class="display-4 fw-bold mb-3">Learning Management System</h1>
+          <p class="lead">Access your courses, assignments, and learning resources at MIIT</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="lms-content p-5">
+      
+      <!-- Login Section -->
+      <div class="row mb-5">
+        <div class="col-12">
+          <div class="login-section">
+            <div class="row align-items-center">
+                             <div class="col-lg-8">
+                 <h3 class="mb-3"><img src="./images/moodle.jpg" alt="Moodle Logo" class="moodle-logo"></i>MIIT Learning Management System</h3>
+                 <p class="mb-0">Access your courses, submit assignments, participate in discussions, and track your academic progress through our comprehensive LMS platform.</p>
+                 <div class="mt-3">
+                   <a href="http://miitlms.miit.edu.mm/my/" class="btn btn-outline-light" target="_blank">
+                     <i class="fas fa-external-link-alt me-2"></i>Login to LMS
+                   </a>
+                 </div>
+               </div>
+              <!-- <div class="col-lg-4">
+                                 <div class="login-form">
+                   <h5 class="mb-3 text-center">Student Login</h5>
+                   <form id="lmsLoginForm">
+                     <input type="text" class="form-control" name="username" id="studentId" placeholder="Student ID" required>
+                     <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+                     <button type="submit" class="btn login-btn w-100">
+                       <i class="fas fa-sign-in-alt me-2"></i>Login to LMS
+                     </button>
+                   </form>
+                   <div class="text-center mt-3">
+                     <small><a href="http://miitlms.miit.edu.mm/my/" class="text-light" target="_blank">Forgot Password?</a></small>
+                   </div>
+                 </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LMS Features -->
+      <div class="row mb-5">
+        <div class="col-12">
+          <h3 class="mb-4 text-center">LMS Features</h3>
+          <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="feature-card">
+                <i class="fas fa-book-open feature-icon"></i>
+                <h5 class="feature-title">Course Management</h5>
+                <p class="feature-description">Access all your enrolled courses, view syllabi, download course materials, and track your progress through each semester.</p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="feature-card">
+                <i class="fas fa-tasks feature-icon"></i>
+                <h5 class="feature-title">Assignment Submission</h5>
+                <p class="feature-description">Submit assignments online, track submission deadlines, and receive feedback from instructors through the platform.</p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="feature-card">
+                <i class="fas fa-chart-line feature-icon"></i>
+                <h5 class="feature-title">Grade Tracking</h5>
+                <p class="feature-description">Monitor your academic performance with real-time grade updates, GPA calculations, and progress reports.</p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="feature-card">
+                <i class="fas fa-comments feature-icon"></i>
+                <h5 class="feature-title">Discussion Forums</h5>
+                <p class="feature-description">Participate in course discussions, ask questions, and collaborate with classmates and instructors.</p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="feature-card">
+                <i class="fas fa-calendar-alt feature-icon"></i>
+                <h5 class="feature-title">Academic Calendar</h5>
+                <p class="feature-description">Stay updated with important dates, exam schedules, assignment deadlines, and academic events.</p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="feature-card">
+                <i class="fas fa-users feature-icon"></i>
+                <h5 class="feature-title">Student Portal</h5>
+                <p class="feature-description">Access your student profile, update personal information, and manage your academic records.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LMS Statistics -->
+      <div class="row mb-5">
+        <div class="col-12">
+          <div class="stats-section">
+            <h3 class="mb-4 text-center">LMS Usage Statistics</h3>
+            <div class="row">
+              <div class="col-lg-3 col-md-6 mb-3">
+                <div class="stat-card">
+                  <div class="stat-number" id="activeStudents">1,200+</div>
+                  <div class="stat-label">Active Students</div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6 mb-3">
+                <div class="stat-card">
+                  <div class="stat-number" id="activeCourses">50+</div>
+                  <div class="stat-label">Active Courses</div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6 mb-3">
+                <div class="stat-card">
+                  <div class="stat-number" id="facultyMembers">25+</div>
+                  <div class="stat-label">Faculty Members</div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6 mb-3">
+                <div class="stat-card">
+                  <div class="stat-number" id="uptime">95%</div>
+                  <div class="stat-label">Uptime</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Help & Support -->
+      <div class="row mb-5">
+        <div class="col-12">
+          <div class="help-section">
+            <h3 class="mb-4 text-center"><i class="fas fa-question-circle me-2"></i>Help & Support</h3>
+            <div class="row">
+              <div class="col-lg-6 mb-3">
+                <div class="help-card">
+                  <h5><i class="fas fa-user-graduate me-2"></i>Student Support</h5>
+                  <p>Get help with login issues, course access, assignment submission, and general LMS navigation.</p>
+                </div>
+              </div>
+              <div class="col-lg-6 mb-3">
+                <div class="help-card">
+                  <h5><i class="fas fa-chalkboard-teacher me-2"></i>Faculty Support</h5>
+                  <p>Technical assistance for course creation, grade management, and LMS administration.</p>
+                </div>
+              </div>
+              <div class="col-lg-6 mb-3">
+                <div class="help-card">
+                  <h5><i class="fas fa-book me-2"></i>User Manuals</h5>
+                  <p>Comprehensive guides and tutorials for using all LMS features effectively.</p>
+                </div>
+              </div>
+              <div class="col-lg-6 mb-3">
+                <div class="help-card">
+                  <h5><i class="fas fa-tools me-2"></i>Technical Support</h5>
+                  <p>24/7 technical support for system issues, browser compatibility, and troubleshooting.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact and Quick Links -->
+      <div class="row">
+        <div class="col-lg-8 mb-4">
+          <div class="contact-info">
+            <h4 class="mb-4"><i class="fas fa-address-card me-2"></i>Contact LMS Support</h4>
+            <p><strong>Myanmar Institute of Information Technology</strong></p>
+            <p><i class="fas fa-map-marker-alt"></i> Chanmyathazi Township, Mandalay, Myanmar</p>
+            <p><i class="fas fa-phone"></i> +95-9-785-557706</p>
+            <p><i class="fas fa-envelope"></i> lms-support@miit.edu.mm</p>
+            <p><i class="fas fa-globe"></i> www.miit.edu.mm</p>
+            <p class="mt-3"><i class="fas fa-clock"></i> Support Hours: Monday - Friday, 8:00 AM - 5:00 PM</p>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-4">
+          <div class="quick-links">
+            <h5 class="mb-3">Quick Links</h5>
+            <a href="academic-calendar.html"><i class="fas fa-calendar me-2"></i>Academic Calendar</a>
+            <a href="academic-programs.html"><i class="fas fa-book me-2"></i>Academic Programs</a>
+            <a href="academic-rules.html"><i class="fas fa-clipboard-list me-2"></i>Academic Rules</a>
+            <a href="student-registration.html"><i class="fas fa-user-plus me-2"></i>Student Registration</a>
+            <a href="#"><i class="fas fa-question-circle me-2"></i>FAQs</a>
+            <a href="#"><i class="fas fa-envelope me-2"></i>Contact Us</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-light pt-5 pb-4 mt-5">
+    <div class="container text-center text-md-start">
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <h5 class="text-uppercase fw-bold">Myanmar Institute Of Information Technology</h5>
+          <p>Providing quality education and research in Information Technology and related disciplines.</p>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h5 class="text-uppercase fw-bold">Contact Us</h5>
+          <ul class="list-unstyled">
+            <li><i class="bi bi-telephone-fill"></i> 09-785-557706</li>
+            <li><i class="bi bi-envelope-fill"></i> contact@miit.edu.mm</li>
+            <li><i class="bi bi-geo-alt-fill"></i> Mandalay, Myanmar</li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h5 class="text-uppercase fw-bold">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="main.html" class="text-light text-decoration-none">Home</a></li>
+            <li><a href="#" class="text-light text-decoration-none">About</a></li>
+            <li><a href="#" class="text-light text-decoration-none">Departments</a></li>
+            <li><a href="#" class="text-light text-decoration-none">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="border-light" />
+      <div class="text-center">
+        <p class="mb-0">&copy; 2025 Myanmar Institute Of Information Technology. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+  <script src="./javascript.js"></script>
+  <script src="./script.js"></script>
+  
+  <script>
+    // Add smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Add animation for feature cards
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe feature cards
+    document.querySelectorAll('.feature-card').forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = 'all 0.5s ease';
+      observer.observe(card);
+    });
+
+    // Observe stat cards
+    document.querySelectorAll('.stat-card').forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = 'all 0.5s ease';
+      observer.observe(card);
+    });
+
+    // Handle LMS Login Form
+    document.getElementById('lmsLoginForm')?.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const studentId = document.getElementById('studentId').value;
+      const password = document.getElementById('password').value;
+      
+      if (studentId && password) {
+        // Create a form to submit to MIIT LMS
+        const form = document.createElement('form');
+        form.method = 'POST';
+        form.action = 'http://miitlms.miit.edu.mm/login/index.php';
+        form.target = '_blank';
+        
+        // Add username field
+        const usernameField = document.createElement('input');
+        usernameField.type = 'hidden';
+        usernameField.name = 'username';
+        usernameField.value = studentId;
+        form.appendChild(usernameField);
+        
+        // Add password field
+        const passwordField = document.createElement('input');
+        passwordField.type = 'hidden';
+        passwordField.name = 'password';
+        passwordField.value = password;
+        form.appendChild(passwordField);
+        
+        // Add remember username field (Moodle standard)
+        const rememberField = document.createElement('input');
+        rememberField.type = 'hidden';
+        rememberField.name = 'rememberusername';
+        rememberField.value = '1';
+        form.appendChild(rememberField);
+        
+        // Submit the form
+        document.body.appendChild(form);
+        form.submit();
+        document.body.removeChild(form);
+        
+        // Show success message
+        const button = document.querySelector('.login-btn');
+        const originalText = button.innerHTML;
+        button.innerHTML = '<i class="fas fa-check me-2"></i>Redirecting to Dashboard...';
+        button.disabled = true;
+        
+        setTimeout(() => {
+          button.innerHTML = originalText;
+          button.disabled = false;
+        }, 3000);
+      }
+    });
+
+    // =============== DYNAMIC LMS STATISTICS ===============
+    
+    // LMS Statistics Configuration
+    const lmsStats = {
+      activeStudents: 1247,
+      activeCourses: 58,
+      facultyMembers: 32,
+      uptime: 99.8
+    };
+
+    // Count-up Animation Function
+    function animateCount(element, start, end, duration, suffix = "") {
+      const startTime = performance.now();
+      const range = end - start;
+      
+      function updateCount(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Easing function for smooth animation
+        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+        const currentValue = Math.floor(start + (range * easeOutQuart));
+        
+        element.textContent = currentValue + suffix;
+        
+        if (progress < 1) {
+          requestAnimationFrame(updateCount);
+        }
+      }
+      
+      requestAnimationFrame(updateCount);
+    }
+
+    // Intersection Observer for Statistics Section
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const statsSection = entry.target;
+          
+          // Animate each statistic
+          const activeStudentsEl = document.getElementById('activeStudents');
+          const activeCoursesEl = document.getElementById('activeCourses');
+          const facultyMembersEl = document.getElementById('facultyMembers');
+          const uptimeEl = document.getElementById('uptime');
+          
+          if (activeStudentsEl) {
+            animateCount(activeStudentsEl, 0, lmsStats.activeStudents, 2500, "+");
+          }
+          
+          if (activeCoursesEl) {
+            animateCount(activeCoursesEl, 0, lmsStats.activeCourses, 2500, "+");
+          }
+          
+          if (facultyMembersEl) {
+            animateCount(facultyMembersEl, 0, lmsStats.facultyMembers, 2500, "+");
+          }
+          
+          if (uptimeEl) {
+            animateCount(uptimeEl, 0, lmsStats.uptime, 2500, "%");
+          }
+          
+          // Stop observing after animation
+          statsObserver.unobserve(statsSection);
+        }
+      });
+    }, {
+      threshold: 0.3,
+      rootMargin: '0px 0px -100px 0px'
+    });
+
+    // Observe the statistics section
+    const statsSection = document.querySelector('.stats-section');
+    if (statsSection) {
+      statsObserver.observe(statsSection);
+    }
+
+    // Real-time updates (optional - updates every 30 seconds)
+    setInterval(() => {
+      // Simulate real-time data updates
+      const randomChange = Math.floor(Math.random() * 5) - 2; // -2 to +2
+      
+      if (Math.random() > 0.7) { // 30% chance to update
+        const activeStudentsEl = document.getElementById('activeStudents');
+        if (activeStudentsEl) {
+          const currentValue = parseInt(activeStudentsEl.textContent);
+          const newValue = Math.max(1200, currentValue + randomChange);
+          animateCount(activeStudentsEl, currentValue, newValue, 1000, "+");
+        }
+      }
+    }, 30000);
+
+    // Add pulse animation to stat numbers on hover
+    document.querySelectorAll('.stat-number').forEach(stat => {
+      stat.addEventListener('mouseenter', function() {
+        this.style.transform = 'scale(1.1)';
+        this.style.transition = 'transform 0.3s ease';
+      });
+      
+      stat.addEventListener('mouseleave', function() {
+        this.style.transform = 'scale(1)';
+      });
+    });
+
+    // Add loading animation for statistics
+    document.querySelectorAll('.stat-number').forEach(stat => {
+      stat.style.opacity = '0.7';
+      stat.style.transform = 'scale(0.9)';
+    });
+
+    // Initialize statistics when page loads
+    window.addEventListener('load', function() {
+      // If statistics section is already visible, trigger animation
+      const statsSection = document.querySelector('.stats-section');
+      if (statsSection && statsSection.getBoundingClientRect().top < window.innerHeight) {
+        const activeStudentsEl = document.getElementById('activeStudents');
+        const activeCoursesEl = document.getElementById('activeCourses');
+        const facultyMembersEl = document.getElementById('facultyMembers');
+        const uptimeEl = document.getElementById('uptime');
+        
+        setTimeout(() => {
+          if (activeStudentsEl) animateCount(activeStudentsEl, 0, lmsStats.activeStudents, 2500, "+");
+          if (activeCoursesEl) animateCount(activeCoursesEl, 0, lmsStats.activeCourses, 2500, "+");
+          if (facultyMembersEl) animateCount(facultyMembersEl, 0, lmsStats.facultyMembers, 2500, "+");
+          if (uptimeEl) animateCount(uptimeEl, 0, lmsStats.uptime, 2500, "%");
+        }, 500);
+      }
+    });
+  </script>
+
+</body>
+</html>

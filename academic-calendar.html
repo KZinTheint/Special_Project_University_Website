@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Academic Calendar - Myanmar Institute Of Information Technology</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .academic-calendar {
+      padding: 80px 0 40px 0;
+      background: linear-gradient(135deg, #27a3bf 0%, #9774bb 100%);
+      color: white;
+    }
+    
+    .calendar-content {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      margin-top: -50px;
+      position: relative;
+      z-index: 10;
+    }
+    
+         .semester-table {
+       background: #f8f9fa;
+       border-radius: 10px;
+       overflow: hidden;
+       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+     }
+     
+     .semester-table th {
+       background: #27a3bf;
+       color: white;
+       border: none;
+       padding: 15px;
+       font-weight: 600;
+       text-align: center;
+     }
+     
+     .semester-table td {
+       padding: 15px;
+       border: 1px solid #e9ecef;
+       vertical-align: middle;
+     }
+     
+     .semester-table tr:nth-child(even) {
+       background: #f8f9fa;
+     }
+     
+     .semester-table tr:nth-child(odd) {
+       background: white;
+     }
+     
+     .activity-table {
+       background: white;
+       border-radius: 10px;
+       overflow: hidden;
+       box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+     }
+     
+     .activity-table th {
+       background: #27a3bf;
+       color: white;
+       border: none;
+       padding: 15px;
+     }
+     
+     .activity-table td {
+       padding: 12px 15px;
+       border: 1px solid #dee2e6;
+     }
+     
+     .activity-table tr:hover {
+       background: #f8f9fa;
+       transition: all 0.3s ease;
+     }
+
+     /* Calendar Table Styles */
+     .calendar-table {
+       background: white;
+       border-radius: 10px;
+       overflow: hidden;
+       box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+       margin-bottom: 30px;
+     }
+     
+     .calendar-table th {
+       background: #27a3bf;
+       color: white;
+       border: none;
+       padding: 12px 8px;
+       font-weight: 600;
+       text-align: center;
+       font-size: 0.9rem;
+     }
+     
+     .calendar-table td {
+       padding: 8px 4px;
+       border: 1px solid #e9ecef;
+       text-align: center;
+       vertical-align: top;
+       min-height: 60px;
+       font-size: 0.85rem;
+     }
+     
+     .calendar-table td small {
+       display: block;
+       font-size: 0.75rem;
+       line-height: 1.2;
+       margin-top: 2px;
+     }
+     
+     .calendar-table .date-number {
+       font-weight: 600;
+       color: #495057;
+       margin-bottom: 2px;
+     }
+     
+     /* Color coding for calendar cells */
+     .semester-start {
+       background-color: #fff3cd !important;
+       border: 2px solid #ffc107 !important;
+     }
+     
+     .examination {
+       background-color: #d1ecf1 !important;
+       border: 2px solid #17a2b8 !important;
+     }
+     
+     .holiday {
+       background-color: #d4edda !important;
+       border: 2px solid #28a745 !important;
+     }
+     
+     .grading {
+       background-color: #6c757d !important;
+       color: white !important;
+       border: 2px solid #495057 !important;
+     }
+     
+     .grading small {
+       color: #f8f9fa !important;
+     }
+     
+     /* Month header styling */
+     .month-header {
+       background: linear-gradient(135deg, #27a3bf 0%, #9774bb 100%);
+       color: white;
+       padding: 15px 20px;
+       border-radius: 10px 10px 0 0;
+       margin-bottom: 0;
+       font-weight: 600;
+       text-align: center;
+     }
+    
+    .contact-info {
+      background: linear-gradient(135deg, #27a3bf 0%, #764ba2 100%);
+      color: white;
+      border-radius: 15px;
+      padding: 30px;
+    }
+    
+    .contact-info i {
+      margin-right: 10px;
+      color: #ffd700;
+    }
+    
+    .quick-links {
+      background: #f8f9fa;
+      border-radius: 15px;
+      padding: 30px;
+    }
+    
+    .quick-links a {
+      color: #27a3bf;
+      text-decoration: none;
+      display: block;
+      padding: 8px 0;
+      border-bottom: 1px solid #dee2e6;
+      transition: all 0.3s ease;
+    }
+    
+    .quick-links a:hover {
+      color: #764ba2;
+      padding-left: 10px;
+    }
+    
+    .breadcrumb {
+      background: transparent;
+      padding: 0;
+    }
+    
+    .breadcrumb-item a {
+      color: #667eea;
+      text-decoration: none;
+    }
+    
+    .breadcrumb-item.active {
+      color: #6c757d;
+    }
+    
+    .semester-highlight {
+      background: linear-gradient(135deg, #27a3bf 0%, #9774bb 100%);
+      color: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+    
+    .semester-highlight h4 {
+      color: #ffd700;
+      margin-bottom: 15px;
+    }
+    
+    .current-semester {
+      background: #28a792;
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.9em;
+      font-weight: bold;
+    }
+    
+         .upcoming-event {
+       background: #ffc107;
+       color: #212529;
+       padding: 5px 15px;
+       border-radius: 20px;
+       font-size: 0.9em;
+       font-weight: bold;
+     }
+
+                                               /* Override hover effects for dropdown navigation */
+        .dropdown-hover .hover-card {
+          display: none !important;
+        }
+        
+        .dropdown-hover:hover .hover-card,
+        .dropdown-hover:focus-within .hover-card,
+        .hover-card:hover {
+          display: none !important;
+        }
+        
+        /* Apply the original hover effect from index.css */
+        .navbar-nav .nav-link::after {
+          content: '';
+          display: block;
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          height: 3px;
+          background: #00bcd4; /* Accent color */
+          transform: scaleX(0);
+          transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+          transform-origin: right;
+        }
+        
+        .navbar-nav .nav-link:hover::after {
+          transform: scaleX(1);
+          transform-origin: left;
+        }
+        
+        .navbar-nav .nav-link.active:not(:hover)::after {
+          transform: scaleX(0);
+        }
+        
+        /* Ensure Bootstrap dropdown works properly */
+        .dropdown-menu {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          z-index: 1000;
+          min-width: 200px;
+          padding: 0.5rem 0;
+          margin: 0.125rem 0 0;
+          font-size: 1rem;
+          color: #212529;
+          text-align: left;
+          list-style: none;
+          background-color: #fff;
+          background-clip: padding-box;
+          border: 1px solid rgba(0, 0, 0, 0.15);
+          border-radius: 0.375rem;
+          box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);
+        }
+        
+        .dropdown-menu.show {
+          display: block !important;
+        }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top" id="mainNavbar">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="main.html">
+        <img src="images/MIIT_Logo.png" alt="MIIT Logo" width="50" height="50" class="me-2" id="miitLogo" />
+        <strong class="navbar-title">Myanmar Institute of Information Technology</strong>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="main.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Admission</a>
+          </li>
+                     <li class="nav-item dropdown">
+             <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+               Academic
+             </a>
+             <ul class="dropdown-menu">
+               <li><a class="dropdown-item active" href="academic-calendar.html">Academic Calendar</a></li>
+               <li><a class="dropdown-item" href="academic-programs.html">Academic Programs</a></li>
+               <li><a class="dropdown-item" href="academic-rules.html">Academic Rules</a></li>
+               <li><a class="dropdown-item" href="lms-module.html">LMS Moodle</a></li>
+               <li><a class="dropdown-item" href="student-registration.html">Student Registration</a></li>
+             </ul>
+           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Faculties</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Library</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Journal</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Collaboration</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header Section -->
+  <section class="academic-calendar">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav aria-label="breadcrumb">
+            
+          </nav>
+          <h1 class="display-4 fw-bold mb-3">Academic Calendar</h1>
+          <p class="lead">Stay updated with MIIT's academic schedule and important dates</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="calendar-content p-5">
+      
+      <!-- Semester Overview -->
+      <div class="row mb-5">
+        <div class="col-12">
+          <h2 class="mb-4">MIIT Academic Calendar</h2>
+          <div class="semester-highlight">
+            <h4><i class="fas fa-calendar-alt me-2"></i>Standard Academic Structure</h4>
+            <p>The standard academic calendar consists of two semesters. The first semester of the academic year normally starts in <strong>December</strong> and ends in <strong>March</strong>. The second semester starts in <strong>June</strong> and finishes in <strong>October</strong>.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Semester Table -->
+      <div class="row mb-5">
+        <div class="col-12">
+          <h3 class="mb-4">Semester Structure</h3>
+          <div class="table-responsive">
+            <table class="table table-bordered semester-table">
+              <thead>
+                <tr>
+                  <th>Chronological Order</th>
+                  <th>Semester 1</th>
+                  <th>Semester 2</th>
+                  <th>Remarks</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Lecture Period</strong></td>
+                  <td>15 weeks</td>
+                  <td>15 weeks</td>
+                  <td>The lecture starts from Monday to Friday.</td>
+                </tr>
+                <tr>
+                  <td><strong>Private Study</strong></td>
+                  <td>1 week</td>
+                  <td>1 week</td>
+                  <td>One-week private study period is available for all students.</td>
+                </tr>
+                <tr>
+                  <td><strong>Examination</strong></td>
+                  <td>2 weeks</td>
+                  <td>2 weeks</td>
+                  <td>Students have to take their exam after the private study period.</td>
+                </tr>
+                <tr class="table-primary">
+                  <td><strong>Total Duration</strong></td>
+                  <td><strong>18 weeks</strong></td>
+                  <td><strong>18 weeks</strong></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><strong>Vacation</strong></td>
+                  <td>4-5 weeks</td>
+                  <td>8-9 weeks</td>
+                  <td>The duration of the first semester is from December to March and the second semester is from June to October</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+             <!-- Color Legend -->
+       <div class="row mb-4">
+         <div class="col-12">
+           <h3 class="mb-3">Color Legend</h3>
+           <div class="row">
+             <div class="col-md-6">
+               <div class="d-flex align-items-center mb-2">
+                 <div style="width: 20px; height: 20px; background-color: #fff3cd; border: 1px solid #dee2e6; margin-right: 10px;"></div>
+                 <span>Start of semester/term</span>
+               </div>
+               <div class="d-flex align-items-center mb-2">
+                 <div style="width: 20px; height: 20px; background-color: #d1ecf1; border: 1px solid #dee2e6; margin-right: 10px;"></div>
+                 <span>Examinations</span>
+               </div>
+               <div class="d-flex align-items-center mb-2">
+                 <div style="width: 20px; height: 20px; background-color: #d4edda; border: 1px solid #dee2e6; margin-right: 10px;"></div>
+                 <span>Holidays</span>
+               </div>
+             </div>
+             <div class="col-md-6">
+               <div class="d-flex align-items-center mb-2">
+                 <div style="width: 20px; height: 20px; background-color: #f8f9fa; border: 1px solid #dee2e6; margin-right: 10px;"></div>
+                 <span>Student events (Holidays)</span>
+               </div>
+               <div class="d-flex align-items-center mb-2">
+                 <div style="width: 20px; height: 20px; background-color: #6c757d; border: 1px solid #dee2e6; margin-right: 10px;"></div>
+                 <span>Study break and grading days</span>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+
+       <!-- II Semester 2024-2025 Calendar -->
+       <div class="row mb-5">
+         <div class="col-12">
+           <h3 class="mb-4">II Semester 2024-2025 Academic Calendar</h3>
+           
+                       <!-- June 2025 -->
+            <div class="mb-4">
+              <h4 class="month-header">June 2025</h4>
+              <div class="table-responsive">
+                <table class="table table-bordered calendar-table">
+                  <thead>
+                    <tr>
+                      <th>Monday</th>
+                      <th>Tuesday</th>
+                      <th>Wednesday</th>
+                      <th>Thursday</th>
+                      <th>Friday</th>
+                      <th>Saturday</th>
+                      <th>Sunday</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="">
+                        <div class="date-number">2-Jun</div>
+                        
+                      </td>
+                      <td><div class="date-number">3-Jun</div></td>
+                      <td><div class="date-number">4-Jun</div></td>
+                      <td><div class="date-number">5-Jun</div></td>
+                      <td><div class="date-number">6-Jun</div></td>
+                      <td class="holiday">
+                        <div class="date-number">7-Jun</div>
+                        <small>Holiday</small>
+                      </td>
+                      <td class="holiday">
+                        <div class="date-number">8-Jun</div>
+                        <small>Holiday</small>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><div class="date-number">9-Jun</div></td>
+                      <td><div class="date-number">10-Jun</div></td>
+                      <td><div class="date-number">11-Jun</div></td>
+                      <td><div class="date-number">12-Jun</div></td>
+                      <td><div class="date-number">13-Jun</div></td>
+                      <td class="holiday">
+                        <div class="date-number">14-Jun</div>
+                        <small>Holiday</small>
+                      </td>
+                      <td class="holiday">
+                        <div class="date-number">15-Jun</div>
+                        <small>Holiday</small>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><div class="date-number">16-Jun</div></td>
+                      <td><div class="date-number">17-Jun</div></td>
+                      <td><div class="date-number">18-Jun</div></td>
+                      <td><div class="date-number">19-Jun</div></td>
+                      <td><div class="date-number">20-Jun</div></td>
+                      <td class="holiday">
+                        <div class="date-number">21-Jun</div>
+                        <small>Holiday</small>
+                      </td>
+                      <td class="holiday">
+                        <div class="date-number">22-Jun</div>
+                        <small>Holiday</small>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><div class="date-number">23-Jun</div></td>
+                      <td><div class="date-number">24-Jun</div></td>
+                      <td><div class="date-number">25-Jun</div></td>
+                      <td><div class="date-number">26-Jun</div></td>
+                      <td><div class="date-number">27-Jun</div></td>
+                      <td class="holiday">
+                        <div class="date-number">28-Jun</div>
+                        <small>Holiday</small>
+                      </td>
+                      <td class="holiday">
+                        <div class="date-number">29-Jun</div>
+                        <small>Holiday</small>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+                       <!-- July 2025 -->
+            <div class="mb-4">
+              <h4 class="month-header">July 2025</h4>
+              <div class="table-responsive">
+                <table class="table table-bordered calendar-table">
+                  <thead>
+                    <tr>
+                      <th>Monday</th>
+                      <th>Tuesday</th>
+                      <th>Wednesday</th>
+                      <th>Thursday</th>
+                      <th>Friday</th>
+                      <th>Saturday</th>
+                      <th>Sunday</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><div class="date-number">30-Jun</div></td>
+                      <td><div class="date-number">1-Jul</div></td>
+                      <td><div class="date-number">2-Jul</div></td>
+                      <td><div class="date-number">3-Jul</div></td>
+                      <td><div class="date-number">4-Jul</div></td>
+                      <td class="holiday">
+                        <div class="date-number">5-Jul</div>
+                        <small>Holiday</small>
+                      </td>
+                      <td class="holiday">
+                        <div class="date-number">6-Jul</div>
+                        <small>Holiday</small>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><div class="date-number">7-Jul</div></td>
+                      <td><div class="date-number">8-Jul</div></td>
+                      <td class="holiday">
+                        <div class="date-number">9-Jul</div>
+                        <small>HOLIDAY - Full Moon Day of Waso</small>
+                      </td>
+                      <td><div class="date-number">10-Jul</div></td>
+                      <td><div class="date-number">11-Jul</div></td>
+                      <td class="holiday">
+                        <div class="date-number">12-Jul</div>
+                        <small>Holiday</small>
+                      </td>
+                      <td class="holiday">
+                        <div class="date-number">13-Jul</div>
+                        <small>Holiday</small>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="examination">
+                        <div class="date-number">14-Jul</div>
+                        <small>Test I</small>
+                      </td>
+                      <td><div class="date-number">15-Jul</div></td>
+                      <td class="examination">
+                        <div class="date-number">16-Jul</div>
+                        <small>Test I</small>
+                      </td>
+                      <td><div class="date-number">17-Jul</div></td>
+                      <td class="examination">
+                        <div class="date-number">18-Jul</div>
+                        <small>Test I</small>
+                      </td>
+                      <td class="holiday">
+                        <div class="date-number">19-Jul</div>
+                        <small>HOLIDAY - Martyrs' Day</small>
+                      </td>
+                      <td class="holiday">
+                        <div class="date-number">20-Jul</div>
+                        
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="examination">
+                        <div class="date-number">21-Jul</div>
+                        <small>Test I</small>
+                      </td>
+                      <td><div class="date-number">22-Jul</div></td>
+                      <td class="examination">
+                        <div class="date-number">23-Jul</div>
+                        <small>Test I</small>
+                      </td>
+                      <td><div class="date-number">24-Jul</div></td>
+                      <td class="examination">
+                        <div class="date-number">25-Jul</div>
+                        <small>Test I</small>
+                      </td>
+                      <td class="holiday">
+                        <div class="date-number">26-Jul</div>
+                        <small>Holiday</small>
+                      </td>
+                      <td class="holiday">
+                        <div class="date-number">27-Jul</div>
+                        <small>Holiday</small>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+                       <!-- July-August 2025 -->
+            <div class="mb-4">
+              <h4 class="month-header">July 2025 - August 2025</h4>
+              <div class="table-responsive">
+                <table class="table table-bordered calendar-table">
+                  <thead>
+                    <tr>
+                      <th>Monday</th>
+                      <th>Tuesday</th>
+                      <th>Wednesday</th>
+                      <th>Thursday</th>
+                      <th>Friday</th>
+                      <th>Saturday</th>
+                      <th>Sunday</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="examination">
+                        <div class="date-number">28-Jul</div>
+                        <small>Test I</small>
+                      </td>
+                      <td><div class="date-number">29-Jul</div></td>
+                      <td class="examination">
+                        <div class="date-number">30-Jul</div>
+                        <small>Test I</small>
+                      </td>
+                      <td><div class="date-number">31-Jul</div></td>
+                      <td class="examination">
+                        <div class="date-number">1-Aug</div>
+                        <small>Test I</small>
+                      </td>
+                      <td class="holiday">
+                        <div class="date-number">2-Aug</div>
+                        <small>Holiday</small>
+                      </td>
+                      <td class="holiday">
+                        <div class="date-number">3-Aug</div>
+                        <small>Holiday</small>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="examination">
+                        <div class="date-number">4-Aug</div>
+                        <small>Mid Semester Exam</small>
+                      </td>
+                      <td class="examination"><div class="date-number">5-Aug</div>
+                      <small>Mid Semester Exam</small></td>
+                      <td class="examination">
+                        <div class="date-number">6-Aug</div>
+                        <small>Mid Semester Exam</small>
+                      </td>
+                      <td class="examination"><div class="date-number">7-Aug</div>
+                      <small>Mid Semester Exam</small></td>
+                      <td class="examination">
+                        <div class="date-number">8-Aug</div>
+                        <small>Mid Semester Exam</small>
+                      </td>
+                      <td class="holiday">
+                        <div class="date-number">9-Aug</div>
+                        <small>Holiday</small>
+                      </td>
+                      <td class="holiday">
+                        <div class="date-number">10-Aug</div>
+                        <small>Holiday</small>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="examination">
+                        <div class="date-number">11-Aug</div>
+                        <small>Mid Semester Exam</small>
+                      </td>
+                      <td class="examination"><div class="date-number">12-Aug</div>
+                      <small>Mid Semester Exam</small></td>
+                      <td class="examination">
+                        <div class="date-number">13-Aug</div>
+                        <small>Mid Semester Exam</small>
+                      </td>
+                      <td class="examination"><div class="date-number">14-Aug</div>
+                      <small>Mid Semester Exam</small></td>
+                      <td class="examination">
+                        <div class="date-number">15-Aug</div>
+                        <small>Mid Semester Exam</small>
+                      </td>
+                      <td class="holiday">
+                        <div class="date-number">16-Aug</div>
+                        <small>Holiday</small>
+                      </td>
+                      <td class="holiday">
+                        <div class="date-number">17-Aug</div>
+                        <small>Holiday</small>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><div class="date-number">18-Aug</div></td>
+                      <td><div class="date-number">19-Aug</div></td>
+                      <td><div class="date-number">20-Aug</div></td>
+                      <td><div class="date-number">21-Aug</div></td>
+                      <td><div class="date-number">22-Aug</div></td>
+                      <td class="holiday">
+                        <div class="date-number">23-Aug</div>
+                        <small>Holiday</small>
+                      </td>
+                      <td class="holiday">
+                        <div class="date-number">24-Aug</div>
+                        <small>Holiday</small>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><div class="date-number">25-Aug</div></td>
+                      <td><div class="date-number">26-Aug</div></td>
+                      <td><div class="date-number">27-Aug</div></td>
+                      <td><div class="date-number">28-Aug</div></td>
+                      <td><div class="date-number">29-Aug</div></td>
+                      <td class="holiday">
+                        <div class="date-number">30-Aug</div>
+                        <small>Holiday</small>
+                      </td>
+                      <td class="holiday">
+                        <div class="date-number">31-Aug</div>
+                        <small>Holiday</small>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+                       <!-- September 2025 -->
+            <div class="mb-4">
+              <h4 class="month-header">September 2025</h4>
+              <div class="table-responsive">
+                <table class="table table-bordered calendar-table">
+                  <thead>
+                    <tr>
+                      <th>Monday</th>
+                      <th>Tuesday</th>
+                      <th>Wednesday</th>
+                      <th>Thursday</th>
+                      <th>Friday</th>
+                      <th>Saturday</th>
+                      <th>Sunday</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><div class="date-number">1-Sep</div></td>
+                      <td><div class="date-number">2-Sep</div></td>
+                      <td><div class="date-number">3-Sep</div></td>
+                      <td><div class="date-number">4-Sep</div></td>
+                      <td><div class="date-number">5-Sep</div></td>
+                      <td class="holiday">
+                        <div class="date-number">6-Sep</div>
+                        <small>Holiday</small>
+                      </td>
+                      <td class="holiday">
+                        <div class="date-number">7-Sep</div>
+                        <small>Holiday</small>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><div class="date-number">8-Sep</div></td>
+                      <td><div class="date-number">9-Sep</div></td>
+                      <td><div class="date-number">10-Sep</div></td>
+                      <td><div class="date-number">11-Sep</div></td>
+                      <td><div class="date-number">12-Sep</div></td>
+                      <td class="holiday">
+                        <div class="date-number">13-Sep</div>
+                        <small>Holiday</small>
+                      </td>
+                      <td class="holiday">
+                        <div class="date-number">14-Sep</div>
+                        <small>Holiday</small>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><div class="date-number">15-Sep</div></td>
+                      <td><div class="date-number">16-Sep</div></td>
+                      <td><div class="date-number">17-Sep</div></td>
+                      <td><div class="date-number">18-Sep</div></td>
+                      <td><div class="date-number">19-Sep</div></td>
+                      <td class="holiday">
+                        <div class="date-number">20-Sep</div>
+                        <small>Holiday</small>
+                      </td>
+                      <td class="holiday">
+                        <div class="date-number">21-Sep</div>
+                        <small>Holiday</small>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><div class="date-number">22-Sep</div></td>
+                      <td><div class="date-number">23-Sep</div></td>
+                      <td><div class="date-number">24-Sep</div></td>
+                      <td><div class="date-number">25-Sep</div></td>
+                      <td><div class="date-number">26-Sep</div></td>
+                      <td class="holiday">
+                        <div class="date-number">27-Sep</div>
+                        <small>Holiday</small>
+                      </td>
+                      <td class="holiday">
+                        <div class="date-number">28-Sep</div>
+                        <small>Holiday</small>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- September-October 2025 -->
+            <div class="mb-4">
+              <h4 class="month-header">September 2025 - October 2025</h4>
+              <div class="table-responsive">
+                <table class="table table-bordered calendar-table">
+                  <thead>
+                    <tr>
+                      <th>Monday</th>
+                      <th>Tuesday</th>
+                      <th>Wednesday</th>
+                      <th>Thursday</th>
+                      <th>Friday</th>
+                      <th>Saturday</th>
+                      <th>Sunday</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="examination"><div classclass="examination"="date-number">29-Sep</div><small>Final Examination</small></td>
+                      <td class="examination"><div class="date-number">30-Sep</div><small>Final Examination</small></td>
+                      <td class="examination">
+                        <div class="date-number">1-Oct</div>
+                        <small>Final Examination</small>
+                      </td>
+                      <td class="examination"><div class="date-number">2-Oct</div><small>Final Examination</small></td>
+                      <td class="examination">
+                        <div class="date-number">3-Oct</div>
+                        <small>Final Examination</small>
+                      </td>
+                      <td class="holiday">
+                        <div class="date-number">4-Oct</div>
+                        <small>Holiday</small>
+                      </td>
+                      <td class="holiday">
+                        <div class="date-number">5-Oct</div>
+                        <small>HOLIDAY - Thadingyut</small>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="holiday">
+                        <div class="date-number">6-Oct</div>
+                        <small>HOLIDAY - Thadingyut</small>
+                      </td>
+                      <td class="holiday"><div class="date-number">7-Oct</div>
+                      <small>HOLIDAY - Thadingyut</small></td>
+                      <td class="examination">
+                        <div class="date-number">8-Oct</div>
+                        <small>Final Examination</small>
+                      </td>
+                      <td class="examination"><div class="date-number">9-Oct</div><small>Final Examination</small></td>
+                      <td class="examination">
+                        <div class="date-number">10-Oct</div>
+                        <small>Final Examination</small>
+                      </td>
+                      <td class="holiday">
+                        <div class="date-number">11-Oct</div>
+                        <small>Holiday</small>
+                      </td>
+                      <td class="holiday">
+                        <div class="date-number">12-Oct</div>
+                        <small>Holiday</small>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="examination">
+                        <div class="date-number">13-Oct</div>
+                        <small>Final Examination</small>
+                      </td>
+                      <td class="examination"><div class="date-number">14-Oct</div><small>Final Examination</small></td>
+                      <td class="grading">
+                        <div class="date-number">15-Oct</div>
+                        <small>Grading</small>
+                      </td>
+                      <td class="grading">
+                        <div class="date-number">16-Oct</div>
+                        <small>Grading</small>
+                      </td>
+                      <td class="grading">
+                        <div class="date-number">17-Oct</div>
+                        <small>Grading</small>
+                      </td>
+                      <td class="holiday">
+                        <div class="date-number">18-Oct</div>
+                        
+                      </td>
+                      <td class="holiday">
+                        <div class="date-number">19-Oct</div>
+                        <small>Holiday</small>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td >
+                        <div class="date-number">20-Oct</div>
+                        
+                      </td>
+                      <td >
+                        <div class="date-number">21-Oct</div>
+                        
+                      </td>
+                      <td >
+                        <div class="date-number">22-Oct</div>
+                        
+                      </td>
+                      <td >
+                        <div class="date-number">23-Oct</div>
+                        
+                      </td>
+                      <td >
+                        <div class="date-number">24-Oct</div>
+                        
+                      </td>
+                      <td class="holiday">
+                        <div class="date-number">25-Oct</div>
+                        <small>Holiday</small>
+                      </td>
+                      <td class="holiday">
+                        <div class="date-number">26-Oct</div>
+                        <small>Holiday</small>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+         </div>
+       </div>
+
+      <!-- Contact and Quick Links -->
+      <div class="row">
+        <div class="col-lg-8 mb-4">
+          <div class="contact-info">
+            <h4 class="mb-4"><i class="fas fa-address-card me-2"></i>Contact Us</h4>
+            <p><strong>Myanmar Institute of Information Technology</strong></p>
+            <p><i class="fas fa-map-marker-alt"></i> Chanmyathazi Township, Mandalay, Myanmar</p>
+            <p><i class="fas fa-phone"></i> +95-9-785-557706</p>
+            <p><i class="fas fa-envelope"></i> contact@miit.edu.mm</p>
+            <p><i class="fas fa-globe"></i> www.miit.edu.mm</p>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-4">
+          <div class="quick-links">
+            <h5 class="mb-3">Quick Links</h5>
+            <a href="lms-module.html"><i class="fas fa-graduation-cap me-2"></i>Learning Management System</a>
+            <a href="student-registration.html"><i class="fas fa-user-plus me-2"></i>Student Registration</a>
+            <a href="academic-programs.html"><i class="fas fa-book me-2"></i>Academic Programs</a>
+            <a href="academic-rules.html"><i class="fas fa-clipboard-list me-2"></i>Academic Rules</a>
+            <a href="#"><i class="fas fa-question-circle me-2"></i>FAQs</a>
+            <a href="#"><i class="fas fa-envelope me-2"></i>Contact Us</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-light pt-5 pb-4 mt-5">
+    <div class="container text-center text-md-start">
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <h5 class="text-uppercase fw-bold">Myanmar Institute Of Information Technology</h5>
+          <p>Providing quality education and research in Information Technology and related disciplines.</p>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h5 class="text-uppercase fw-bold">Contact Us</h5>
+          <ul class="list-unstyled">
+            <li><i class="bi bi-telephone-fill"></i> 09-785-557706</li>
+            <li><i class="bi bi-envelope-fill"></i> contact@miit.edu.mm</li>
+            <li><i class="bi bi-geo-alt-fill"></i> Mandalay, Myanmar</li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h5 class="text-uppercase fw-bold">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="main.html" class="text-light text-decoration-none">Home</a></li>
+            <li><a href="#" class="text-light text-decoration-none">About</a></li>
+            <li><a href="#" class="text-light text-decoration-none">Departments</a></li>
+            <li><a href="#" class="text-light text-decoration-none">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="border-light" />
+      <div class="text-center">
+        <p class="mb-0">&copy; 2025 Myanmar Institute Of Information Technology. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+  <script src="./javascript.js"></script>
+  <script src="./script.js"></script>
+  
+  <script>
+    // Add smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Add animation for table rows
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe table rows
+    document.querySelectorAll('.activity-table tbody tr').forEach(row => {
+      row.style.opacity = '0';
+      row.style.transform = 'translateY(20px)';
+      row.style.transition = 'all 0.5s ease';
+      observer.observe(row);
+    });
+  </script>
+
+</body>
+</html>
