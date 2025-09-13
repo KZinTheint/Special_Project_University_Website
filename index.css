@@ -83,6 +83,7 @@
         font-size: 15px;
         text-align: left;
     }
+    
     .card-body ul li:last-child{
         border-bottom: none;
     }
@@ -531,3 +532,11 @@ footer a:hover {
         letter-spacing: 1px;
         text-transform: uppercase;
       }
+#latestNewsToggle {
+        color: #00bcd4; /* text color same as Bootstrap primary */
+        border-color: #00bcd4; /* border color same as primary */
+      }
+      
+      #latestNewsToggle:hover {
+        background-color: #00bcd4;
+        color: #fff;

@@ -108,6 +108,7 @@
     .requirements-list {
       list-style: none;
       padding: 0;
+      margin: 0;
     }
     
     .requirements-list li {
@@ -115,7 +116,6 @@
       color: #495057;
       position: relative;
       padding-left: 25px;
-      border-bottom: 1px solid #f1f3f4;
     }
     
     .requirements-list li:before {
@@ -126,14 +126,68 @@
       font-weight: bold;
     }
     
+    /* Upload Area Styling */
+    .upload-area {
+      position: relative;
+    }
+    
+    .upload-area .form-control {
+      padding: 10px 15px;
+      border: 2px dashed #dee2e6;
+      background-color: #f8f9fa;
+      transition: all 0.3s ease;
+    }
+    
+    .upload-area .form-control:hover {
+      border-color: #27a3bf;
+      background-color: #e3f2fd;
+    }
+    
+    .upload-area .form-control:focus {
+      border-color: #27a3bf;
+      background-color: white;
+      box-shadow: 0 0 0 0.2rem rgba(39, 163, 191, 0.25);
+    }
+    
+    .upload-area .form-text {
+      margin-top: 5px;
+      font-size: 0.85rem;
+    }
+    
+    /* Progress Bar Styling */
+    .upload-progress .progress {
+      height: 8px;
+      border-radius: 10px;
+      background-color: #e9ecef;
+    }
+    
+    .upload-progress .progress-bar {
+      background: linear-gradient(135deg, #27a3bf 0%, #9774bb 100%);
+      border-radius: 10px;
+      transition: width 0.3s ease;
+    }
+    
+    /* File Upload Success/Error States */
+    .upload-success {
+      border-color: #28a745 !important;
+      background-color: #d4edda !important;
+    }
+    
+    .upload-error {
+      border-color: #dc3545 !important;
+      background-color: #f8d7da !important;
+    }
+    
+    /* Process Step Styling */
     .process-step {
       background: white;
       border: 2px solid #e9ecef;
       border-radius: 15px;
       padding: 25px;
-      margin-bottom: 20px;
       text-align: center;
+      margin-bottom: 20px;
       transition: all 0.3s ease;
+      height: 100%;
     }
     
     .process-step:hover {
@@ -151,42 +205,57 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: bold;
-      font-size: 1.2rem;
-      margin: 0 auto 15px auto;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0 auto 20px;
     }
     
     .step-title {
-      font-size: 1.1rem;
-      font-weight: 600;
       color: #27a3bf;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
+      font-weight: 600;
     }
     
     .step-description {
       color: #6c757d;
-      line-height: 1.5;
+      line-height: 1.6;
+      margin: 0;
     }
     
+    /* Info Section Styling */
     .info-section {
-      background: linear-gradient(135deg, #27a3bf 0%, #9774bb 100%);
-      color: white;
+      background: #f8f9fa;
       border-radius: 15px;
       padding: 30px;
       margin-bottom: 30px;
     }
     
     .info-card {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 10px;
-      padding: 20px;
-      margin-bottom: 15px;
-      backdrop-filter: blur(10px);
+      background: white;
+      border: 2px solid #e9ecef;
+      border-radius: 15px;
+      padding: 25px;
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+    
+    .info-card:hover {
+      border-color: #27a3bf;
+      box-shadow: 0 8px 25px rgba(39, 163, 191, 0.15);
+      transform: translateY(-3px);
     }
     
     .info-card h5 {
-      color: #ffd700;
-      margin-bottom: 10px;
+      color: #27a3bf;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+    
+    .info-card p {
+      color: #6c757d;
+      line-height: 1.6;
+      margin: 0;
     }
     
     .breadcrumb {
@@ -251,6 +320,285 @@
     .dropdown-menu.show {
       display: block !important;
     }
+
+    /* New styles for document upload section */
+    .upload-category {
+      margin-bottom: 30px;
+    }
+
+    .upload-category-title {
+      color: #27a3bf;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #27a3bf;
+      padding-bottom: 10px;
+    }
+
+    .upload-card {
+      background: #f8f9fa;
+      border: 2px dashed #dee2e6;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+      margin-bottom: 15px;
+    }
+
+    .upload-card:hover {
+      border-color: #27a3bf;
+      background-color: #e3f2fd;
+    }
+
+    .upload-card .upload-label {
+      display: block;
+      margin-bottom: 10px;
+      color: #495057;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .upload-card .upload-icon {
+      font-size: 2.5rem;
+      color: #27a3bf;
+      margin-bottom: 10px;
+    }
+
+    .upload-card .upload-text {
+      font-size: 0.9rem;
+      color: #6c757d;
+    }
+
+    .upload-card .form-control {
+      border: none;
+      padding: 0;
+      background-color: transparent;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #495057;
+    }
+
+    .upload-card .form-control:focus {
+      box-shadow: none;
+    }
+
+    .upload-card .form-text {
+      margin-top: 5px;
+      font-size: 0.8rem;
+      color: #6c757d;
+    }
+
+    .passport-photo-section {
+      background: #f8f9fa;
+      border: 2px dashed #dee2e6;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .passport-photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .photo-slot {
+      position: relative;
+      width: 100px;
+      height: 130px; /* Slightly taller for passport photos */
+      border: 2px dashed #dee2e6;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f8f9fa;
+      transition: all 0.3s ease;
+    }
+
+    .photo-slot:hover {
+      border-color: #27a3bf;
+      background-color: #e3f2fd;
+    }
+
+    .photo-slot.has-photo {
+      border-color: #28a745;
+      background-color: #d4edda;
+    }
+
+    .photo-frame {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .photo-frame img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .photo-frame .photo-placeholder {
+      font-size: 2rem;
+      color: #27a3bf;
+      opacity: 0.5;
+    }
+
+    .photo-slot .photo-number {
+      display: none; /* Remove the number from upper right corner */
+    }
+
+    .photo-slot .photo-label {
+      position: absolute;
+      bottom: 5px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0,0,0,0.6);
+      color: white;
+      padding: 3px 8px;
+      border-radius: 5px;
+      font-size: 0.7rem;
+      white-space: nowrap;
+    }
+
+    .photo-upload-controls {
+      margin-top: 15px;
+    }
+
+    .photo-upload-controls .form-control {
+      border: 2px dashed #dee2e6;
+      background-color: #f8f9fa;
+      padding: 10px 15px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #495057;
+    }
+
+    .photo-upload-controls .form-control:hover {
+      border-color: #27a3bf;
+      background-color: #e3f2fd;
+    }
+
+    .photo-upload-controls .form-control:focus {
+      border-color: #27a3bf;
+      background-color: white;
+      box-shadow: 0 0 0 0.2rem rgba(39, 163, 191, 0.25);
+    }
+
+    .photo-upload-controls .form-text {
+      margin-top: 5px;
+      font-size: 0.8rem;
+      color: #6c757d;
+    }
+
+    .photo-requirements {
+      background: #f8f9fa;
+      border: 2px dashed #dee2e6;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: left;
+      margin-top: 20px;
+    }
+
+    .photo-requirements h6 {
+      color: #27a3bf;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #27a3bf;
+      padding-bottom: 10px;
+    }
+
+    .photo-requirements .requirements-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .photo-requirements .requirements-list li {
+      padding: 8px 0;
+      color: #495057;
+      position: relative;
+      padding-left: 25px;
+    }
+
+    .photo-requirements .requirements-list li:before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #28a745; /* Green checkmark */
+      font-weight: bold;
+    }
+
+    /* File upload card with remove button */
+    .upload-card {
+      position: relative;
+    }
+
+    .file-remove-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #dc3545;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+
+    .file-remove-btn:hover {
+      background-color: #c82333;
+      transform: scale(1.1);
+    }
+
+    .upload-card.has-file .file-remove-btn {
+      display: flex;
+    }
+
+    .upload-card.has-file {
+      border-color: #28a745;
+      background-color: #d4edda;
+    }
+
+    /* Ensure dropdowns appear below the select boxes */
+    .form-select {
+      position: relative;
+    }
+
+    .form-select:focus {
+      z-index: 1000;
+    }
+
+    /* Bootstrap dropdown positioning override */
+    .dropdown-menu {
+      top: 100% !important;
+      bottom: auto !important;
+      transform: none !important;
+    }
+
+    /* Custom select dropdown positioning */
+    select.form-select option {
+      position: relative;
+    }
+
+    /* Ensure proper z-index for dropdowns */
+    .form-select:focus + .dropdown-menu,
+    .form-select:focus ~ .dropdown-menu {
+      z-index: 1050;
+    }
   </style>
 </head>
 <body>
@@ -270,35 +618,49 @@
           <li class="nav-item">
             <a class="nav-link" href="main.html">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+          <li class="nav-item dropdown-hover"><a class="nav-link" href="#">About</a>
+            <div class="hover-card">
+              <div class="card">
+                <div class="card-body">
+                  <ul>
+                    <li><a href="history.html">History</a></li>
+                    <li><a href="./vision-mission.html">Vision & Mission</a></li>
+                    
+                    <li><a href="./contact-us.html">Contact Us</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Admission</a>
+            <a class="nav-link" href="./admission.html">Admission</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Academic
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="academic-calendar.html">Academic Calendar</a></li>
-              <li><a class="dropdown-item" href="academic-programs.html">Academic Programs</a></li>
-              <li><a class="dropdown-item" href="academic-rules.html">Academic Rules</a></li>
-              <li><a class="dropdown-item" href="lms-module.html">LMS Moodle</a></li>
-              <li><a class="dropdown-item active" href="student-registration.html">Student Registration</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Faculties</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Library</a>
+          <li class="nav-item dropdown-hover"><a class="nav-link" href="#">Academic</a>
+            <div class="hover-card">
+              <div class="card">
+                <div class="card-body">
+                  <ul>
+                    <li><a href="./academic-calendar.html">Academic Calendar</a></li>
+                    <li><a href="./academic-programs.html">Academic Programs</a></li>
+                    <li><a href="./academic-rules.html">Academic Rules</a></li>
+                    <li><a href="./lms-moodle.html">LMS Moodle</a></li>
+                    <li><a href="./student-registration.html">Student Registration</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Journal</a>
+            <a class="nav-link" href="./faculties.html">Faculties</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Collaboration</a>
+            <a class="nav-link" href="./library.html">Library</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="">Journal</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./Collaboration1.html">Collaboration</a>
           </li>
         </ul>
       </div>
@@ -313,7 +675,7 @@
           <nav aria-label="breadcrumb">
             
           </nav>
-          <h1 class="display-4 fw-bold mb-3">Student Registration</h1>
+          <h1 class="display-4 fw-bold mb-3">Registration for Entrance Examination</h1>
           <p class="lead">Complete your registration process to join MIIT and begin your journey in Information Technology</p>
         </div>
       </div>
@@ -327,7 +689,7 @@
       <!-- Registration Process -->
       <div class="row mb-5">
         <div class="col-12">
-          <h3 class="mb-4 text-center">Registration Process</h3>
+          <h3 class="mb-4 text-center">Registration Process for Entrance Examination</h3>
           <div class="row">
             <div class="col-lg-3 col-md-6 mb-4">
               <div class="process-step">
@@ -364,18 +726,92 @@
       <!-- Registration Requirements -->
       <div class="row mb-5">
         <div class="col-12">
-          <h3 class="mb-4 text-center">Registration Requirements</h3>
+          <!-- <h3 class="mb-4 text-center">Registration Requirements</h3> -->
+          
+          <!-- Admission Criteria Section -->
+          <div class="row mb-4">
+            <div class="col-12">
+              <div class="requirements-card" style="background: linear-gradient(135deg, #27a3bf 0%, #9774bb 100%); color: white;">
+                <div class="row align-items-center">
+                  <div class="col-md-8">
+                    <h4 class="requirements-title" style="color: white; text-align: left; margin-bottom: 20px;">
+                      <i class="fas fa-chart-pie me-3"></i>MIIT Admission Criteria
+                    </h4>
+                    <p class="lead mb-4" style="color: white; font-size: 1.1rem;">
+                      MIIT evaluates applicants based on a comprehensive scoring system that combines entrance examination results with matriculation performance.
+                    </p>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="criteria-item" style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin-bottom: 15px;">
+                          <div class="d-flex align-items-center mb-3">
+                            <div class="criteria-percentage" style="background: #28a745; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: bold; margin-right: 15px;">
+                              60%
+                            </div>
+                            <div>
+                              <h6 style="color: white; margin: 0; font-weight: 600;">Entrance Examination</h6>
+                              <small style="color: rgba(255,255,255,0.8);">Core subjects assessment</small>
+                            </div>
+                          </div>
+                          <ul style="color: rgba(255,255,255,0.9); margin: 0; padding-left: 20px;">
+                            <li>Mathematics</li>
+                            <li>English Language</li>
+                            <li>Chemistry</li>
+                            <li>Physics</li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="criteria-item" style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin-bottom: 15px;">
+                          <div class="d-flex align-items-center mb-3">
+                            <div class="criteria-percentage" style="background: #ffc107; color: #333; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: bold; margin-right: 15px;">
+                              40%
+                            </div>
+                            <div>
+                              <h6 style="color: white; margin: 0; font-weight: 600;">Matriculation Results</h6>
+                              <small style="color: rgba(255,255,255,0.8);">Academic performance</small>
+                            </div>
+                          </div>
+                          <ul style="color: rgba(255,255,255,0.9); margin: 0; padding-left: 20px;">
+                            <li>Grade 12 Total Marks</li>
+                            <li>Subject-wise Performance</li>
+                            <li>Academic Consistency</li>
+                            
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 text-center">
+                    <div class="total-score-display" style="background: rgba(255,255,255,0.15); padding: 30px; border-radius: 15px; border: 2px dashed rgba(255,255,255,0.3);">
+                      <i class="fas fa-trophy" style="font-size: 3rem; color: #ffd700; margin-bottom: 15px;"></i>
+                      <h5 style="color: white; margin-bottom: 10px;">Total Score</h5>
+                      <div class="score-circle" style="background: rgba(255,255,255,0.2); width: 100px; height: 100px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; border: 3px solid #ffd700;">
+                        <span style="font-size: 1.5rem; font-weight: bold; color: white;">100%</span>
+                      </div>
+                      <p style="color: rgba(255,255,255,0.8); margin-top: 15px; font-size: 0.9rem;">
+                        Combined evaluation for admission
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Other Requirements -->
           <div class="row">
+            <h3 class="mb-4 text-center">Registration Requirements</h3>
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="requirements-card">
+                
                 <div class="requirements-icon">
                   <i class="fas fa-graduation-cap"></i>
                 </div>
                 <h5 class="requirements-title">Academic Requirements</h5>
                 <ul class="requirements-list">
                   <li>High School Certificate</li>
-                  <li>Grade 10 & 11 Results</li>
-                  <li>Minimum GPA: 3.0</li>
+                  <li>Grade 12 Results</li>
+                  
                   <li>Mathematics Background</li>
                   <li>English Proficiency</li>
                 </ul>
@@ -449,11 +885,37 @@
                   </div>
                   <div class="col-md-6 mb-3">
                     <label for="nationality" class="form-label">Nationality *</label>
-                    <input type="text" class="form-control" id="nationality" name="nationality" required>
+                      <select class="form-select" id="nationality" name="nationality" required>
+                        <option value="">Select Nationality</option>
+                        <option value="kachin">Kachin</option>
+                        <option value="kayar">Kayar</option>
+                        <option value="kayin">Kayin</option>
+                        <option value="chin">Chin</option>
+                        <option value="burma">Burma</option>
+                        <option value="mon">Mon</option>
+                        <option value="rakhine">Rakhine</option>
+                        <option value="shan">Shan</option>
+                        <option value="hindu">Hindu</option>
+                        <option value="islam">Islam</option>
+                      </select>
                   </div>
                   <div class="col-md-6 mb-3">
                     <label for="nationalId" class="form-label">National ID Number *</label>
-                    <input type="text" class="form-control" id="nationalId" name="nationalId" required>
+                    <div class="input-group">
+                      <select class="form-select" id="nationalIdPrefix" name="nationalIdPrefix" style="max-width: 80px;" required>
+                        <option value="">1/</option>
+                        <option value="1/">1/</option>
+                        <option value="2/">2/</option>
+                        <option value="3/">3/</option>
+                        <option value="4/">4/</option>
+                        <option value="5/">5/</option>
+                        <option value="6/">6/</option>
+                        <option value="7/">7/</option>
+                        <option value="8/">8/</option>
+                        <option value="9/">9/</option>
+                      </select>
+                      <input type="text" class="form-control" id="nationalId" name="nationalId" placeholder="Enter remaining ID number" required>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -476,11 +938,123 @@
                   </div>
                   <div class="col-md-6 mb-3">
                     <label for="city" class="form-label">City *</label>
-                    <input type="text" class="form-control" id="city" name="city" required>
+                    <select class="form-select" id="city" name="city" required>
+                      <option value="">Select City</option>
+                      <option value="yangon">Yangon</option>
+                      <option value="mandalay">Mandalay</option>
+                      <option value="naypyidaw">Naypyidaw</option>
+                      <option value="bago">Bago</option>
+                      <option value="mawlamyine">Mawlamyine</option>
+                      <option value="pathein">Pathein</option>
+                      <option value="meiktila">Meiktila</option>
+                      <option value="myitkyina">Myitkyina</option>
+                      <option value="taunggyi">Taunggyi</option>
+                      <option value="pyinoolwin">Pyinoolwin</option>
+                      <option value="sagaing">Sagaing</option>
+                      <option value="myingyan">Myingyan</option>
+                      <option value="pyay">Pyay</option>
+                      <option value="hpa-an">Hpa-an</option>
+                      <option value="loikaw">Loikaw</option>
+                      <option value="kalay">Kalay</option>
+                      <option value="dawei">Dawei</option>
+                      <option value="sittwe">Sittwe</option>
+                      <option value="kyaingtong">Kyaingtong</option>
+                      <option value="myeik">Myeik</option>
+                      <option value="hakha">Hakha</option>
+                      <option value="falam">Falam</option>
+                      <option value="mindat">Mindat</option>
+                      <option value="kanpetlet">Kanpetlet</option>
+                      <option value="matupi">Matupi</option>
+                      <option value="paletwa">Paletwa</option>
+                      <option value="thandwe">Thandwe</option>
+                      <option value="kyaukpyu">Kyaukpyu</option>
+                      <option value="ann">Ann</option>
+                      <option value="sandoway">Sandoway</option>
+                      <option value="gwa">Gwa</option>
+                      <option value="toungup">Toungup</option>
+                      <option value="maungdaw">Maungdaw</option>
+                      <option value="buthidaung">Buthidaung</option>
+                      <option value="rathedaung">Rathedaung</option>
+                      <option value="pauktaw">Pauktaw</option>
+                      <option value="ponnagyun">Ponnagyun</option>
+                      <option value="kyauktaw">Kyauktaw</option>
+                      <option value="mrauk-u">Mrauk-U</option>
+                      <option value="minbya">Minbya</option>
+                      <option value="myebon">Myebon</option>
+                      <option value="ramree">Ramree</option>
+                      <option value="manaung">Manaung</option>
+                      <option value="kawthaung">Kawthaung</option>
+                      <option value="bokpyin">Bokpyin</option>
+                      <option value="kawhmu">Kawhmu</option>
+                      <option value="kungyangon">Kungyangon</option>
+                      <option value="twante">Twante</option>
+                      <option value="thanlyin">Thanlyin</option>
+                      <option value="cocokyun">Cocokyun</option>
+                      <option value="kyauktan">Kyauktan</option>
+                      <option value="thongwa">Thongwa</option>
+                      <option value="khayan">Khayan</option>
+                      <option value="kayan">Kayan</option>
+                      <option value="dagonmyothit">Dagon Myothit</option>
+                      <option value="northokkalapa">North Okkalapa</option>
+                      <option value="southokkalapa">South Okkalapa</option>
+                      <option value="eastdagon">East Dagon</option>
+                      <option value="westdagon">West Dagon</option>
+                      <option value="southdagon">South Dagon</option>
+                      <option value="northdagon">North Dagon</option>
+                      <option value="dawbon">Dawbon</option>
+                      <option value="tamwe">Tamwe</option>
+                      <option value="bahan">Bahan</option>
+                      <option value="mayangon">Mayangon</option>
+                      <option value="lanmadaw">Lanmadaw</option>
+                      <option value="latha">Latha</option>
+                      <option value="pabedan">Pabedan</option>
+                      <option value="kyauktada">Kyauktada</option>
+                      <option value="seikkan">Seikkan</option>
+                      <option value="shwepyitha">Shwepyitha</option>
+                      <option value="hlawga">Hlawga</option>
+                      <option value="mingaladon">Mingaladon</option>
+                      <option value="hlegu">Hlegu</option>
+                      <option value="taikkyi">Taikkyi</option>
+                      <option value="hpaunggyi">Hpaunggyi</option>
+                      <option value="hlinethaya">Hlinethaya</option>
+                      <option value="shwepaukkan">Shwepaukkan</option>
+                      <option value="insein">Insein</option>
+                      <option value="kamayut">Kamayut</option>
+                      <option value="sanchaung">Sanchaung</option>
+                      <option value="ahlone">Ahlone</option>
+                      <option value="kyimyindine">Kyimyindine</option>
+                      <option value="thaketa">Thaketa</option>
+                      <option value="thingangyun">Thingangyun</option>
+                      <option value="yankin">Yankin</option>
+                      <option value="southokkalapa">South Okkalapa</option>
+                      <option value="northokkalapa">North Okkalapa</option>
+                      <option value="pazundaung">Pazundaung</option>
+                      <option value="botataung">Botataung</option>
+                      <option value="dagon">Dagon</option>
+                      <option value="seikkyikanaungto">Seikkyi Kanaungto</option>
+                      <option value="other">Other</option>
+                    </select>
                   </div>
                   <div class="col-md-6 mb-3">
                     <label for="state" class="form-label">State/Region *</label>
-                    <input type="text" class="form-control" id="state" name="state" required>
+                    <select class="form-select" id="state" name="state" required>
+                      <option value="">Select State/Region</option>
+                      <option value="ayeyarwady">Ayeyarwady Region</option>
+                      <option value="bago">Bago Region</option>
+                      <option value="chin">Chin State</option>
+                      <option value="kachin">Kachin State</option>
+                      <option value="kayah">Kayah State</option>
+                      <option value="kayin">Kayin State</option>
+                      <option value="magway">Magway Region</option>
+                      <option value="mandalay">Mandalay Region</option>
+                      <option value="mon">Mon State</option>
+                      <option value="naypyidaw">Naypyidaw Union Territory</option>
+                      <option value="rakhine">Rakhine State</option>
+                      <option value="sagaing">Sagaing Region</option>
+                      <option value="shan">Shan State</option>
+                      <option value="tanintharyi">Tanintharyi Region</option>
+                      <option value="yangon">Yangon Region</option>
+                    </select>
                   </div>
                 </div>
               </div>
@@ -493,22 +1067,195 @@
                     <label for="highSchool" class="form-label">High School Name *</label>
                     <input type="text" class="form-control" id="highSchool" name="highSchool" required>
                   </div>
-                  <div class="col-md-6 mb-3">
+                  <!-- <div class="col-md-6 mb-3">
                     <label for="graduationYear" class="form-label">Graduation Year *</label>
                     <input type="number" class="form-control" id="graduationYear" name="graduationYear" min="2010" max="2025" required>
-                  </div>
+                  </div> -->
                   <div class="col-md-6 mb-3">
-                    <label for="gpa" class="form-label">High School GPA *</label>
-                    <input type="number" class="form-control" id="gpa" name="gpa" step="0.01" min="0" max="4" required>
+                    <label for="gpa" class="form-label">High School Total Marks *</label>
+                    <input type="number" class="form-control" id="gpa" name="gpa" step="300" min="0" max="550" required>
                   </div>
                                      <div class="col-md-6 mb-3">
                      <label for="program" class="form-label">Desired Program *</label>
                      <select class="form-select" id="program" name="program" required>
                        <option value="">Select Program</option>
-                       <option value="computer-science-engineering">Bachelor of Computer Science Engineering</option>
+                       <option value="computer-science-engineering">Bachelor of Computer Science and Engineering</option>
                        <option value="electronic-communication-engineering">Bachelor of Electronic and Communication Engineering</option>
                      </select>
                    </div>
+                </div>
+              </div>
+
+              <!-- Document Upload Section -->
+              <div class="form-section">
+                <h5><i class="fas fa-file-upload me-2"></i>Required Documents Upload</h5>
+                <p class="text-muted mb-4">Please upload all required documents in PDF or image format (JPG, PNG). Maximum file size: 5MB per file.</p>
+                
+                <!-- Academic Documents -->
+                <div class="upload-category mb-4">
+                  <h6 class="upload-category-title"><i class="fas fa-graduation-cap me-2"></i>Academic Documents</h6>
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <div class="upload-card">
+                                                 <button type="button" class="file-remove-btn" onclick="removeFile('highSchoolCertificate')">
+                           <i class="fas fa-trash"></i>
+                         </button>
+                        <label for="highSchoolCertificate" class="upload-label">
+                          <i class="fas fa-certificate upload-icon"></i>
+                          <span class="upload-text">High School Certificate *</span>
+                        </label>
+                        <div class="upload-area">
+                          <input type="file" class="form-control" id="highSchoolCertificate" name="highSchoolCertificate" accept=".pdf,.jpg,.jpeg,.png" required>
+                          <small class="form-text">Upload your high school completion certificate</small>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-3">
+                      <div class="upload-card">
+                                                 <button type="button" class="file-remove-btn" onclick="removeFile('grade12Results')">
+                           <i class="fas fa-trash"></i>
+                         </button>
+                        <label for="grade12Results" class="upload-label">
+                          <i class="fas fa-chart-line upload-icon"></i>
+                          <span class="upload-text">Grade 12 Marks Results *</span>
+                        </label>
+                        <div class="upload-area">
+                          <input type="file" class="form-control" id="grade12Results" name="grade12Results" accept=".pdf,.jpg,.jpeg,.png" required>
+                          <small class="form-text">Upload your Grade 12 examination results</small>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    
+                    
+                    
+                  </div>
+                </div>
+                
+                <!-- Personal Documents -->
+                <div class="upload-category mb-4">
+                  <h6 class="upload-category-title"><i class="fas fa-id-card me-2"></i>Personal Documents</h6>
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <div class="upload-card">
+                                                 <button type="button" class="file-remove-btn" onclick="removeFile('nationalIdCard')">
+                           <i class="fas fa-trash"></i>
+                         </button>
+                        <label for="nationalIdCard" class="upload-label">
+                          <i class="fas fa-id-badge upload-icon"></i>
+                          <span class="upload-text">National ID Card *</span>
+                        </label>
+                        <div class="upload-area">
+                          <input type="file" class="form-control" id="nationalIdCard" name="nationalIdCard" accept=".pdf,.jpg,.jpeg,.png" required>
+                          <small class="form-text">Upload a clear copy of your National ID Card</small>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-3">
+                      <div class="upload-card">
+                                                 <button type="button" class="file-remove-btn" onclick="removeFile('birthCertificate')">
+                           <i class="fas fa-trash"></i>
+                         </button>
+                        <label for="birthCertificate" class="upload-label">
+                          <i class="fas fa-baby upload-icon"></i>
+                          <span class="upload-text">Birth Certificate *</span>
+                        </label>
+                        <div class="upload-area">
+                          <input type="file" class="form-control" id="birthCertificate" name="birthCertificate" accept=".pdf,.jpg,.jpeg,.png" required>
+                          <small class="form-text">Upload your birth certificate</small>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-3">
+                      <div class="upload-card">
+                                                 <button type="button" class="file-remove-btn" onclick="removeFile('medicalCertificate')">
+                           <i class="fas fa-trash"></i>
+                         </button>
+                        <label for="medicalCertificate" class="upload-label">
+                          <i class="fas fa-heartbeat upload-icon"></i>
+                          <span class="upload-text">Medical Certificate</span>
+                        </label>
+                        <div class="upload-area">
+                          <input type="file" class="form-control" id="medicalCertificate" name="medicalCertificate" accept=".pdf,.jpg,.jpeg,.png">
+                          <small class="form-text">Upload your medical fitness certificate</small>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-3">
+                      <div class="upload-card">
+                                                 <button type="button" class="file-remove-btn" onclick="removeFile('characterCertificate')">
+                           <i class="fas fa-trash"></i>
+                         </button>
+                        <label for="characterCertificate" class="upload-label">
+                          <i class="fas fa-award upload-icon"></i>
+                          <span class="upload-text">Character Certificate</span>
+                        </label>
+                        <div class="upload-area">
+                          <input type="file" class="form-control" id="characterCertificate" name="characterCertificate" accept=".pdf,.jpg,.jpeg,.png">
+                          <small class="form-text">Upload your character certificate from previous institution</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Passport Photos Section -->
+                <div class="upload-category mb-4">
+                  <h6 class="upload-category-title"><i class="fas fa-camera me-2"></i>Passport Photo</h6>
+                  <div class="passport-photo-section">
+                    <div class="row">
+                      <div class="col-md-8">
+                        <div class="passport-photo-grid">
+                          <div class="photo-slot" data-slot="1">
+                            <div class="photo-frame">
+                              <i class="fas fa-plus photo-placeholder"></i>
+                            </div>
+                            <small class="photo-label">Passport Photo</small>
+                          </div>
+                        </div>
+                        <div class="photo-upload-controls mt-3">
+                                                     <button type="button" class="file-remove-btn" onclick="removeFile('passportPhotos')" style="position: absolute; top: 10px; right: 10px;">
+                             <i class="fas fa-trash"></i>
+                           </button>
+                          <input type="file" class="form-control" id="passportPhotos" name="passportPhotos" accept=".jpg,.jpeg,.png" required>
+                          <small class="form-text">Upload your recent passport-sized photo (35mm x 45mm)</small>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="photo-requirements">
+                          <h6 class="requirements-title">Photo Requirements</h6>
+                          <ul class="requirements-list">
+                            <li>Size: 35mm x 45mm</li>
+                            <li>Format: JPG, PNG</li>
+                            <li>Background: White</li>
+                            <li>Face: Clear & centered</li>
+                            <li>Expression: Neutral</li>
+                            <li>No glasses/sunglasses</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                
+                
+                <!-- Upload Progress -->
+                <div class="upload-progress mt-4" style="display: none;">
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+                  </div>
+                  <small class="text-muted">Uploading files...</small>
+                </div>
+                
+                <!-- File Size Warning -->
+                <div class="alert alert-info mt-4">
+                  <i class="fas fa-info-circle me-2"></i>
+                  <strong>Note:</strong> Ensure all documents are clear and legible. Files should be in PDF, JPG, or PNG format with a maximum size of 5MB each.
                 </div>
               </div>
 
@@ -570,40 +1317,7 @@
         </div>
       </div>
 
-      <!-- Important Information -->
-      <div class="row">
-        <div class="col-12">
-          <div class="info-section">
-            <h3 class="mb-4 text-center"><i class="fas fa-info-circle me-2"></i>Important Information</h3>
-            <div class="row">
-              <div class="col-lg-6 mb-3">
-                <div class="info-card">
-                  <h5><i class="fas fa-clock me-2"></i>Registration Deadlines</h5>
-                  <p>Applications for the upcoming academic year must be submitted by <strong>March 31st, 2025</strong>. Late applications may be considered based on availability.</p>
-                </div>
-              </div>
-              <div class="col-lg-6 mb-3">
-                <div class="info-card">
-                  <h5><i class="fas fa-money-bill-wave me-2"></i>Application Fees</h5>
-                  <p>Application fee: <strong>50,000 MMK</strong> (non-refundable). Payment can be made through bank transfer or in person at the MIIT office.</p>
-                </div>
-              </div>
-              <div class="col-lg-6 mb-3">
-                <div class="info-card">
-                  <h5><i class="fas fa-file-upload me-2"></i>Document Submission</h5>
-                  <p>All required documents must be submitted in original or certified copies. Digital copies are accepted for initial review.</p>
-                </div>
-              </div>
-              <div class="col-lg-6 mb-3">
-                <div class="info-card">
-                  <h5><i class="fas fa-calendar-check me-2"></i>Interview Process</h5>
-                  <p>Shortlisted candidates will be invited for an interview. The interview will assess academic readiness and motivation for the program.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      
 
     </div>
   </div>
@@ -691,6 +1405,11 @@
     document.getElementById('registrationForm').addEventListener('submit', function(e) {
       e.preventDefault();
       
+      // Validate file uploads
+      if (!validateFileUploads()) {
+        return;
+      }
+      
       // Get form data
       const formData = new FormData(this);
       const data = Object.fromEntries(formData);
@@ -710,6 +1429,246 @@
         // Show alert
         alert('Thank you for your registration! We will review your application and contact you soon.');
       }, 3000);
+    });
+    
+    // Enhanced file validation with better error messages
+    function validateFileUploads() {
+      const requiredFiles = [
+        'highSchoolCertificate',
+        'grade12Results',
+        'nationalIdCard',
+        'birthCertificate',
+        'passportPhotos'
+      ];
+      
+      let isValid = true;
+      const maxFileSize = 5 * 1024 * 1024; // 5MB
+      
+      requiredFiles.forEach(fieldName => {
+        const fileInput = document.getElementById(fieldName);
+        const file = fileInput.files[0];
+        
+        if (!file) {
+          showFileError(fileInput, 'This file is required');
+          isValid = false;
+          return;
+        }
+        
+        // Check file size
+        if (file.size > maxFileSize) {
+          showFileError(fileInput, 'File size must be less than 5MB');
+          isValid = false;
+          return;
+        }
+        
+        // Check file type
+        const allowedTypes = ['.pdf', '.jpg', '.jpeg', '.png'];
+        const fileExtension = '.' + file.name.split('.').pop().toLowerCase();
+        
+        if (!allowedTypes.includes(fileExtension)) {
+          showFileError(fileInput, 'Only PDF, JPG, and PNG files are allowed');
+          isValid = false;
+          return;
+        }
+        
+        // Show success state
+        showFileSuccess(fileInput);
+      });
+      
+      // Special validation for passport photos
+      const passportPhotos = document.getElementById('passportPhotos').files;
+      if (passportPhotos.length < 1) { // Changed from 6 to 1
+        showFileError(document.getElementById('passportPhotos'), 'Please upload exactly 1 passport photo');
+        isValid = false;
+      }
+      
+      return isValid;
+    }
+    
+    // Enhanced file success/error display
+    function showFileError(fileInput, message) {
+      const uploadArea = fileInput.closest('.upload-area, .photo-upload-controls');
+      const formControl = uploadArea.querySelector('.form-control');
+      const formText = uploadArea.querySelector('.form-text');
+      
+      if (formControl && formText) {
+        formControl.classList.add('upload-error');
+        formControl.classList.remove('upload-success');
+        formText.textContent = message;
+        formText.style.color = '#dc3545';
+      }
+    }
+    
+    function showFileSuccess(fileInput) {
+      const uploadArea = fileInput.closest('.upload-area, .photo-upload-controls');
+      const formControl = uploadArea.querySelector('.form-control');
+      const formText = uploadArea.querySelector('.form-text');
+      
+      if (formControl && formText) {
+        formControl.classList.add('upload-success');
+        formControl.classList.remove('upload-error');
+        formText.textContent = 'File uploaded successfully';
+        formText.style.color = '#28a745';
+      }
+    }
+    
+    // Function to remove uploaded file
+    function removeFile(inputId) {
+      const fileInput = document.getElementById(inputId);
+      const uploadCard = fileInput.closest('.upload-card, .photo-upload-controls');
+      const formText = uploadCard.querySelector('.form-text');
+      
+      // Clear the file input
+      fileInput.value = '';
+      
+      // Remove success/error states
+      fileInput.classList.remove('upload-error', 'upload-success');
+      
+      // Reset form text
+      if (inputId === 'passportPhotos') {
+        formText.textContent = 'Upload your recent passport-sized photo (35mm x 45mm)';
+        // Reset photo slot
+        const photoSlot = document.querySelector('.photo-slot');
+        photoSlot.classList.remove('has-photo');
+        const frame = photoSlot.querySelector('.photo-frame');
+        frame.innerHTML = '<i class="fas fa-plus photo-placeholder"></i>';
+      } else {
+        // Reset to original text based on input type
+        const originalTexts = {
+          'highSchoolCertificate': 'Upload your high school completion certificate',
+          'grade12Results': 'Upload your Grade 12 examination results',
+          'nationalIdCard': 'Upload a clear copy of your National ID Card',
+          'birthCertificate': 'Upload your birth certificate',
+          'medicalCertificate': 'Upload your medical fitness certificate',
+          'characterCertificate': 'Upload your character certificate from previous institution'
+        };
+        formText.textContent = originalTexts[inputId] || 'Upload file';
+      }
+      
+      formText.style.color = '#6c757d';
+      
+      // Remove has-file class from upload card
+      uploadCard.classList.remove('has-file');
+    }
+    
+    // Add file change event listeners
+    document.addEventListener('DOMContentLoaded', function() {
+      const fileInputs = document.querySelectorAll('input[type="file"]');
+      
+      fileInputs.forEach(input => {
+        input.addEventListener('change', function() {
+          const file = this.files[0];
+          const uploadCard = this.closest('.upload-card, .photo-upload-controls');
+          
+          if (file) {
+            // Add has-file class to show remove button
+            uploadCard.classList.add('has-file');
+            
+            // Reset any previous error/success states
+            const uploadArea = this.closest('.upload-area');
+            const formControl = uploadArea ? uploadArea.querySelector('.form-control') : this;
+            const formText = uploadCard.querySelector('.form-text');
+            
+            if (formControl) {
+            formControl.classList.remove('upload-error', 'upload-success');
+            }
+            formText.style.color = '#6c757d';
+            
+            // Show file info
+            formText.textContent = `Selected: ${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)`;
+            
+            // Validate file
+            const maxFileSize = 5 * 1024 * 1024; // 5MB
+            if (file.size > maxFileSize) {
+              showFileError(this, 'File size must be less than 5MB');
+            } else {
+              showFileSuccess(this);
+            }
+          }
+        });
+      });
+      
+      // Special handling for passport photos
+      const passportPhotoInput = document.getElementById('passportPhotos');
+      if (passportPhotoInput) {
+        passportPhotoInput.addEventListener('change', handlePassportPhotos);
+      }
+    });
+    
+    // Handle passport photo uploads
+    function handlePassportPhotos(event) {
+      const files = Array.from(event.target.files);
+      const photoSlot = document.querySelector('.photo-slot');
+      const uploadCard = event.target.closest('.photo-upload-controls');
+      
+      // Clear existing photo
+      photoSlot.classList.remove('has-photo');
+      const frame = photoSlot.querySelector('.photo-frame');
+      frame.innerHTML = '<i class="fas fa-plus photo-placeholder"></i>';
+      
+      // Display uploaded photo
+      if (files.length > 0 && files[0].type.startsWith('image/')) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          photoSlot.classList.add('has-photo');
+          frame.innerHTML = `<img src="${e.target.result}" alt="Passport Photo">`;
+        };
+        reader.readAsDataURL(files[0]);
+        
+        // Add has-file class to show remove button
+        uploadCard.classList.add('has-file');
+      }
+      
+      // Update file input text
+      const formText = event.target.parentElement.querySelector('.form-text');
+      if (formText) {
+        if (files.length > 0) {
+          formText.textContent = `Selected: ${files[0].name}`;
+          formText.style.color = '#28a745';
+        } else {
+          formText.textContent = 'Upload your recent passport-sized photo (35mm x 45mm)';
+          formText.style.color = '#6c757d';
+        }
+      }
+    }
+    
+    // Add drag and drop functionality for better UX
+    function addDragAndDrop() {
+      const uploadCards = document.querySelectorAll('.upload-card');
+      
+      uploadCards.forEach(card => {
+        card.addEventListener('dragover', (e) => {
+          e.preventDefault();
+          card.style.borderColor = '#27a3bf';
+          card.style.backgroundColor = '#e3f2fd';
+        });
+        
+        card.addEventListener('dragleave', (e) => {
+          e.preventDefault();
+          card.style.borderColor = '#dee2e6';
+          card.style.backgroundColor = '#f8f9fa';
+        });
+        
+        card.addEventListener('drop', (e) => {
+          e.preventDefault();
+          card.style.borderColor = '#dee2e6';
+          card.style.backgroundColor = '#f8f9fa';
+          
+          const files = e.dataTransfer.files;
+          if (files.length > 0) {
+            const fileInput = card.querySelector('input[type="file"]');
+            if (fileInput) {
+              fileInput.files = files;
+              fileInput.dispatchEvent(new Event('change'));
+            }
+          }
+        });
+      });
+    }
+    
+    // Initialize drag and drop when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      addDragAndDrop();
     });
   </script>
 

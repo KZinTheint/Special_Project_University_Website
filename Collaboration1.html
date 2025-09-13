@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Collaboration - Myanmar Institute Of Information Technology</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* Keep your styles as is */
+    .collaboration-text { text-align: justify; line-height: 1.7; }
+    .logo-img { max-width: 150px; transition: transform 0.3s ease; }
+    .logo-img:hover { transform: scale(1.05); }
+    .embossed-logo { filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3)) drop-shadow(-1px -1px 2px rgba(255,255,255,0.8)); transition: all 0.3s ease; }
+    .embossed-logo:hover { filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.4)) drop-shadow(-2px -2px 4px rgba(255,255,255,0.9)); transform: scale(1.02); }
+    .photo-gallery { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 4rem 0; margin: 3rem 0; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
+    .gallery-item { position: relative; overflow: hidden; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .gallery-item:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+    .gallery-item img { width: 100%; height: 250px; object-fit: cover; transition: transform 0.5s ease; }
+    .gallery-item:hover img { transform: scale(1.1); }
+    .gallery-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: white; padding: 1.5rem; transform: translateY(100%); transition: transform 0.3s ease; }
+    .gallery-item:hover .gallery-overlay { transform: translateY(0); }
+    .enhanced-carousel { margin: 3rem 0; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.2); }
+    .carousel-item { height: 500px; }
+    .carousel-item img { width: 100%; height: 100%; object-fit: cover; }
+    .carousel-caption { background: rgba(0,0,0,0.6); border-radius: 10px; padding: 1.5rem; backdrop-filter: blur(10px); }
+    .partnership-highlights { background: #f8f9fa; padding: 4rem 0; margin: 3rem 0; }
+    .highlight-card { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); text-align: center; transition: transform 0.3s ease; height: 100%; }
+    .highlight-card:hover { transform: translateY(-5px); }
+    .highlight-icon { font-size: 3rem; color: #667eea; margin-bottom: 1rem; }
+    @media (max-width: 768px) { .gallery-grid { grid-template-columns: 1fr; } }
+    .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* Ensure dropdown menu behavior consistent with academic-programs page */
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 1000;
+      min-width: 200px;
+      padding: 0.5rem 0;
+      margin: 0.125rem 0 0;
+      font-size: 1rem;
+      color: #212529;
+      text-align: left;
+      list-style: none;
+      background-color: #fff;
+      background-clip: padding-box;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      border-radius: 0.375rem;
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);
+    }
+    .dropdown-menu.show { display: block !important; }
+  </style>
+</head>
+<body>
+  <!-- Navigation (mirrors main.html with hover dropdowns) -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top" id="mainNavbar">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="main.html">
+        <img src="images/MIIT_Logo.png" alt="MIIT Logo" width="50" height="50" class="me-2 embossed-logo" id="miitLogo" />
+        <strong class="navbar-title">Myanmar Institute of Information Technology</strong>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item  dropdown-hover">
+            <a class="nav-link" href="main.html">Home</a>
+          </li>
+          <li class="nav-item dropdown-hover"><a class="nav-link" href="#">About</a>
+            <div class="hover-card">
+              <div class="card">
+                <div class="card-body">
+                  <ul>
+                    <li><a href="history.html">History</a></li>
+                    <li><a href="vision-mission.html">Vision & Mission</a></li>
+                    <li><a href="contact-us.html">Contact Us</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item dropdown-hover"><a class="nav-link" href="admission.html">Admission</a>
+            <div class="hover-card">
+            </div>
+          </li>
+          <li class="nav-item dropdown-hover"><a class="nav-link" href="#">Academic</a>
+            <div class="hover-card">
+              <div class="card">
+                <div class="card-body">
+                  <ul>
+                    <li><a href="academic-calendar.html">Academic Calendar</a></li>
+                    <li><a href="academic-programs.html">Academic Programs</a></li>
+                    <li><a href="academic-rules.html">Academic Rules</a></li>
+                    <li><a href="lms-moodle.html">LMS Moodle</a></li>
+                    <li><a href="student-registration.html">Student Registration</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item dropdown-hover"><a class="nav-link" href="./faculties.html">Faculties</a>
+            <div class="hover-card">
+        
+            </div>
+          </li>
+          <li class="nav-item dropdown-hover"><a class="nav-link active" href="library.html">Library</a>
+            <div class="hover-card">
+              <div class="card">
+                <div class="card-body">
+                  <ul>
+                    <li><a href="#digital-design">Digital Design</a></li>
+                    <li><a href="#control-system">Control System</a></li>
+                    <li><a href="#computer-architecture">Computer Architecture</a></li>
+                    <li><a href="#data-structures">Data Structures & Algorithms</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item dropdown-hover"><a class="nav-link" href="#">Journal</a>
+            <div class="hover-card">
+            </div>
+          </li>
+          <li class="nav-item dropdown-hover"><a class="nav-link active" href="Collaboration1.html">Collabration</a>
+            <div class="hover-card">
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div style="height: 70px;"></div>
+
+  <!-- Hero Section with Enhanced Banner -->
+<section class="collaboration-header mb-5 position-relative">
+  <div class="enhanced-carousel">
+    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="images/iiit-b.jpg" class="d-block w-100" alt="IIIT-B Campus">
+          <div class="carousel-caption">
+            <h2>Research Collaboration</h2>
+            <p>Innovative research projects and student exchange programs</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="images/MIIT.jpg" class="d-block w-100" alt="MIIT Campus">
+          <div class="carousel-caption">
+            <h2>Technology Innovation</h2>
+            <p>State-of-the-art facilities and cutting-edge technology education</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Main Collaboration Section -->
+  <section class="container my-5">
+    <div class="row align-items-center text-center fade-in">
+      <div class="col-md-3 mb-3 mb-md-0">
+        <img src="images/MIIT_Logo.png" alt="MIIT Logo" class="img-fluid logo-img embossed-logo">
+        <h5 class="mt-3">MIIT</h5>
+        <p class="text-muted">Myanmar Institute of Information Technology</p>
+      </div>
+      <div class="col-md-6 collaboration-text text-md-start mt-3 mt-md-0">
+        <h2 class="text-center mb-4">Strategic Partnership</h2>
+        <p class="mb-3"><strong>Mentoring Myanmar Institute of Information Technology:</strong></p>
+        <p class="mb-3">On 28th May 2012, the Government of the Republic of the Union of Myanmar and the Government of India signed a Memorandum of Understanding (MoU) to establish MIIT at Mandalay. IIIT-B has been chosen to act as the mentor institution, ensuring curriculum development, faculty training, research collaboration, and student exchange programs.</p>
+        <p class="mb-3">The collaboration includes joint workshops, conferences, and seminars to encourage innovation and research. Students and faculty from MIIT get opportunities to work on real-world projects under the guidance of IIIT-B experts.</p>
+        <p class="mb-0">This partnership strengthens bilateral ties between Myanmar and India in the field of Information Technology and serves as a model for future academic collaborations in the region.</p>
+      </div>
+      <div class="col-md-3 mt-3 mt-md-0">
+        <img src="images/IIIT-B Logo.jpg" alt="IIIT-B Logo" class="img-fluid logo-img embossed-logo">
+        <h5 class="mt-3">IIIT-B</h5>
+        <p class="text-muted">International Institute of Information Technology, Bangalore</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partnership Highlights -->
+  <section class="partnership-highlights">
+    <div class="container">
+      <h2 class="text-center mb-5 fade-in">Partnership Highlights</h2>
+      <div class="row">
+        <div class="col-lg-3 col-md-6 mb-4 fade-in">
+          <div class="highlight-card">
+            <div class="highlight-icon"><i class="fas fa-graduation-cap"></i></div>
+            <h5>Curriculum Development</h5>
+            <p>Joint development of cutting-edge IT curriculum aligned with industry standards</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4 fade-in">
+          <div class="highlight-card">
+            <div class="highlight-icon"><i class="fas fa-users"></i></div>
+            <h5>Faculty Training</h5>
+            <p>Comprehensive training programs for MIIT faculty by IIIT-B experts</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4 fade-in">
+          <div class="highlight-card">
+            <div class="highlight-icon"><i class="fas fa-microscope"></i></div>
+            <h5>Research Collaboration</h5>
+            <p>Joint research projects in emerging technologies and innovation</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4 fade-in">
+          <div class="highlight-card">
+            <div class="highlight-icon"><i class="fas fa-exchange-alt"></i></div>
+            <h5>Student Exchange</h5>
+            <p>Bilateral student exchange programs for cultural and academic enrichment</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enhanced Photo Gallery with Looping -->
+  <section class="photo-gallery">
+    <div class="container">
+      <h2 class="text-center text-white mb-5 fade-in">Collaboration Gallery</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item fade-in">
+          <img src="images/iiit-b_MIIT.jpg" alt="MIIT-IIIT-B Meeting">
+          <div class="gallery-overlay">
+            <h5>Strategic Partnership Meeting</h5>
+            <p>High-level discussions between MIIT and IIIT-B leadership</p>
+          </div>
+        </div>
+        <div class="gallery-item fade-in">
+          <img src="images/iiit-b.jpg" alt="IIIT-B Campus">
+          <div class="gallery-overlay">
+            <h5>IIIT-B Campus</h5>
+            <p>State-of-the-art facilities at International Institute of Information Technology, Bangalore</p>
+          </div>
+        </div>
+        <div class="gallery-item fade-in">
+          <img src="images/MIIT.jpg" alt="MIIT Campus">
+          <div class="gallery-overlay">
+            <h5>MIIT Campus</h5>
+            <p>Modern campus facilities at Myanmar Institute of Information Technology</p>
+          </div>
+        </div>
+        <div class="gallery-item fade-in">
+          <img src="images/event-1.jpg" alt="Collaboration Event">
+          <div class="gallery-overlay">
+            <h5>Joint Workshop</h5>
+            <p>Interactive workshops and training sessions</p>
+          </div>
+        </div>
+        <div class="gallery-item fade-in">
+          <img src="images/event-2.jpg" alt="Academic Collaboration">
+          <div class="gallery-overlay">
+            <h5>Academic Excellence</h5>
+            <p>Faculty and student collaboration in research projects</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-light pt-5 pb-4 mt-5">
+    <div class="container text-center text-md-start">
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <h5 class="text-uppercase fw-bold">Myanmar Institute Of Information Technology</h5>
+          <p>Providing quality education and research in Information Technology and related disciplines.</p>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h5 class="text-uppercase fw-bold">Contact Us</h5>
+          <ul class="list-unstyled">
+            <li><i class="bi bi-telephone-fill"></i> 09-785-557706</li>
+            <li><i class="bi bi-envelope-fill"></i> contact@miit.edu.mm</li>
+            <li><i class="bi bi-geo-alt-fill"></i> Mandalay, Myanmar</li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h5 class="text-uppercase fw-bold">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="main.html" class="text-light text-decoration-none">Home</a></li>
+            <li><a href="faculties.html" class="text-light text-decoration-none">Faculties</a></li>
+            <li><a href="contact-us.html" class="text-light text-decoration-none">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="border-light" />
+      <div class="text-center">
+        <p class="mb-0">&copy; 2025 Myanmar Institute Of Information Technology. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, observerOptions);
+      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    });
+  </script>
+  <script src="./javascript.js"></script>
+  <script src="./script.js"></script>
+</body>
+</html>

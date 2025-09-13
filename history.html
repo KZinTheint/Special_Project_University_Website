@@ -3,23 +3,162 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>University History | Myanmar Institute Of Information Technology</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>History - Myanmar Institute Of Information Technology</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
   <link rel="stylesheet" href="./index.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .history-header {
+      padding: 80px 0 40px 0;
+      background: linear-gradient(135deg, #27a3bf 0%, #9774bb 100%);
+      color: white;
+    }
+    
+    .history-content {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      margin-top: -50px;
+      position: relative;
+      z-index: 10;
+    }
+    
+    .timeline-card {
+      background: white;
+      border: 2px solid #e9ecef;
+      border-radius: 15px;
+      padding: 30px;
+      margin-bottom: 30px;
+      transition: all 0.3s ease;
+      height: 100%;
+      position: relative;
+    }
+    
+    .timeline-card:hover {
+      border-color: #27a3bf;
+      box-shadow: 0 10px 30px rgba(39, 163, 191, 0.2);
+      transform: translateY(-5px);
+    }
+    
+    .timeline-year {
+      background: linear-gradient(135deg, #27a3bf 0%, #9774bb 100%);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 25px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+    
+    .timeline-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #27a3bf;
+      margin-bottom: 15px;
+    }
+    
+    .timeline-description {
+      color: #6c757d;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    
+    .stats-section {
+      background: #f8f9fa;
+      border-radius: 15px;
+      padding: 30px;
+      margin-bottom: 30px;
+    }
+    
+    .stat-card {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #27a3bf;
+      margin-bottom: 10px;
+    }
+    
+    .stat-label {
+      color: #6c757d;
+      font-weight: 500;
+    }
+    
+    .founders-section {
+      background: linear-gradient(135deg, #27a3bf 0%, #9774bb 100%);
+      color: white;
+      border-radius: 15px;
+      padding: 30px;
+      margin-bottom: 30px;
+    }
+    
+    .founder-card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 15px;
+      backdrop-filter: blur(10px);
+    }
+    
+    .founder-card h5 {
+      color: #ffd700;
+      margin-bottom: 10px;
+    }
+    
+    .achievement-card {
+      background: white;
+      border: 2px solid #e9ecef;
+      border-radius: 15px;
+      padding: 25px;
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+    
+    .achievement-card:hover {
+      border-color: #27a3bf;
+      box-shadow: 0 10px 30px rgba(39, 163, 191, 0.2);
+      transform: translateY(-5px);
+    }
+    
+    .achievement-icon {
+      font-size: 3rem;
+      color: #27a3bf;
+      margin-bottom: 15px;
+    }
+    
+    .achievement-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #27a3bf;
+      margin-bottom: 10px;
+    }
+  </style>
 </head>
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top" id="mainNavbar"> <div class="container">
-      <a class="navbar-brand d-flex align-items-center" href="#">
-        <img src="images/MIIT_Logo.png" alt="MIIT Logo" width="50" height="50" class="me-2" id="miitLogo" /> <strong class="navbar-title">Myanmar Institute of Information Technology</strong> </a>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top" id="mainNavbar">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="main.html">
+        <img src="images/MIIT_Logo.png" alt="MIIT Logo" width="50" height="50" class="me-2" id="miitLogo" />
+        <strong class="navbar-title">Myanmar Institute of Information Technology</strong>
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item  dropdown-hover">
-            <a class="nav-link active" href="#">Home</a>
+          <li class="nav-item">
+            <a class="nav-link" href="main.html">Home</a>
           </li>
           <li class="nav-item dropdown-hover"><a class="nav-link" href="#">About</a>
             <div class="hover-card">
@@ -27,161 +166,283 @@
                 <div class="card-body">
                   <ul>
                     <li><a href="./history.html">History</a></li>
-                    <li><a href="">Vision & Mission</a></li>
-                    <li><a href="">MIIT Organization</a></li>
-                    <li><a href="">Contact Us</a></li>
+                    <li><a href="./vision-mission.html">Vision & Mission</a></li>
+                    <li><a href="./contact-us.html">Contact Us</a></li>
                   </ul>
                 </div>
               </div>
             </div>
           </li>
-          <li class="nav-item dropdown-hover"><a class="nav-link" href="#">Admission</a>
-            <div class="hover-card">
-              <div class="card">
-                <div class="card-body">
-                  <h6 class="card-title">About</h6>
-                  <p class="card-text">Learn more about our history and mission.</p>
-                </div>
-              </div>
-            </div>
+          <li class="nav-item">
+            <a class="nav-link" href="admission.html">Admission</a>
           </li>
           <li class="nav-item dropdown-hover"><a class="nav-link" href="#">Academic</a>
             <div class="hover-card">
               <div class="card">
                 <div class="card-body">
                   <ul>
-                    <li><a href="">Academic Calendar</a></li>
-                    <li><a href="">Academic Programs</a></li>
-                    <li><a href="">Academic Rules</a></li>
-                    <li><a href="">LMS Module</a></li>
-                    <li><a href="">Student Registration</a></li>
+                    <li><a href="academic-calendar.html">Academic Calendar</a></li>
+                    <li><a href="academic-programs.html">Academic Programs</a></li>
+                    <li><a href="academic-rules.html">Academic Rules</a></li>
+                    <li><a href="lms-moodle.html">LMS Moodle</a></li>
+                    <li><a href="student-registration.html">Student Registration</a></li>
                   </ul>
                 </div>
               </div>
             </div>
           </li>
-          <li class="nav-item dropdown-hover"><a class="nav-link" href="#">Faculties</a>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Faculties</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./library.html">Library</a>
             <div class="hover-card">
               <div class="card">
                 <div class="card-body">
-                  <ul>
-                    <li><a href="">Faculty of ICT</a></li>
-                    <li><a href=""></a></li>
-                    <li><a href=""></a></li>
-                    <li><a href=""></a></li>
-                    <li><a href=""></a></li>
+                 <ul>
+                    <li><a href="#digital-design">Digital Design</a></li>
+                    <li><a href="#control-system">Control System</a></li>
+                    <li><a href="#computer-architecture">Computer Architecture</a></li>
+                    <li><a href="#data-structures">Data Structures & Algorithms</a></li>
                   </ul>
                 </div>
               </div>
             </div>
           </li>
-          <li class="nav-item dropdown-hover"><a class="nav-link" href="#">Library</a>
-            <div class="hover-card">
-              <div class="card">
-                <div class="card-body">
-                  <h6 class="card-title">About</h6>
-                  <p class="card-text">Learn more about our history and mission.</p>
-                </div>
-              </div>
-            </div>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Journal</a>
           </li>
-          <li class="nav-item dropdown-hover"><a class="nav-link" href="#">Journal</a>
-            <div class="hover-card">
-              <div class="card">
-                <div class="card-body">
-                  <h6 class="card-title">About</h6>
-                  <p class="card-text">Learn more about our history and mission.</p>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="nav-item dropdown-hover"><a class="nav-link" href="#">Collabration</a>
-            <div class="hover-card">
-              <div class="card">
-                <div class="card-body">
-                  <h6 class="card-title">About</h6>
-                  <p class="card-text">Learn more about our history and mission.</p>
-                </div>
-              </div>
-            </div>
+          <li class="nav-item">
+            <a class="nav-link" href="./Collaboration1.html">Collaboration</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <div style="height: 70px;"></div>
-  <!-- Hero Section -->
-  <section class="hero-section d-flex align-items-center justify-content-center" style="height: 40vh; background: url('./images/main.webp') no-repeat center center/cover;">
-    <div class="container text-center text-white">
-      <h1 class="display-4 fw-bold" style= "color: #fff;">Our History</h1>
-      <p class="lead" style="color: #fff; ">A Journey of Excellence in Information Technology Education</p>
+  <!-- Header Section -->
+  <section class="history-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="display-4 fw-bold mb-3">Our History</h1>
+          <p class="lead">Discover the remarkable journey of MIIT from its foundation to becoming a leading institution in Information Technology education</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <div class="container my-5">
-    <div class="row">
-      <!-- Main Content -->
-      <div class="col-lg-8 col-md-12 mb-4">
-        <h2 class="mb-4">University History</h2>
-        <p>The Myanmar Institute of Information Technology (MIIT) was established as a National Centre of Excellence in 2015, following a Memorandum of Understanding between the Government of the Republic of the Union of Myanmar and the Government of the Republic of India. Since its inception, MIIT has been dedicated to providing high-quality education and research in the field of Information Technology.</p>
-        <hr>
-        <h4 class="mb-3">Timeline</h4>
-        <ul class="timeline list-unstyled">
-          <li class="mb-4">
-            <div class="d-flex align-items-center mb-2">
-              <span class="badge bg-primary me-3">2015</span>
-              <strong>MIIT Established</strong>
+  <!-- Main Content -->
+  <div class="container">
+    <div class="history-content p-5">
+      
+      <!-- Institution Statistics -->
+      <div class="row mb-5">
+        <div class="col-12">
+          <div class="stats-section">
+            <h3 class="mb-4 text-center">Institution Overview</h3>
+            <div class="row">
+              <div class="col-lg-3 col-md-6 mb-3">
+                <div class="stat-card">
+                  <div class="stat-number" id="yearsEstablished">0</div>
+                  <div class="stat-label">Years Established</div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6 mb-3">
+                <div class="stat-card">
+                  <div class="stat-number" id="totalStudents">0</div>
+                  <div class="stat-label">Total Students</div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6 mb-3">
+                <div class="stat-card">
+                  <div class="stat-number" id="facultyMembers">0</div>
+                  <div class="stat-label">Faculty Members</div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6 mb-3">
+                <div class="stat-card">
+                  <div class="stat-number" id="graduationRate">0</div>
+                  <div class="stat-label">Graduation Rate</div>
+                </div>
+              </div>
             </div>
-            <p>MIIT is founded as a result of collaboration between Myanmar and India, aiming to become a leading institution in IT education.</p>
-          </li>
-          <li class="mb-4">
-            <div class="d-flex align-items-center mb-2">
-              <span class="badge bg-primary me-3">2016</span>
-              <strong>First Academic Year</strong>
-            </div>
-            <p>The first batch of students is admitted, and undergraduate programs in Computer Science and Engineering, and Electronics and Communications Engineering are launched.</p>
-          </li>
-          <li class="mb-4">
-            <div class="d-flex align-items-center mb-2">
-              <span class="badge bg-primary me-3">2018</span>
-              <strong>First Graduation Ceremony</strong>
-            </div>
-            <p>MIIT celebrates its first cohort of graduates, marking a significant milestone in its journey.</p>
-          </li>
-          <li class="mb-4">
-            <div class="d-flex align-items-center mb-2">
-              <span class="badge bg-primary me-3">2020</span>
-              <strong>Expansion of Programs</strong>
-            </div>
-            <p>New academic and research programs are introduced, further strengthening MIIT's role in the IT sector.</p>
-          </li>
-          <li class="mb-4">
-            <div class="d-flex align-items-center mb-2">
-              <span class="badge bg-primary me-3">2023</span>
-              <strong>International Collaborations</strong>
-            </div>
-            <p>MIIT establishes partnerships with international universities and organizations to enhance research and student opportunities.</p>
-          </li>
-        </ul>
-        <hr>
-        <h4 class="mb-3">Vision & Mission</h4>
-        <p><strong>Vision:</strong> To be a leading institution in Information Technology education and research, contributing to the development of Myanmar and the global community.</p>
-        <p><strong>Mission:</strong> To provide quality education, foster innovation, and promote research in Information Technology and related fields.</p>
+          </div>
+        </div>
       </div>
-      <!-- Sidebar -->
-      <div class="col-lg-4 col-md-12">
+
+      <!-- Timeline Section -->
+      <div class="row mb-5">
+        <div class="col-12">
+          <h3 class="mb-4 text-center">Our Journey Through Time</h3>
+          <div class="row">
+            <div class="col-lg-6 col-md-6 mb-4">
+              <div class="timeline-card">
+                <div class="timeline-year">2015</div>
+                <h4 class="timeline-title">Foundation & Establishment</h4>
+                <p class="timeline-description">
+                  MIIT was established as a pioneering institution dedicated to Information Technology education in Myanmar.
+                </p>
+              </div>
+            </div>
+            
+            <div class="col-lg-6 col-md-6 mb-4">
+              <div class="timeline-card">
+                <div class="timeline-year">2022</div>
+                <h4 class="timeline-title">First Graduation Ceremony</h4>
+                <p class="timeline-description">
+                  A milestone year marking the first batch of graduates from MIIT.
+                </p>
+              </div>
+            </div>
+            
+            
+            
+            
+            
+            <div class="col-lg-6 col-md-6 mb-4">
+              <div class="timeline-card">
+                <div class="timeline-year">2025</div>
+                <h4 class="timeline-title">Future Vision & Innovation</h4>
+                <p class="timeline-description">
+                  MIIT continues to innovate and expand, focusing on emerging technologies.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <!-- MIIT History & Collaborations Section -->
+      <div class="row mb-5">
+        <div class="col-12">
+          <div class="founders-section">
+            <h3 class="mb-4 text-center"><i class="fas fa-history me-2"></i>MIIT History & International Collaborations</h3>
+            <div class="row">
+              <div class="col-lg-6 mb-3">
+                <div class="founder-card">
+                  <h5><i class="fas fa-calendar-alt me-2"></i>Foundation Year</h5>
+                  <p>MIIT was established in 2015 as a pioneering institution dedicated to Information Technology education in Myanmar, marking the beginning of a new era in technological education for the country.</p>
+                </div>
+              </div>
+              <div class="col-lg-6 mb-3">
+                <div class="founder-card">
+                  <h5><i class="fas fa-handshake me-2"></i>IIIT-B Collaboration</h5>
+                  <p>MIIT has established a strong partnership with the International Institute of Information Technology Bangalore (IIIT-B), India, fostering academic exchange, research collaboration, and curriculum development.</p>
+                </div>
+              </div>
+              <div class="col-lg-12 mb-3">
+                <div class="founder-card">
+                  <h5><i class="fas fa-globe-asia me-2"></i>India-Myanmar Collaboration</h5>
+                  <p>Through strategic partnerships with Indian educational institutions and technology companies, MIIT has strengthened its position as a bridge between Myanmar and India's thriving IT sector, creating opportunities for student exchange programs, joint research initiatives, and industry connections.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Key Achievements -->
+      <div class="row mb-5">
+        <div class="col-12">
+          <h3 class="mb-4 text-center">Key Achievements & Milestones</h3>
+          <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="achievement-card">
+                <div class="achievement-icon">
+                  <i class="fas fa-award"></i>
+                </div>
+                <h5 class="achievement-title">National Recognition</h5>
+                <p>Recognized as a leading IT education institution by the Ministry of Education.</p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="achievement-card">
+                <div class="achievement-icon">
+                  <i class="fas fa-trophy"></i>
+                </div>
+                <h5 class="achievement-title">Student Success</h5>
+                <p>High employment rates and successful alumni working in leading technology companies.</p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="achievement-card">
+                <div class="achievement-icon">
+                  <i class="fas fa-star"></i>
+                </div>
+                <h5 class="achievement-title">Project Show</h5>
+                <p>Annual showcase of innovative student projects demonstrating practical IT skills and creative solutions to real-world challenges.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
+  <!-- Footer -->
   <footer class="bg-dark text-light pt-5 pb-4 mt-5">
-    <div class="container text-center">
-      <p class="mb-0">&copy; 2025 Myanmar Institute Of Information Technology. All Rights Reserved.</p>
+    <div class="container text-center text-md-start">
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <h5 class="text-uppercase fw-bold">Myanmar Institute Of Information Technology</h5>
+          <p>Providing quality education and research in Information Technology and related disciplines.</p>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h5 class="text-uppercase fw-bold">Contact Us</h5>
+          <ul class="list-unstyled">
+            <li><i class="bi bi-telephone-fill"></i> 09-785-557706</li>
+            <li><i class="bi bi-envelope-fill"></i> contact@miit.edu.mm</li>
+            <li><i class="bi bi-geo-alt-fill"></i> Mandalay, Myanmar</li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h5 class="text-uppercase fw-bold">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="main.html" class="text-light text-decoration-none">Home</a></li>
+            <li><a href="#" class="text-light text-decoration-none">About</a></li>
+            <li><a href="#" class="text-light text-decoration-none">Departments</a></li>
+            <li><a href="#" class="text-light text-decoration-none">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="border-light" />
+      <div class="text-center">
+        <p class="mb-0">&copy; 2025 Myanmar Institute Of Information Technology. All Rights Reserved.</p>
+      </div>
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+  <script src="./javascript.js"></script>
   <script src="./script.js"></script>
+  
+  <script>
+    // Animate statistics numbers
+    function animateNumber(element, target, suffix = '') {
+      let current = 0;
+      const increment = target / 50;
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          current = target;
+          clearInterval(timer);
+        }
+        element.textContent = Math.floor(current) + suffix;
+      }, 30);
+    }
+
+    // Start animation when page loads
+    window.addEventListener('load', function() {
+      setTimeout(() => {
+        animateNumber(document.getElementById('yearsEstablished'), 10);
+        animateNumber(document.getElementById('totalStudents'), 1200, '+');
+        animateNumber(document.getElementById('facultyMembers'), 150, '+');
+        animateNumber(document.getElementById('graduationRate'), 95, '%');
+      }, 500);
+    });
+  </script>
+
 </body>
 </html>

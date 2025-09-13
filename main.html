@@ -19,7 +19,7 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item  dropdown-hover">
-            <a class="nav-link active" href="#">Home</a>
+            <a class="nav-link active" href="main.html">Home</a>
           </li>
           <li class="nav-item dropdown-hover"><a class="nav-link" href="#">About</a>
             <div class="hover-card">
@@ -27,24 +27,15 @@
                 <div class="card-body">
                   <ul>
                     <li><a href="history.html">History</a></li>
-                    <li><a href="">Vision & Mission</a></li>
-                    <li><a href="">MIIT Organization</a></li>
-                    <li><a href="">Contact Us</a></li>
+                    <li><a href="vision-mission.html">Vision & Mission</a></li>
+                    <li><a href="./contact-us.html">Contact Us</a></li>
                   </ul>
                 </div>
               </div>
             </div>
           </li>
-          <li class="nav-item dropdown-hover"><a class="nav-link" href="#">Admission</a>
-            <div class="hover-card">
-              <div class="card">
-                <div class="card-body">
-                  <h6 class="card-title">About</h6>
-                  <p class="card-text">Learn more about our history and mission.</p>
-                </div>
-              </div>
-            </div>
-          </li>
+          <li class="nav-item dropdown-hover"><a class="nav-link" href="./admission.html">Admission</a>
+           </li>
           <li class="nav-item dropdown-hover"><a class="nav-link" href="#">Academic</a>
             <div class="hover-card">
               <div class="card">
@@ -60,49 +51,29 @@
               </div>
             </div>
           </li>
-          <li class="nav-item dropdown-hover"><a class="nav-link" href="#">Faculties</a>
-            <div class="hover-card">
-              <div class="card">
-                <div class="card-body">
-                  <ul>
-                    <li><a href="">Faculty of ICT</a></li>
-                    <li><a href=""></a></li>
-                    <li><a href=""></a></li>
-                    <li><a href=""></a></li>
-                    <li><a href=""></a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+          <li class="nav-item dropdown-hover"><a class="nav-link" href="faculties.html">Faculties</a>
+            
           </li>
-          <li class="nav-item dropdown-hover"><a class="nav-link" href="#">Library</a>
+          <li class="nav-item dropdown-hover"><a class="nav-link" href="library.html">Library</a>
             <div class="hover-card">
               <div class="card">
                 <div class="card-body">
-                  <h6 class="card-title">About</h6>
-                  <p class="card-text">Learn more about our history and mission.</p>
+                 <ul>
+                    <li><a href="#digital-design">Digital Design</a></li>
+                    <li><a href="#control-system">Control System</a></li>
+                    <li><a href="#computer-architecture">Computer Architecture</a></li>
+                    <li><a href="#data-structures">Data Structures & Algorithms</a></li>
+                  </ul>
                 </div>
               </div>
             </div>
           </li>
           <li class="nav-item dropdown-hover"><a class="nav-link" href="#">Journal</a>
             <div class="hover-card">
-              <div class="card">
-                <div class="card-body">
-                  <h6 class="card-title">About</h6>
-                  <p class="card-text">Learn more about our history and mission.</p>
-                </div>
-              </div>
             </div>
           </li>
-          <li class="nav-item dropdown-hover"><a class="nav-link" href="#">Collabration</a>
+          <li class="nav-item dropdown-hover"><a class="nav-link" href="Collaboration1.html">Collabration</a>
             <div class="hover-card">
-              <div class="card">
-                <div class="card-body">
-                  <h6 class="card-title">About</h6>
-                  <p class="card-text">Learn more about our history and mission.</p>
-                </div>
-              </div>
             </div>
           </li>
         </ul>
@@ -152,7 +123,7 @@
         is a technological university located in Chanmyathazi Township, Mandalay, Myanmar. It was set up as a National
         Centre of Excellence in 2015 as a result of a Memorandum of Understanding between the Government of the Republic
         of the Union of Myanmar and the Government of the Republic of India. It currently offers Bachelor of Engineering
-         degrees in computer science and engineering and electronics and communications engineering.
+         degrees in computer science and engineering (CSE) and electronics, communications engineering (ECE) and Master of Engineering (Computer Science).
       </p>
       
     </div>
@@ -167,22 +138,32 @@
 
  
    <section class="container my-5">
-    <h2 class="mb-4 news-heading">News & Announcements</h2>
-    <div class="news-item mb-4">
-      <small class="d-block">JULY 17, 2025 / NEWS</small>
-      <p class="mt-2">
-        ၂၀၂၅-၂၀၂၆ ပညာသင်နှစ် သင်တန်း အချိန်ဇယားကန့်သတ်ပညာသင်လမ်းကြောင်းများကိုကြေညာပေးပါမည်။
-      </p>
-      <a href="#" class="btn btn-sm read-more-btn">Read More</a>
-    </div>
-    <div class="news-item mb-4">
-      <small class="d-block">NOVEMBER 18, 2024 / NEWS</small>
-      <p class="mt-2">
-        မြန်မာနိုင်ငံအင်ဖော်မေးရှင်းနည်းပညာအသင်းမှ “The 5th International Conference on Advanced Information Technologies (ICAIT 2024)” ကွန်ဖာရင်းကိုကျင်းပမည်။
-      </p>
-      <a href="#" class="btn btn-sm read-more-btn">Read More</a>
+    <h2 class="mb-3">Latest News</h2>
+    <p class="text-muted mb-2">Stay updated with announcements and notices.</p>
+    <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#latestNewsCollapse" aria-expanded="false" aria-controls="latestNewsCollapse" id="latestNewsToggle">
+      Read more
+    </button>
+    <div class="collapse mt-3" id="latestNewsCollapse">
+      <div class="card card-body" id="latestNewsContent">
+        <section class="container my-5">
+    <h2 class="mb-4">Latest News</h2>
+    <ul class="list-group mb-3">
+      <li class="list-group-item d-flex align-items-center">
+        <img src="images/MIIT_Logo.png" alt="MIIT" width="30" height="30" class="me-2 embossed-logo">
+        Call for Entrance
+        <a href="Entrance.pdf" target="_blank" class="btn btn-sm btn-outline-primary ms-auto">View</a>
+      </li>
+      <li class="list-group-item d-flex align-items-center">
+        <img src="images/MIIT_Logo.png" alt="MIIT" width="30" height="30" class="me-2 embossed-logo">
+        Call for M.E(Computer Science)
+        <a href="MECS.pdf" target="_blank" class="btn btn-sm btn-outline-primary ms-auto">View</a>
+      </li>
+    </ul>
+  </section>
+      </div>
     </div>
   </section>
+  
 <section class="container my-5">
     <h2 class="mb-4 news-heading">MIIT Events</h2>
     <p>No items match your search criteria. Please try again with different keywords.</p>
@@ -261,10 +242,9 @@
           <div class="col-md-4 mb-4">
             <h5 class="text-uppercase fw-bold">Quick Links</h5>
             <ul class="list-unstyled">
-              <li><a href="#" class="text-light text-decoration-none">Home</a></li>
-              <li><a href="#" class="text-light text-decoration-none">About</a></li>
-              <li><a href="#" class="text-light text-decoration-none">Departments</a></li>
-              <li><a href="#" class="text-light text-decoration-none">Contact</a></li>
+              <li><a href="main.html" class="text-light text-decoration-none">Home</a></li>
+              <li><a href="faculties.css" class="text-light text-decoration-none">Faculties</a></li>
+              <li><a href="contact-us.html" class="text-light text-decoration-none">Contact Us</a></li>
             </ul>
           </div>
 
