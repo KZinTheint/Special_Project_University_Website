@@ -232,16 +232,7 @@
        font-weight: bold;
      }
 
-                                               /* Override hover effects for dropdown navigation */
-        .dropdown-hover .hover-card {
-          display: none !important;
-        }
-        
-        .dropdown-hover:hover .hover-card,
-        .dropdown-hover:focus-within .hover-card,
-        .hover-card:hover {
-          display: none !important;
-        }
+
         
         /* Apply the original hover effect from index.css */
         .navbar-nav .nav-link::after {
@@ -310,35 +301,60 @@
           <li class="nav-item">
             <a class="nav-link" href="main.html">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <li class="nav-item dropdown-hover"><a class="nav-link" href="#">About</a>
+            <div class="hover-card">
+              <div class="card">
+                <div class="card-body">
+                  <ul>
+                    <li><a href="history.html">History</a></li>
+                    <li><a href="./vision-mission.html">Vision & Mission</a></li>
+                    <li><a href="./contact-us.html">Contact Us</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Admission</a>
+            <a class="nav-link" href="./admission.html">Admission</a>
           </li>
-                     <li class="nav-item dropdown">
-             <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-               Academic
-             </a>
-             <ul class="dropdown-menu">
-               <li><a class="dropdown-item active" href="academic-calendar.html">Academic Calendar</a></li>
-               <li><a class="dropdown-item" href="academic-programs.html">Academic Programs</a></li>
-               <li><a class="dropdown-item" href="academic-rules.html">Academic Rules</a></li>
-               <li><a class="dropdown-item" href="lms-module.html">LMS Moodle</a></li>
-               <li><a class="dropdown-item" href="student-registration.html">Student Registration</a></li>
-             </ul>
-           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Faculties</a>
+           <li class="nav-item dropdown-hover"><a class="nav-link" href="#">Academic</a>
+            <div class="hover-card">
+              <div class="card">
+                <div class="card-body">
+                  <ul>
+                    <li><a href="./academic-calendar.html">Academic Calendar</a></li>
+                    <li><a href="./academic-programs.html">Academic Programs</a></li>
+                    <li><a href="./academic-rules.html">Academic Rules</a></li>
+                    <li><a href="./lms-moodle.html">LMS Moodle</a></li>
+                    <li><a href="./student-registration.html">Student Registration</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Library</a>
+            <a class="nav-link" href="./faculties.html">Faculties</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./library.html">Library</a>
+             <div class="hover-card">
+              <div class="card">
+                <div class="card-body">
+                 <ul>
+                    <li><a href="#digital-design">Digital Design</a></li>
+                    <li><a href="#control-system">Control System</a></li>
+                    <li><a href="#computer-architecture">Computer Architecture</a></li>
+                    <li><a href="#data-structures">Data Structures & Algorithms</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Journal</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Collaboration</a>
+            <a class="nav-link" href="Collaboration1.html">Collaboration</a>
           </li>
         </ul>
       </div>
@@ -1004,12 +1020,12 @@
         <div class="col-lg-4 mb-4">
           <div class="quick-links">
             <h5 class="mb-3">Quick Links</h5>
-            <a href="lms-module.html"><i class="fas fa-graduation-cap me-2"></i>Learning Management System</a>
+            <a href="lms-moodle.html"><i class="fas fa-graduation-cap me-2"></i>Learning Management System</a>
             <a href="student-registration.html"><i class="fas fa-user-plus me-2"></i>Student Registration</a>
             <a href="academic-programs.html"><i class="fas fa-book me-2"></i>Academic Programs</a>
             <a href="academic-rules.html"><i class="fas fa-clipboard-list me-2"></i>Academic Rules</a>
-            <a href="#"><i class="fas fa-question-circle me-2"></i>FAQs</a>
-            <a href="#"><i class="fas fa-envelope me-2"></i>Contact Us</a>
+            
+            <a href="./contact-us.html"><i class="fas fa-envelope me-2"></i>Contact Us</a>
           </div>
         </div>
       </div>
@@ -1037,9 +1053,8 @@
           <h5 class="text-uppercase fw-bold">Quick Links</h5>
           <ul class="list-unstyled">
             <li><a href="main.html" class="text-light text-decoration-none">Home</a></li>
-            <li><a href="#" class="text-light text-decoration-none">About</a></li>
-            <li><a href="#" class="text-light text-decoration-none">Departments</a></li>
-            <li><a href="#" class="text-light text-decoration-none">Contact</a></li>
+            <li><a href="faculties.css" class="text-light text-decoration-none">Faculties</a></li>
+            <li><a href="contact-us.html" class="text-light text-decoration-none">Contact Us</a></li>
           </ul>
         </div>
       </div>

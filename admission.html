@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admission - Myanmar Institute Of Information Technology</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .admission-header {
+      padding: 80px 0 40px 0;
+      background: linear-gradient(135deg, #27a3bf 0%, #9774bb 100%);
+      color: white;
+    }
+    
+    .admission-content {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      margin-top: -50px;
+      position: relative;
+      z-index: 10;
+    }
+    
+    .requirement-item {
+      background: #f8f9fa;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 15px;
+      border-left: 4px solid #27a3bf;
+      transition: all 0.3s ease;
+    }
+    
+    .requirement-item:hover {
+      background: #e3f2fd;
+      transform: translateX(5px);
+    }
+    
+    .requirement-number {
+      background: #27a3bf;
+      color: white;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin-right: 15px;
+    }
+    
+    .fees-section {
+      background: linear-gradient(135deg, #27a3bf 0%, #9774bb 100%);
+      color: white;
+      border-radius: 15px;
+      padding: 30px;
+      margin-bottom: 30px;
+    }
+    
+    .fee-card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 25px;
+      margin-bottom: 20px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .fee-amount {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #ffd700;
+      margin-bottom: 10px;
+    }
+    
+    .important-note {
+      background: #fff3cd;
+      border: 1px solid #ffeaa7;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    
+    .image-container {
+      padding: 20px;
+      background: #f8f9fa;
+      border-radius: 20px;
+      margin: 20px 0;
+    }
+    
+    .image-container img {
+      transition: all 0.3s ease;
+      border: 3px solid #e9ecef;
+    }
+    
+    .image-container img:hover {
+      transform: scale(1.02);
+      border-color: #27a3bf;
+      box-shadow: 0 15px 35px rgba(39, 163, 191, 0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top" id="mainNavbar">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="main.html">
+        <img src="images/MIIT_Logo.png" alt="MIIT Logo" width="50" height="50" class="me-2" id="miitLogo" />
+        <strong class="navbar-title">Myanmar Institute of Information Technology</strong>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="main.html">Home</a>
+          </li>
+          <li class="nav-item dropdown-hover"><a class="nav-link" href="#">About</a>
+            <div class="hover-card">
+              <div class="card">
+                <div class="card-body">
+                  <ul>
+                    <li><a href="./history.html">History</a></li>
+                    <li><a href="./vision-mission.html">Vision & Mission</a></li>
+                    <li><a href="./contact-us.html">Contact Us</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="admission.html">Admission</a>
+          </li>
+          <li class="nav-item dropdown-hover"><a class="nav-link" href="#">Academic</a>
+            <div class="hover-card">
+              <div class="card">
+                <div class="card-body">
+                  <ul>
+                    <li><a href="academic-calendar.html">Academic Calendar</a></li>
+                    <li><a href="academic-programs.html">Academic Programs</a></li>
+                    <li><a href="academic-rules.html">Academic Rules</a></li>
+                    <li><a href="lms-moodle.html">LMS Moodle</a></li>
+                    <li><a href="student-registration.html">Student Registration</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./faculties.html">Faculties</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="library.html">Library</a>
+            <div class="hover-card">
+              <div class="card">
+                <div class="card-body">
+                 <ul>
+                    <li><a href="#digital-design">Digital Design</a></li>
+                    <li><a href="#control-system">Control System</a></li>
+                    <li><a href="#computer-architecture">Computer Architecture</a></li>
+                    <li><a href="#data-structures">Data Structures & Algorithms</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Journal</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Collaboration1.html">Collaboration</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header Section -->
+  <section class="admission-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="display-4 fw-bold mb-3">Admission Requirements & Fees</h1>
+          <p class="lead">Everything you need to know about applying to MIIT and the associated costs</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="admission-content p-5">
+      
+      <!-- Important Note -->
+      <div class="important-note">
+        <h5><i class="fas fa-exclamation-triangle me-2"></i>Important Notice</h5>
+        <p><strong>Eligibility:</strong> Only students who passed the university entrance exam in 2023 are eligible to apply. Previous year students are not accepted.</p>
+      </div>
+
+      <!-- Official Admission Requirements Image -->
+      <div class="row mb-5">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body text-center">
+              <h3 class="mb-4"><i class="fas fa-file-alt me-2"></i>Official Admission Requirements</h3>
+              <p class="mb-4">Below is the official document outlining all admission requirements for MIIT:</p>
+              <div class="image-container">
+                <img src="./images/requirements.jpg" alt="MIIT Admission Requirements" class="img-fluid rounded-3 shadow" style="max-width: 100%; height: auto; border-radius: 15px;">
+              </div>
+              <p class="mt-3 text-muted"><small>Official MIIT Admission Requirements Document</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Admission Requirements -->
+      <div class="row mb-5">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <h2 class="text-center mb-4"><i class="fas fa-clipboard-list me-2"></i>Admission Requirements</h2>
+              <p class="text-center mb-4">All applicants must submit the following documents:</p>
+              
+              <div class="requirements-list">
+                <div class="requirement-item d-flex align-items-center">
+                  <span class="requirement-number">1</span>
+                  <p class="mb-0"><strong>Mark Sheet:</strong> Original or copy of your academic mark sheet</p>
+                </div>
+                
+                <div class="requirement-item d-flex align-items-center">
+                  <span class="requirement-number">2</span>
+                  <p class="mb-0"><strong>Certificates/Recommendations:</strong> Original or copy of certificates and recommendation letters</p>
+                </div>
+                
+                <div class="requirement-item d-flex align-items-center">
+                  <span class="requirement-number">3</span>
+                  <p class="mb-0"><strong>ID Cards:</strong> Copy of guardian's and applicant's ID cards</p>
+                </div>
+                
+                <div class="requirement-item d-flex align-items-center">
+                  <span class="requirement-number">4</span>
+                  <p class="mb-0"><strong>Household List:</strong> Copy of household registration list</p>
+                </div>
+                
+                <div class="requirement-item d-flex align-items-center">
+                  <span class="requirement-number">5</span>
+                  <p class="mb-0"><strong>Police Recommendation:</strong> Original police recommendation letter</p>
+                </div>
+                
+                <div class="requirement-item d-flex align-items-center">
+                  <span class="requirement-number">6</span>
+                  <p class="mb-0"><strong>Ward Recommendation:</strong> Original ward recommendation letter</p>
+                </div>
+                
+                <div class="requirement-item d-flex align-items-center">
+                  <span class="requirement-number">7</span>
+                  <p class="mb-0"><strong>Passport Photos:</strong> 5 recent passport-sized photographs</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Examination Information -->
+      <div class="row mb-5">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <h3 class="text-center mb-4"><i class="fas fa-laptop me-2"></i>Examination Details</h3>
+              <div class="row">
+                <div class="col-lg-6 mb-3">
+                  <h5><i class="fas fa-book me-2"></i>Subjects</h5>
+                  <p>The entrance examination covers:</p>
+                  <ul>
+                    <li><strong>English</strong></li>
+                    <li><strong>Mathematics</strong></li>
+                    <li><strong>Chemistry</strong></li>
+                    <li><strong>Physics</strong></li>
+                  </ul>
+                </div>
+                <div class="col-lg-6 mb-3">
+                  <h5><i class="fas fa-desktop me-2"></i>Examination Format</h5>
+                  <p>The test will be conducted using a <strong>Computer Based System (CBS)</strong> to ensure:</p>
+                  <ul>
+                    <li>Efficient evaluation process</li>
+                    <li>Accurate results</li>
+                    <li>Modern testing methodology</li>
+                    
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Admission Fees -->
+      <div class="row mb-5">
+        <div class="col-12">
+          <div class="fees-section">
+            <h3 class="text-center mb-4"><i class="fas fa-money-bill-wave me-2"></i>Admission Fees & Costs</h3>
+                         <div class="row">
+               <div class="col-lg-6 col-md-6 mb-3">
+                 <div class="fee-card text-center">
+                   <div class="fee-amount">69,000 MMK</div>
+                   <h5>Annual Fee (Per Year)</h5>
+                   <p>Complete annual fee covering all academic costs</p>
+                 </div>
+               </div>
+               
+               <div class="col-lg-6 col-md-6 mb-3">
+                 <div class="fee-card text-center">
+                   <div class="fee-amount">25,000 MMK</div>
+                   <h5>Hostel Fee (Per Semester)</h5>
+                   <p>Accommodation fee for on-campus housing per semester</p>
+                 </div>
+               </div>
+             </div>
+             
+             <div class="row mt-4">
+               <div class="col-12">
+                 <div class="fee-card text-center">
+                   <h4 class="mb-3">Total First Year Cost</h4>
+                   <div class="fee-amount">119,000 MMK</div>
+                   <p>Includes annual fee (69,000 MMK) + hostel fees for 2 semesters (50,000 MMK)</p>
+                   <small class="text-warning">* Fees are subject to change. Please contact admissions office for current rates.</small>
+                 </div>
+               </div>
+             </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Call to Action -->
+      <div class="row">
+        <div class="col-12">
+          <div class="card bg-primary text-white text-center">
+            <div class="card-body">
+              <h3 class="mb-3">Ready to Apply?</h3>
+              <p class="mb-4">Take the first step towards your future in Information Technology at MIIT.</p>
+              <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <a href="contact-us.html" class="btn btn-light btn-lg">
+                  <i class="fas fa-phone me-2"></i>Contact Admissions
+                </a>
+                <a href="academic-programs.html" class="btn btn-outline-light btn-lg">
+                  <i class="fas fa-graduation-cap me-2"></i>View Programs
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-light pt-5 pb-4 mt-5">
+    <div class="container text-center text-md-start">
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <h5 class="text-uppercase fw-bold">Myanmar Institute Of Information Technology</h5>
+          <p>Providing quality education and research in Information Technology and related disciplines.</p>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h5 class="text-uppercase fw-bold">Contact Us</h5>
+          <ul class="list-unstyled">
+            <li><i class="bi bi-telephone-fill"></i> 09-785-557706</li>
+            <li><i class="bi bi-envelope-fill"></i> contact@miit.edu.mm</li>
+            <li><i class="bi bi-geo-alt-fill"></i> Mandalay, Myanmar</li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h5 class="text-uppercase fw-bold">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="main.html" class="text-light text-decoration-none">Home</a></li>
+            <li><a href="faculties.html" class="text-light text-decoration-none">Faculties</a></li>
+            <li><a href="contact-us.html" class="text-light text-decoration-none">Contact us</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="border-light" />
+      <div class="text-center">
+        <p class="mb-0">&copy; 2025 Myanmar Institute Of Information Technology. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./javascript.js"></script>
+  <script src="./script.js"></script>
+
+</body>
+</html>

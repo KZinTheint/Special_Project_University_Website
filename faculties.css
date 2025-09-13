@@ -1,0 +1,534 @@
+/* Global Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Ensure navbar styles from main CSS are preserved */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+}
+
+.navbar-brand img {
+    width: 70px !important;
+    height: 70px !important;
+    margin-right: 1rem;
+}
+
+.navbar-brand strong {
+    margin-right: 2.5rem;
+    font-size: 1.3rem;
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+.scrolled #miitLogo {
+    transform: scale(1.5) translateY(15px);
+}
+
+.scrolled .navbar-brand .navbar-title {
+    opacity: 0;
+    transform: translateX(20px);
+    pointer-events: none;
+}
+
+#miitLogo {
+    transform: scale(1) translateY(0px);
+    transition: transform 0.3s ease-out;
+    transform-origin: top center;
+    margin-top: 0px;
+    height: 50px;
+    width: 50px;
+    object-fit: contain;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    background-attachment: fixed;
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 163, 196, 0.3), rgba(0, 0, 0, 0.6));
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Faculty Header Section */
+.faculty-header {
+    background: linear-gradient(135deg, #00a3c4, #008ba3);
+    color: white;
+    padding: 60px 0 40px;
+    text-align: center;
+}
+
+.faculty-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.faculty-intro {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    opacity: 0.95;
+}
+
+
+/* Leadership Section */
+.leadership-section {
+    padding-top: 40px; /* was 80px — less space above the title */
+    padding-bottom: 80px;
+    background: white;
+    position: relative; /* so title position adjustments work */
+}
+
+/* Title inside Leadership Section */
+.leadership-section .section-title {
+    margin-top: 0 !important; /* remove any default margin */
+    margin-bottom: 60px !important; /* smaller gap before cards */
+    position: relative;
+    top: -20px; /* lift the title up */
+}
+
+    
+    
+
+.rector-card {
+  margin-top: -60px; /* move the rector card up */
+}
+.leadership-title {
+  position: relative;
+  top: -30px;  /* lift the title */
+  margin-bottom: 20px; /* adjust spacing before cards */
+}
+
+
+
+
+
+/* Grid */
+.leadership-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Card */
+.leadership-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Image container */
+.leadership-image {
+    position: relative;
+    height: 350px;
+    overflow: hidden;
+    z-index: 1;
+    border-radius: 50%;
+}
+
+/* Image */
+.leadership-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease, opacity 0.8s ease;
+    display: flex; 
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+    border-radius:  50%;
+}
+
+/* Overlay */
+.leadership-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 163, 196, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 3;
+}
+
+.leadership-card:hover .leadership-overlay {
+    opacity: 0;
+}
+
+.leadership-overlay i {
+    display: none;
+    font-size: 3rem;
+    color: white;
+}
+
+/* Card content */
+.leadership-content {
+    padding: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.leadership-card:nth-child(1) .leadership-img,
+.leadership-card:nth-child(1) .leadership-content { animation-delay: 0.2s; }
+.leadership-card:nth-child(2) .leadership-img,
+.leadership-card:nth-child(2) .leadership-content { animation-delay: 0.4s; }
+.leadership-card:nth-child(3) .leadership-img,
+.leadership-card:nth-child(3) .leadership-content { animation-delay: 0.6s; }
+
+.leadership-card:hover .leadership-img {
+    transform: scale(1.1);
+}
+
+.leadership-content h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #00a3c4;
+    margin-bottom: 10px;
+}
+
+.leadership-subtitle {
+    font-size: 1rem;
+    color: #666;
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.leadership-description {
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  justify-items: center;
+}
+
+.faculty-btn {
+  background-color: #00cde1;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 10px 30px;
+  border-radius: 50px;
+  display: inline-block;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.faculty-name {
+  font-size: 1rem;
+  font-weight: normal;
+  text-align: center;
+}
+
+.faculty-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .leadership-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 0 15px;
+    }
+    .leadership-content {
+        padding: 20px;
+    }
+}
+
+
+/* Faculty Details Section */
+.faculty-details {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #00a3c4;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.section-description {
+    font-size: 1.1rem;
+    color: #555;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px;
+    line-height: 1.8;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.feature-item {
+    text-align: center;
+    padding: 30px 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+}
+
+.feature-item i {
+    font-size: 2.5rem;
+    color: #00a3c4;
+    margin-bottom: 20px;
+}
+
+.feature-item h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.feature-item p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Stats Sidebar */
+.stats-sidebar {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 100px;
+}
+
+.stats-sidebar h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #00a3c4;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.stat-item:last-child {
+    border-bottom: none;
+}
+
+.stat-item .stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #00a3c4;
+    display: block;
+}
+
+.stat-item .stat-label {
+    font-size: 0.9rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 5px;
+}
+
+/* Modal Styles */
+.modal-content {
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #00a3c4, #008ba3);
+    color: white;
+    border-radius: 15px 15px 0 0;
+    border-bottom: none;
+}
+
+.modal-title {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-close {
+    filter: invert(1);
+}
+
+.modal-body {
+    padding: 30px;
+}
+
+.modal-body h6 {
+    color: #00a3c4;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.modal-body ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.modal-body ul li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 20px;
+}
+
+.modal-body ul li:before {
+    content: "•";
+    color: #00a3c4;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .faculty-header h2 {
+        font-size: 2rem;
+    }
+    
+    .leadership-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 0 15px;
+    }
+    
+    .leadership-content {
+        padding: 20px;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats-sidebar {
+        position: static;
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 576px) {
+    .faculty-header {
+        padding: 40px 0 30px;
+    }
+    
+    .faculty-section,
+    .faculty-details {
+        padding: 60px 0;
+    }
+    
+    .faculty-stats {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+/* Animation Classes */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hover Effects */
+.faculty-card:hover .faculty-content h3 {
+    color: #008ba3;
+}
+
+.feature-item:hover i {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #00a3c4;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #008ba3;
+}

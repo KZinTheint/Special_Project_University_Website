@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Library | Myanmar Institute Of Information Technology</title>
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Your Custom CSS -->
+  <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="./library.css">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+
+  <!-- Navbar copied from main.html -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top" id="mainNavbar">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="images/MIIT_Logo.png" alt="MIIT Logo" width="50" height="50" class="me-2" id="miitLogo" />
+        <strong class="navbar-title">Myanmar Institute of Information Technology</strong>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown-hover">
+            <a class="nav-link" href="main.html">Home</a>
+          </li>
+          <li class="nav-item dropdown-hover"><a class="nav-link" href="#">About</a>
+            <div class="hover-card">
+              <div class="card">
+                <div class="card-body">
+                  <ul>
+                    <li><a href="history.html">History</a></li>
+                    <li><a href="./vision-mission.html">Vision & Mission</a></li>
+                    
+                    <li><a href="./contact-us.html">Contact Us</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item dropdown-hover"><a class="nav-link" href="#">Admission</a>
+            
+          </li>
+          <li class="nav-item dropdown-hover"><a class="nav-link" href="#">Academic</a>
+            <div class="hover-card">
+              <div class="card">
+                <div class="card-body">
+                  <ul>
+                    <li><a href="./academic-calendar.html">Academic Calendar</a></li>
+                    <li><a href="./academic-programs.html">Academic Programs</a></li>
+                    <li><a href="./academic-rules.html">Academic Rules</a></li>
+                    <li><a href="./lms-moodle.html">LMS Moodle</a></li>
+                    <li><a href="./student-registration.html">Student Registration</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item dropdown-hover"><a class="nav-link" href="faculties.html">Faculties</a>
+           
+          </li>
+          <li class="nav-item dropdown-hover"><a class="nav-link active" href="library.html">Library</a>
+            <div class="hover-card">
+              <div class="card">
+                <div class="card-body">
+                  <ul>
+                    <li><a href="#digital-design">Digital Design</a></li>
+                    <li><a href="#control-system">Control System</a></li>
+                    <li><a href="#computer-architecture">Computer Architecture</a></li>
+                    <li><a href="#data-structures">Data Structures & Algorithms</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item dropdown-hover"><a class="nav-link" href="#">Journal</a>
+           
+          </li>
+          <li class="nav-item dropdown-hover"><a class="nav-link" href="./Collaboration1.html">Collaboration</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Push content down because navbar is fixed -->
+  <div style="height: 70px;"></div>
+
+  <!-- Simple Header -->
+  <section class="library-header">
+    <div class="container">
+      <h1>MIIT Library</h1>
+      <p>Access textbooks and resources for Information Technology education</p>
+    </div>
+  </section>
+
+  <!-- Book Categories -->
+  <section class="books-section">
+    <div class="container">
+      
+      <!-- Digital Design -->
+      <div class="book-category" id="digital-design">
+        <h2><i class="fas fa-microchip"></i> Student Book</h2>
+        <div class="books-row">
+          <div class="book-item">
+            <img src="./images/Digital Design.jpg" alt="Digital Design Book">
+            <div class="book-info">
+              <h3>Digital Design: Principles and Practices</h3>
+              <p class="author">By John F. Wakerly</p>
+              <p class="description">Comprehensive guide to digital logic design and modern methodologies.</p>
+              <a href="https://www.amazon.in/Digital-Design-Principles-Practices-International/dp/0137691912" class="download-btn">Download PDF</a>
+            </div>
+          </div>
+          
+          <div class="book-item">
+            <img src="./images/CCNA.jpg" alt="Computer Network">
+            <div class="book-info">
+              <h3>CCNA:Introduction to Network</h3>
+              <p class="author">By Kurt Hudson</p>
+              <p class="description">Building the skills you need for associate-level roles like Network</p>
+              <a href="https://archive.org/details/ccnaguidetocisco0000huds_k1w5" class="download-btn">Download PDF</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Control System -->
+      <div class="book-category" id="control-system">
+        <h2><i class="fas fa-cogs"></i> Student Book</h2>
+        <div class="books-row">
+          <div class="book-item">
+            <img src="./images/Control System.jpg" alt="Control System Book">
+            <div class="book-info">
+              <h3>Modern Control Systems</h3>
+              <p class="author">By Richard C. Dorf & Robert H. Bishop</p>
+              <p class="description">Introduction to control system analysis and design.</p>
+              <a href="https://www.amazon.co.uk/Modern-Control-Systems-Global-Richard/dp/1292422378" class="download-btn">Download PDF</a>
+            </div>
+          </div>
+          
+          <div class="book-item">
+            <img src="./images/math.jpg" alt="Mathematics">
+            <div class="book-info">
+              <h3>Modern Engineering Mathematics</h3>
+              <p class="author">By Glyn James</p>
+              <p class="description">Provide clarity through real-world engineering contexts</p>
+              <a href="https://www.goodreads.com/book/show/4085372-modern-engineering-mathematics" class="download-btn">Download PDF</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Computer Architecture -->
+      <div class="book-category" id="computer-architecture">
+        <h2><i class="fas fa-server"></i> Student Book</h2>
+        <div class="books-row">
+          <div class="book-item">
+            <img src="./images/CA.jpg" alt="Computer Architecture Book">
+            <div class="book-info">
+              <h3>Computer Architecture and Organization</h3>
+              <p class="author">By John P.Hayes</p>
+              <p class="description">Balanced Focus on Architecture and Organization</p>
+              <a href="https://www.goodreads.com/book/show/4715434-computer-architecture-and-organization" class="download-btn">Download PDF</a>
+            </div>
+          </div>
+          
+          <div class="book-item">
+            <img src="./images/Analog.jpg" alt="Analog and Data Communication">
+            <div class="book-info">
+              <h3>Analog and Digital Communication</h3>
+              <p class="author">By Simon Haykin & Michael Moher</p>
+              <p class="description">Advanced concepts in analog and digital communication systems.</p>
+              <a href="https://gnindia.dronacharya.info/ECS/6thSem/Downloads/DigitalCommunication/Books/Digital-Communication-reference%20book-1.pdf" class="download-btn">Download PDF</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data Structures and Algorithms -->
+      <div class="book-category" id="data-structures">
+        <h2><i class="fas fa-code"></i> Student Book</h2>
+        <div class="books-row">
+          <div class="book-item">
+            <img src="./images/DSA.jpg" alt="Data Structures Book">
+            <div class="book-info">
+              <h3>Introduction to Algorithms</h3>
+              <p class="author">By Thomas H. Cormen</p>
+              <p class="description">Comprehensive guide to algorithms and data structures.</p>
+              <a href="https://openlibrary.org/books/OL3491774M/Data_structures_and_algorithms" class="download-btn">Download PDF</a>
+            </div>
+          </div>
+          
+          <div class="book-item">
+            <img src="./images/Electronic.jpg" alt="Electronic">
+            <div class="book-info">
+              <h3>Circuit Engineering</h3>
+              <p class="author">By Avril Pele</p>
+              <p class="description">Guide To Electronic Circuits, Circuit Boards, And Basic Electronics: Circuit Engineering Book</p>
+              <a href="https://www.walmart.com/ip/Circuit-Engineering-Guide-To-Electronic-Circuits-Circuit-Boards-And-Basic-Electronics-Circuit-Engineering-Book-Paperback-9798724544672/811800884" class="download-btn">Download PDF</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Library Gallery -->
+  <section class="library-gallery">
+    <div class="container">
+      <h2 class="text-center mb-5">Our Library Facilities</h2>
+             <div class="gallery-grid">
+         <div class="gallery-item">
+           <img src="./images/Library1.jpg" alt="Library Interior" class="img-fluid">
+           <div class="gallery-overlay">
+             <h4>Study Area</h4>
+             <p>Comfortable reading spaces for students</p>
+           </div>
+         </div>
+         <div class="gallery-item">
+           <img src="./images/Library2.jpg" alt="Library Bookshelves" class="img-fluid">
+           <div class="gallery-overlay">
+             <h4>Book Collection</h4>
+             <p>Extensive collection of academic resources</p>
+           </div>
+         </div>
+         <div class="gallery-item">
+           <img src="./images/Library3.jpg" alt="Library Computer Section" class="img-fluid">
+           <div class="gallery-overlay">
+             
+           </div>
+         </div>
+         <div class="gallery-item">
+           <img src="./images/Library4.jpg" alt="Library Reading Room" class="img-fluid">
+           <div class="gallery-overlay">
+             <h4>Reading Room</h4>
+             <p>Quiet study environment</p>
+           </div>
+         </div>
+         <div class="gallery-item">
+           <img src="./images/Library5.jpg" alt="Library Study Space" class="img-fluid">
+           <div class="gallery-overlay">
+             
+           </div>
+         </div>
+         <div class="gallery-item">
+           <img src="./images/Library6.jpg" alt="Library Resources" class="img-fluid">
+           <div class="gallery-overlay">
+             <h4>Resource Center</h4>
+             <p>Comprehensive learning resources and materials</p>
+           </div>
+         </div>
+       </div>
+    </div>
+  </section>
+
+ 
+  <!-- Footer -->
+  <footer class="bg-dark text-light pt-5 pb-4 mt-5">
+    <div class="container text-center text-md-start">
+      <div class="row">
+
+        <!-- About -->
+        <div class="col-md-4 mb-4">
+          <h5 class="text-uppercase fw-bold">Myanmar Institute Of Information Technology</h5>
+          <p>Providing quality education and research in Information Technology and related disciplines.</p>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="col-md-4 mb-4">
+          <h5 class="text-uppercase fw-bold">Contact Us</h5>
+          <ul class="list-unstyled">
+            <li><i class="bi bi-telephone-fill"></i> 09-785-557706</li>
+            <li><i class="bi bi-envelope-fill"></i> contact@miit.edu.mm</li>
+            <li><i class="bi bi-geo-alt-fill"></i> Mandalay, Myanmar</li>
+          </ul>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="col-md-4 mb-4">
+          <h5 class="text-uppercase fw-bold">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="main.html" class="text-light text-decoration-none">Home</a></li>
+            <li><a href="history.html" class="text-light text-decoration-none">About</a></li>
+            <li><a href="faculties.html" class="text-light text-decoration-none">Faculties</a></li>
+            <li><a href="library.html" class="text-light text-decoration-none">Library</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <hr class="border-light" />
+
+      <!-- Bottom Text -->
+      <div class="text-center">
+        <p class="mb-0">&copy; 2025 Myanmar Institute Of Information Technology. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Your JS -->
+  <script src="./script.js"></script>
+</body>
+</html>

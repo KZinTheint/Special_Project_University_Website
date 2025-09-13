@@ -92,6 +92,25 @@
       font-weight: bold;
     }
     
+    /* Larger font size for career opportunities */
+    .career-opportunities .program-features li {
+      font-size: 1.1rem;
+      font-weight: 500;
+      padding: 8px 0;
+      padding-left: 30px;
+      position: relative;
+    }
+    
+    .career-opportunities .program-features li:before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      color: #27a3bf;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+    
     .program-btn {
       background: linear-gradient(135deg, #27a3bf 0%, #9774bb 100%);
       color: white;
@@ -240,35 +259,63 @@
           <li class="nav-item">
             <a class="nav-link" href="main.html">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+          <li class="nav-item dropdown-hover"><a class="nav-link" href="#">About</a>
+            <div class="hover-card">
+              <div class="card">
+                <div class="card-body">
+                  <ul>
+                    <li><a href="history.html">History</a></li>
+                    <li><a href="./vision-mission.html">Vision & Mission</a></li>
+                    
+                    <li><a href="./contact-us.html">Contact Us</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Admission</a>
+            <a class="nav-link" href="./admission.html">Admission</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Academic
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="academic-calendar.html">Academic Calendar</a></li>
-              <li><a class="dropdown-item active" href="academic-programs.html">Academic Programs</a></li>
-              <li><a class="dropdown-item" href="academic-rules.html">Academic Rules</a></li>
-              <li><a class="dropdown-item" href="./lms-moodle.html">LMS Module</a></li>
-              <li><a class="dropdown-item" href="student-registration.html">Student Registration</a></li>
-            </ul>
+
+         <li class="nav-item dropdown-hover"><a class="nav-link" href="#">Academic</a>
+            <div class="hover-card">
+              <div class="card">
+                <div class="card-body">
+                  <ul>
+                    <li><a href="./academic-calendar.html">Academic Calendar</a></li>
+                    <li><a href="./academic-programs.html">Academic Programs</a></li>
+                    <li><a href="./academic-rules.html">Academic Rules</a></li>
+                    <li><a href="./lms-moodle.html">LMS Moodle</a></li>
+                    <li><a href="./student-registration.html">Student Registration</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Faculties</a>
+            <a class="nav-link" href="./faculties.html">Faculties</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Library</a>
+            <a class="nav-link" href="library.html">Library</a>
+            <div class="hover-card">
+              <div class="card">
+                <div class="card-body">
+                 <ul>
+                    <li><a href="#digital-design">Digital Design</a></li>
+                    <li><a href="#control-system">Control System</a></li>
+                    <li><a href="#computer-architecture">Computer Architecture</a></li>
+                    <li><a href="#data-structures">Data Structures & Algorithms</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Journal</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Collaboration</a>
+            <a class="nav-link" href="Collaboration1.html">Collaboration</a>
           </li>
         </ul>
       </div>
@@ -318,12 +365,7 @@
                     <div class="stat-label">Credit Hours</div>
                   </div>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-3">
-                  <div class="stat-card">
-                    <div class="stat-number" id="employmentRate">0</div>
-                    <div class="stat-label">Employment Rate</div>
-                  </div>
-                </div>
+                
               </div>
             </div>
           </div>
@@ -339,7 +381,7 @@
                  <div class="program-icon">
                    <i class="fas fa-laptop-code"></i>
                  </div>
-                 <h4 class="program-title">Bachelor of Computer Science Engineering</h4>
+                 <h4 class="program-title">Bachelor of Computer Science and Engineering</h4>
                  <div class="text-center">
                    <span class="program-duration">5 Years</span>
                  </div>
@@ -381,6 +423,49 @@
                    <li>Wireless Communication</li>
                  </ul>
                  <div class="text-center">
+                   <a href="#" class="program-btn">Learn More</a>
+                 </div>
+               </div>
+             </div>
+           </div>
+           
+           <!-- Master's Program -->
+           <div class="row mt-4">
+             <div class="col-lg-8 col-md-10 mx-auto">
+               <div class="program-card">
+                 <div class="program-icon">
+                   <i class="fas fa-graduation-cap"></i>
+                 </div>
+                 <h4 class="program-title">Master of Engineering (Computer Science)</h4>
+                 <div class="text-center">
+                   <span class="program-duration">2 Years</span>
+                 </div>
+                 <p class="program-description">
+                   An advanced program designed for graduates seeking to deepen their knowledge in computer science and specialize in cutting-edge technologies. The program combines rigorous coursework with research opportunities.
+                 </p>
+                 <div class="row">
+                   <div class="col-md-6">
+                     <h6 class="text-primary mb-3">Year 1: Course Work</h6>
+                     <ul class="program-features">
+                       <li>Advanced Algorithms & Data Structures</li>
+                       <li>Machine Learning & AI</li>
+                       <li>Advanced Software Engineering</li>
+                       <li>Research Methodology</li>
+                       <li>Elective Specializations</li>
+                     </ul>
+                   </div>
+                   <div class="col-md-6">
+                     <h6 class="text-primary mb-3">Year 2: Thesis</h6>
+                     <ul class="program-features">
+                       <li>Research Project Design</li>
+                       <li>Literature Review</li>
+                       <li>Data Collection & Analysis</li>
+                       <li>Thesis Writing & Defense</li>
+                       <li>Publication Opportunities</li>
+                     </ul>
+                   </div>
+                 </div>
+                 <div class="text-center mt-3">
                    <a href="#" class="program-btn">Learn More</a>
                  </div>
                </div>
@@ -429,7 +514,7 @@
              <!-- Career Opportunities -->
        <div class="row">
          <div class="col-lg-8 mb-4">
-           <div class="program-card">
+           <div class="program-card career-opportunities">
              <h4 class="mb-4"><i class="fas fa-briefcase me-2"></i>Career Opportunities</h4>
              <div class="row">
                <div class="col-md-6">
@@ -515,9 +600,8 @@
           <h5 class="text-uppercase fw-bold">Quick Links</h5>
           <ul class="list-unstyled">
             <li><a href="main.html" class="text-light text-decoration-none">Home</a></li>
-            <li><a href="#" class="text-light text-decoration-none">About</a></li>
-            <li><a href="#" class="text-light text-decoration-none">Departments</a></li>
-            <li><a href="#" class="text-light text-decoration-none">Contact</a></li>
+            <li><a href="faculties.html" class="text-light text-decoration-none">Faculties</a></li>
+            <li><a href="contact-us.html" class="text-light text-decoration-none">Contact Us</a></li>
           </ul>
         </div>
       </div>
@@ -591,7 +675,7 @@
      // Start animation when page loads
      window.addEventListener('load', function() {
        setTimeout(() => {
-         animateNumber(document.getElementById('degreePrograms'), 2);
+         animateNumber(document.getElementById('degreePrograms'), 3);
          animateNumber(document.getElementById('yearsDuration'), 5);
          animateNumber(document.getElementById('creditHours'), 150, '+');
          animateNumber(document.getElementById('employmentRate'), 95, '%');
