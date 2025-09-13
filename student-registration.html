@@ -1402,7 +1402,7 @@
     });
 
     // Handle registration form submission
-    document.getElementById('registrationForm').addEventListener('submit', function(e) {
+    document.getElementById('registrationForm').addEventListener('submit', async function(e) {
       e.preventDefault();
       
       // Validate file uploads
@@ -1412,23 +1412,76 @@
       
       // Get form data
       const formData = new FormData(this);
-      const data = Object.fromEntries(formData);
       
-      // Show success message
+      // Show loading state
       const button = document.querySelector('.submit-btn');
       const originalText = button.innerHTML;
-      button.innerHTML = '<i class="fas fa-check me-2"></i>Registration Submitted Successfully!';
+      button.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Submitting...';
       button.disabled = true;
-      
-      // Reset form after 3 seconds
-      setTimeout(() => {
-        this.reset();
-        button.innerHTML = originalText;
-        button.disabled = false;
+      console
+      try {
+        // Send POST request to localhost:3000
+        const response = await fetch('http://localhost:3000/registeration', {
+          method: 'POST',
+          body: formData,
+          headers: {
+            // Note: Don't set Content-Type for FormData, let the browser set it with boundary
+          }
+        });
         
-        // Show alert
-        alert('Thank you for your registration! We will review your application and contact you soon.');
-      }, 3000);
+        if (response.ok) {
+          const result = await response.json();
+          
+          // Show success message
+          button.innerHTML = '<i class="fas fa-check me-2"></i>Registration Submitted Successfully!';
+          button.style.backgroundColor = '#28a745';
+          
+          // Show success alert
+          alert('Thank you for your registration! We will review your application and contact you soon.');
+          
+          // Reset form after 3 seconds
+          setTimeout(() => {
+            this.reset();
+            button.innerHTML = originalText;
+            button.disabled = false;
+            button.style.backgroundColor = '';
+          }, 3000);
+          
+        } else {
+          const errorText = await response.text();
+          throw new Error(`Server error: ${response.status} - ${errorText}`);
+        }
+        
+      } catch (error) {
+        console.error('Registration submission error:', error);
+        
+        // Determine error type and show appropriate message
+        let errorMessage = 'Sorry, there was an error submitting your registration.';
+        
+        if (error.name === 'TypeError' && error.message.includes('fetch')) {
+          errorMessage = 'Unable to connect to the server. Please check your internet connection and try again.';
+        } else if (error.message.includes('404')) {
+          errorMessage = 'Registration endpoint not found. Please contact support.';
+        } else if (error.message.includes('500')) {
+          errorMessage = 'Server error occurred. Please try again later or contact support.';
+        } else if (error.message.includes('CORS')) {
+          errorMessage = 'CORS error: Please ensure the server is running and configured properly.';
+        }
+        
+        // Show error message
+        button.innerHTML = '<i class="fas fa-exclamation-triangle me-2"></i>Submission Failed';
+        button.style.backgroundColor = '#dc3545';
+        
+        // Show error alert
+        alert(errorMessage);
+        
+        // Reset button after 3 seconds
+        setTimeout(() => {
+          button.innerHTML = originalText;
+          button.disabled = false;
+          button.style.backgroundColor = '';
+        }, 3000);
+      }
     });
     
     // Enhanced file validation with better error messages
