@@ -914,9 +914,26 @@
                         <option value="7">7/</option>
                         <option value="8">8/</option>
                         <option value="9">9/</option>
+                        <option value="10">10/</option>
+                        <option value="11">11/</option>
+                        <option value="12">12/</option>
+                        <option value="13">13/</option>
+                        <option value="14">14/</option>
                       </select>
-                      <input type="text" class="form-control" id="nationalId" name="national-id-number" placeholder="Enter remaining ID number" required>
+
+                      <select class="form-select" id="nationalIdRegion" name="national-id-region" style="max-width: 120px;" required>
+                      <option value="">Region</option>
+                      </select>
+                      <select class="form-select" id="citizenType" name="citizen-type" style="max-width: 80px;" required>
+                        <option value="">Type</option>
+                        <option value="(N)">(N)</option>
+                        <option value="(P)">(P)</option>
+                        <option value="(T)">(T)</option>
+                      </select>
+                      <input type="text" class="form-control" id="nationalId" name="national-id-number" placeholder="ID number" required>
                     </div>
+
+                    <small class="form-text text-muted">Format: Prefix + Region + Citizen Type + ID Number</small>
                   </div>
                 </div>
               </div>
@@ -1074,7 +1091,7 @@
                   </div> -->
                   <div class="col-md-6 mb-3">
                     <label for="gpa" class="form-label">High School Total Marks *</label>
-                    <input type="number" class="form-control" id="gpa" name="high-school-marks" step="300" min="0" max="550" required>
+                    <input type="number" class="form-control" id="gpa" name="high-school-marks" step="1" min="260" max="550" required>
                   </div>
                                      <div class="col-md-6 mb-3">
                      <label for="program" class="form-label">Desired Program *</label>
@@ -1727,7 +1744,250 @@
     // Initialize drag and drop when DOM is loaded
     document.addEventListener('DOMContentLoaded', function() {
       addDragAndDrop();
+      initializeNationalIdSystem() 
     });
+
+
+
+     function initializeNationalIdSystem() {
+       console.log("national id system")
+       const prefixSelect = document.getElementById('nationalIdPrefix');
+       const regionSelect = document.getElementById('nationalIdRegion');
+       
+       // Check if elements exist
+       if (!prefixSelect || !regionSelect) {
+         console.error('Required elements not found for National ID system');
+         return;
+       }
+       
+       console.log('National ID system initialized');
+       
+       // Define NRC township codes for each prefix
+       const regionData = {
+         '1': [
+           { value: 'BaMaNa', text: 'BaMaNa' },
+           { value: 'ChiPaNa', text: 'ChiPaNa' },
+           { value: 'HaPaKa', text: 'HaPaKa' },
+           { value: 'InJaNa', text: 'InJaNa' },
+           { value: 'KaMaing', text: 'KaMaing' },
+           { value: 'KaMaYa', text: 'KaMaYa' },
+           { value: 'MaChaBa', text: 'MaChaBa' },
+           { value: 'MaSaNa', text: 'MaSaNa' },
+           { value: 'MaHnaNa', text: 'MaHnaNa' },
+           { value: 'MaMaKa', text: 'MaMaKa' },
+           { value: 'MaKyaNa', text: 'MaKyaNa' },
+           { value: 'PaTaO', text: 'PaTaO' },
+           { value: 'SwelGu', text: 'SwelGu' },
+           { value: 'SuMaPa', text: 'SuMaPa' },
+           { value: 'TaNaI', text: 'TaNaI' },
+           { value: 'WaMaNa', text: 'WaMaNa' }
+         ],
+         '2': [
+           { value: 'BaLaKhe', text: 'BaLaKhe' },
+           { value: 'HaSaung', text: 'HaSaung' },
+           { value: 'LoKa', text: 'LoKa' },
+           { value: 'MaSa', text: 'MaSa' },
+           { value: 'ShaDa', text: 'ShaDa' }
+         ],
+         '3': [
+           { value: 'HlaBaWa', text: 'HlaBaWa' },
+           { value: 'PaAhN', text: 'PaAhN' },
+           { value: 'KaKaReik', text: 'KaKaReik' },
+           { value: 'KyaSaKyi', text: 'KyaSaKyi' },
+           { value: 'MyaWaDi', text: 'MyaWaDi' },
+           { value: 'ThaDaung', text: 'ThaDaung' }
+         ],
+         '4': [
+           { value: 'FaLaMa', text: 'FaLaMa' },
+           { value: 'HaKha', text: 'HaKha' },
+           { value: 'KaPeLet', text: 'KaPeLet' },
+           { value: 'MaTuPi', text: 'MaTuPi' },
+           { value: 'MaHnaDat', text: 'MaHnaDat' },
+           { value: 'PaLaTa', text: 'PaLaTa' },
+           { value: 'TeDiMa', text: 'TeDiMa' },
+           { value: 'ThaLaung', text: 'ThaLaung' },
+           { value: 'TaZaung', text: 'TaZaung' }
+         ],
+         '5': [
+           { value: 'KaLa', text: 'KaLa' },
+           { value: 'KaLaWa', text: 'KaLaWa' },
+           { value: 'KaNi', text: 'KaNi' },
+           { value: 'KaTha', text: 'KaTha' },
+           { value: 'KaWaLin', text: 'KaWaLin' },
+           { value: 'KhamPa', text: 'KhamPa' },
+           { value: 'KyunHla', text: 'KyunHla' },
+           { value: 'MaNyaWa', text: 'MaNyaWa' },
+           { value: 'SaGaing', text: 'SaGaing' },
+           { value: 'ShweBo', text: 'ShweBo' },
+           { value: 'TaMu', text: 'TaMu' },
+           { value: 'YinMaBin', text: 'YinMaBin' }
+         ],
+         '6': [
+           { value: 'BoKpyin', text: 'BoKpyin' },
+           { value: 'DaWei', text: 'DaWei' },
+           { value: 'KaThaung', text: 'KaThaung' },
+           { value: 'LaungLon', text: 'LaungLon' },
+           { value: 'Myeik', text: 'Myeik' },
+           { value: 'PaLaw', text: 'PaLaw' },
+           { value: 'TaNin', text: 'TaNin' },
+           { value: 'ThaYetChaung', text: 'ThaYetChaung' }
+         ],
+         '7': [
+           { value: 'BaGo', text: 'BaGo' },
+           { value: 'BaGoW', text: 'BaGoW' },
+           { value: 'KyaKyi', text: 'KyaKyi' },
+           { value: 'NyaungLeBin', text: 'NyaungLeBin' },
+           { value: 'Pyay', text: 'Pyay' },
+           { value: 'ShweGyin', text: 'ShweGyin' },
+           { value: 'TaungOo', text: 'TaungOo' }
+         ],
+         '8': [
+           { value: 'ChaungZon', text: 'ChaungZon' },
+           { value: 'KyaMaraw', text: 'KyaMaraw' },
+           { value: 'KyaikTo', text: 'KyaikTo' },
+           { value: 'MawLaMyine', text: 'MawLaMyine' },
+           { value: 'MuDon', text: 'MuDon' },
+           { value: 'Paung', text: 'Paung' },
+           { value: 'ThaByuZayat', text: 'ThaByuZayat' },
+           { value: 'Ye', text: 'Ye' }
+         ],
+         '9': [
+           { value: 'AhMaYa', text: 'AhMaYa' },
+           { value: 'AhMaZa', text: 'AhMaZa' },
+           { value: 'KhaAhZa', text: 'KhaAhZa' },
+           { value: 'KhaMaSa', text: 'KhaMaSa' },
+           { value: 'KaPaTa', text: 'KaPaTa' },
+           { value: 'KaSaNa', text: 'KaSaNa' },
+           { value: 'MaTaYa', text: 'MaTaYa' },
+           { value: 'MaHaMa', text: 'MaHaMa' },
+           { value: 'MaLaNa', text: 'MaLaNa' },
+           { value: 'MaHtaLa', text: 'MaHtaLa' },
+           { value: 'MaKaNa', text: 'MaKaNa' },
+           { value: 'MaKhaNa', text: 'MaKhaNa' },
+           { value: 'MaThaNa', text: 'MaThaNa' },
+           { value: 'NaHtaKa', text: 'NaHtaKa' },
+           { value: 'NgaThaYa', text: 'NgaThaYa' },
+           { value: 'NgaZaNa', text: 'NgaZaNa' },
+           { value: 'NyaOuNa', text: 'NyaOuNa' },
+           { value: 'PaThaKa', text: 'PaThaKa' },
+           { value: 'PaBaNa', text: 'PaBaNa' },
+           { value: 'PaKaKha', text: 'PaKaKha' },
+           { value: 'PaOuLa', text: 'PaOuLa' },
+           { value: 'SaKaNa', text: 'SaKaNa' },
+           { value: 'SaKaTa', text: 'SaKaTa' },
+           { value: 'ThaPaKa', text: 'ThaPaKa' },
+           { value: 'TaTaOu', text: 'TaTaOu' },
+           { value: 'TaThaNa', text: 'TaThaNa' },
+           { value: 'ThaSaNa', text: 'ThaSaNa' },
+           { value: 'WaTaNa', text: 'WaTaNa' },
+           { value: 'YaMaTha', text: 'YaMaTha' }
+         ],
+         '10': [
+           { value: 'Ann', text: 'Ann' },
+           { value: 'BuThiDaung', text: 'BuThiDaung' },
+           { value: 'KyaPyuu', text: 'KyaPyuu' },
+           { value: 'MaungDaw', text: 'MaungDaw' },
+           { value: 'MinBya', text: 'MinBya' },
+           { value: 'MraukU', text: 'MraukU' },
+           { value: 'PaukTaw', text: 'PaukTaw' },
+           { value: 'SittWe', text: 'SittWe' },
+           { value: 'ThanDwe', text: 'ThanDwe' },
+           { value: 'TaungUp', text: 'TaungUp' }
+         ],
+         '11': [
+           { value: 'TaungGyi', text: 'TaungGyi' },
+           { value: 'LaShio', text: 'LaShio' },
+           { value: 'MuSe', text: 'MuSe' },
+           { value: 'KengTung', text: 'KengTung' },
+           { value: 'MongHsat', text: 'MongHsat' },
+           { value: 'TaChiLeik', text: 'TaChiLeik' },
+           { value: 'KyaingTong', text: 'KyaingTong' },
+           { value: 'MongHsu', text: 'MongHsu' },
+           { value: 'Namhsan', text: 'Namhsan' },
+           { value: 'Kutkai', text: 'Kutkai' },
+           { value: 'MongKhet', text: 'MongKhet' },
+           { value: 'MongYai', text: 'MongYai' },
+           { value: 'MongPing', text: 'MongPing' },
+           { value: 'MongPan', text: 'MongPan' },
+           { value: 'MongTon', text: 'MongTon' },
+           { value: 'MongHpayak', text: 'MongHpayak' },
+           { value: 'MongYang', text: 'MongYang' },
+           { value: 'MongLa', text: 'MongLa' },
+           { value: 'MongNai', text: 'MongNai' },
+           { value: 'MongHsat', text: 'MongHsat' }
+         ],
+         '12': [
+           { value: 'BoTaTaung', text: 'BoTaTaung' },
+           { value: 'DaGun', text: 'DaGun' },
+           { value: 'Hlaing', text: 'Hlaing' },
+           { value: 'Insein', text: 'Insein' },
+           { value: 'KyaTaDa', text: 'KyaTaDa' },
+           { value: 'MaYaGone', text: 'MaYaGone' },
+           { value: 'MingLaDon', text: 'MingLaDon' },
+           { value: 'PaZunDaung', text: 'PaZunDaung' },
+           { value: 'SanChaung', text: 'SanChaung' },
+           { value: 'ThanLyin', text: 'ThanLyin' },
+           { value: 'ThaKeta', text: 'ThaKeta' },
+           { value: 'ThinGanYun', text: 'ThinGanYun' },
+           { value: 'Yankin', text: 'Yankin' }
+         ],
+         '13': [
+           { value: 'HinThaDa', text: 'HinThaDa' },
+           { value: 'LaButTa', text: 'LaButTa' },
+           { value: 'Maubin', text: 'Maubin' },
+           { value: 'MyaungMya', text: 'MyaungMya' },
+           { value: 'PaThein', text: 'PaThein' },
+           { value: 'PyaPon', text: 'PyaPon' },
+           { value: 'BoGaLay', text: 'BoGaLay' }
+         ],
+         '14': [
+           { value: 'AungLan', text: 'AungLan' },
+           { value: 'Chauk', text: 'Chauk' },
+           { value: 'Gangaw', text: 'Gangaw' },
+           { value: 'Magwe', text: 'Magwe' },
+           { value: 'MinBu', text: 'MinBu' },
+           { value: 'NatMauk', text: 'NatMauk' },
+           { value: 'PaKokku', text: 'PaKokku' },
+           { value: 'TaungDwinGyi', text: 'TaungDwinGyi' },
+           { value: 'ThaYet', text: 'ThaYet' },
+           { value: 'YeNangYaung', text: 'YeNangYaung' }
+         ]
+       };
+       
+       // Function to populate region dropdown
+       function populateRegions(prefix) {
+         console.log('Populating regions for prefix:', prefix);
+         regionSelect.innerHTML = '<option value="">Region</option>';
+         
+         if (prefix && regionData[prefix]) {
+           console.log('Found regions for prefix:', regionData[prefix]);
+           regionData[prefix].forEach(region => {
+             const option = document.createElement('option');
+             option.value = region.value;
+             option.textContent = region.text;
+             regionSelect.appendChild(option);
+           });
+         } else {
+           console.log('No regions found for prefix:', prefix);
+         }
+       }
+       
+       // Event listener for prefix change
+       prefixSelect.addEventListener('change', function() {
+         const selectedPrefix = this.value;
+         console.log('Prefix changed to:', selectedPrefix);
+         populateRegions(selectedPrefix);
+         
+         // Reset region and citizen type when prefix changes
+         regionSelect.value = '';
+         document.getElementById('citizenType').value = '';
+         document.getElementById('nationalId').value = '';
+       });
+
+if (prefixSelect.value) {
+    populateRegions(prefixSelect.value);
+  }
+     }
   </script>
 
 </body>
