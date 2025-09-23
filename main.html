@@ -7,6 +7,9 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
   <link rel="stylesheet" href="./index.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -164,27 +167,15 @@
     </div>
   </section>
   
-<section class="container my-5">
-    <h2 class="mb-4 news-heading">MIIT Events</h2>
-    <p>No items match your search criteria. Please try again with different keywords.</p>
-    <a href="#" class="btn btn-outline-primary mb-3 read-more-btn">View All Events</a>
-    <div id="eventsCarousel" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="./images/event-1.jpg" alt="Description" style="width: 300; height: auto;">
-        </div>
-        <div class="carousel-item">
-          <img src="./images/event-2.jpg" class="d-block w-100" alt="event-2" style="width: 300; height: auto;">
-        </div>
+  <section class="events-section py-5">
+    <div class="container">
+      <h2 class="mb-4 text-center news-heading">MIIT Events</h2>
+      <div id="events-container" class="row">
+        <!-- Events will be dynamically loaded here -->
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#eventsCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#eventsCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
+      <div class="text-center mt-4">
+        <a href="events.html" class="btn btn-outline-primary read-more-btn">View All Events</a>
+      </div>
     </div>
   </section>
     <!-- Stats Section -->
