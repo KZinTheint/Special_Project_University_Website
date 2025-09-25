@@ -613,4 +613,38 @@ footer a:hover {
     width: 100%;
 }
 
+/* News Page Styling */
+.featured-news-section .card {
+  border: none;
+}
 
+.featured-news-section .card-img-top {
+  height: 400px;
+  object-fit: cover;
+}
+
+.news-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.news-card-link .card {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.news-card-link .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.single-news-cover-img {
+  height: 450px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.news-gallery-img {
+  height: 250px;
+  object-fit: cover;
+  width: 100%;
+}

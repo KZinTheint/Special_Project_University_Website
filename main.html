@@ -139,33 +139,6 @@
     <h2>“Transforming Education. Enriching Lives.”</h2>
   </section>
 
- 
-   <section class="container my-5">
-    <h2 class="mb-3">Latest News</h2>
-    <p class="text-muted mb-2">Stay updated with announcements and notices.</p>
-    <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#latestNewsCollapse" aria-expanded="false" aria-controls="latestNewsCollapse" id="latestNewsToggle">
-      Read more
-    </button>
-    <div class="collapse mt-3" id="latestNewsCollapse">
-      <div class="card card-body" id="latestNewsContent">
-        <section class="container my-5">
-    <h2 class="mb-4">Latest News</h2>
-    <ul class="list-group mb-3">
-      <li class="list-group-item d-flex align-items-center">
-        <img src="images/MIIT_Logo.png" alt="MIIT" width="30" height="30" class="me-2 embossed-logo">
-        Call for Entrance
-        <a href="Entrance.pdf" target="_blank" class="btn btn-sm btn-outline-primary ms-auto">View</a>
-      </li>
-      <li class="list-group-item d-flex align-items-center">
-        <img src="images/MIIT_Logo.png" alt="MIIT" width="30" height="30" class="me-2 embossed-logo">
-        Call for M.E(Computer Science)
-        <a href="MECS.pdf" target="_blank" class="btn btn-sm btn-outline-primary ms-auto">View</a>
-      </li>
-    </ul>
-  </section>
-      </div>
-    </div>
-  </section>
   
   <section class="events-section py-5">
     <div class="container">
@@ -178,6 +151,19 @@
       </div>
     </div>
   </section>
+
+  <section class="news-section py-5 bg-light">
+    <div class="container">
+      <h2 class="mb-4 text-center news-heading">Latest News</h2>
+      <div id="news-container" class="row">
+        <!-- News will be dynamically loaded here -->
+      </div>
+      <div class="text-center mt-4">
+        <a href="latest-news.html" class="btn btn-outline-primary read-more-btn">View All News</a>
+      </div>
+    </div>
+  </section>
+
     <!-- Stats Section -->
     <section class="stats-container">
       <div class="stat-box">
@@ -253,6 +239,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
         <script src="./javascript.js"></script>
 
+  <script src="./news.js"></script>
   <script src="./script.js"></script> 
   </body>
   </html>
