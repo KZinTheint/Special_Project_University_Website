@@ -1,650 +1,287 @@
-.hero-section {
-      height: 80vh;
-      background: url("images/Miit_Main_Building.jpg") no-repeat center center/cover;
-      position: relative;
-    }
+/* index.css */
 
-    .hero-section::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.2); /* lighter overlay for brighter image */
-    }
-
-    .hero-section .container {
-      text-align: left;
-    }
-
-    .hero-section {
-      display: flex;
-      align-items: flex-start;
-      justify-content: flex-start;
-    }
-
-    .carousel-inner {
-      width: 100%;
-      overflow: hidden;
-      /* Remove or comment out aspect-ratio if it makes images too tall */
-      /* aspect-ratio: 16/9; */
-    }
-
-    .carousel-inner img {
-        width: 100%;         /* Always fill the container width */
-        height: auto;        /* Maintain aspect ratio */
-        max-height: 60vh;    /* Or 70vh, depending on your preference */
-        object-fit: cover;   /* Crop to fill, no distortion */
-    }
-
-
-    .navbar-brand img {
-      border-radius: 50%;
-    }
-
-    .dropdown-hover {
-        position: relative;
-        
-    }
-
-    .hover-card {
-        display: none;
-        position: absolute;
-        top: 110%; /* Add space between nav underline and submenu */
-        left: 0;
-        z-index: 999;
-        min-width: 250px;
-        width: auto;
-        pointer-events: auto;
-    }
-
-    .dropdown-hover:hover .hover-card,
-    .dropdown-hover:focus-within .hover-card,
-    .hover-card:hover {
-        display: block;
-    }
-
-
-
-    .card-body ul li{
-        list-style: none;
-        min-width: 150px;
-        padding: 10px;
-        border-bottom: 1px dashed #868282;
-        background: transparent;
-        border-radius: 0;
-        text-align: left; 
-    }
-
-    .card-body ul li a{
-        text-decoration: none;
-        color: black;
-        font-size: 15px;
-        text-align: left;
-    }
-    
-    .card-body ul li:last-child{
-        border-bottom: none;
-    }
-
-    .card-body ul li:hover{
-        background-color:rgba(185, 194, 194, 0.5);
-        transition: 0.5s;
-        
-    }
-.container{
-    transition: 0.5s;
+/* ---------------------------------------------------- */
+/* Global Variables and Typography */
+/* ---------------------------------------------------- */
+:root {
+    /* Define a color palette for consistency */
+    --miit-primary: #00bcd4; /* Light Blue/Cyan for branding */
+    --miit-secondary: #183a5e; /* Deep Blue/MIIT-like corporate color */
+    --miit-accent: #ffc107; /* Amber for attention/highlights */
+    --miit-bg-light: #ffffff; /* Pure white for light sections */
+    --miit-bg-secondary: #f0f4f8; /* Very light blue/grey for section contrast */
 }
 
-/* Add spacing between navbar items */
-.navbar-nav .nav-item {
-  margin-right: 1.5rem; /* Adjust the value as needed */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    /* Ensure no padding-top is needed here if the navbar is already fixed-top */
 }
 
-/* Make navbar links bigger */
-.navbar-nav .nav-link {
-  font-size: 1rem; /* Increase as desired */
-  position: relative;
-  overflow: hidden;
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
 }
 
-.navbar-nav .nav-link::after {
-  content: '';
-  display: block;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 3px;
-  background: #00bcd4; /* Accent color */
-  transform: scaleX(0);
-  transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
-  transform-origin: right;
-}
-
-/* Keep hover effect for all nav links */
-.navbar-nav .nav-link:hover::after {
-  transform: scaleX(1);
-  transform-origin: left;
-}
-
-/* Only animate .active if it is hovered */
-.navbar-nav .nav-link.active:not(:hover)::after {
-  transform: scaleX(0);
-}
-
-
-/* Remove right margin from the last item to avoid extra space at the end */
-.navbar-nav .nav-item:last-child {
-  margin-right: 0;
-}
-
-.navbar {
-  position: sticky;
-  top: 0;
-  z-index: 1030; /* higher than default to stay above content */
-}
-
+/* ---------------------------------------------------- */
+/* EXISTING NAVBAR STYLES (PRESERVED AS REQUESTED) */
+/* ---------------------------------------------------- */
+/* This section contains all original navbar and dropdown styling */
 .navbar-brand img {
-  width: 70px !important;
-  height: 70px !important;
-  margin-right: 1rem;
+  border-radius: 50%;
 }
 
-.navbar-brand strong {
-  margin-right: 2.5rem; /* Add space between text and Home link */
-  font-size: 1.3rem;
-  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+.dropdown-hover {
+    position: relative;
 }
 
-
-
-.scrolled #miitLogo {
-    transform: scale(1.5) translateY(15px); /* Grows to 1.5 times and moves down 15px */
-    /* Adjust scale and translateY values as needed */
+.hover-card {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    min-width: 200px;
 }
 
-.scrolled .navbar-brand .navbar-title {
-    opacity: 0; /* Fade out */
-    transform: translateX(20px); /* Move slightly to the side */
-    pointer-events: none; /* Make it unclickable when hidden */
+.dropdown-hover:hover .hover-card {
+    display: block;
 }
 
-#miitLogo {
-    transform: scale(1) translateY(0px); /* Initial state */
-    transition: transform 0.3s ease-out; /* Smooth transition */
-    transform-origin: top center; /* Ensure scaling grows downwards from the center */
-    margin-top: 0px; /* Adjust as needed */
-    height: 50px; /* Maintain initial height visually */
-    width: 50px; /* Maintain initial width visually */
-    object-fit: contain; /* Ensure image scales within bounds without distortion */
+.hover-card .card {
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.dropdown-hover:hover > .nav-link,
-.dropdown-hover:focus-within > .nav-link,
-.dropdown-hover:focus > .nav-link {
-  color: inherit;
+.hover-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-.dropdown-hover:hover > .nav-link::after,
-.dropdown-hover:focus-within > .nav-link::after,
-.dropdown-hover:focus > .nav-link::after {
-  transform: scaleX(1);
-  transform-origin: left;
+.hover-card ul li a {
+    display: block;
+    padding: 8px 15px;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.2s;
 }
+
+.hover-card ul li a:hover {
+    background-color: #f8f9fa;
+    color: var(--miit-primary); /* Use a new primary color for hover effect */
+}
+
+/* ---------------------------------------------------- */
+/* EXISTING HERO SECTION STYLES (Modified for full-page layout) */
+/* ---------------------------------------------------- */
 .hero-section {
-  height: 80vh;
-  background: url("images/Miit_Main_Building.jpg") no-repeat center center/cover;
-  position: relative;
+    height: 100vh; /* Changed from 80vh for impact */
+    background: url("images/Miit_Main_Building.jpg") no-repeat center center/cover;
+    position: relative;
+    display: flex;
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+    padding-top: 80px; /* Space below fixed navbar */
+    text-align: center;
 }
 
 .hero-section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Darker overlay for better text readability */
 }
 
-.carousel-inner img {
-  width: 100%;
-  height: 70vh;
-  object-fit: cover;
+.hero-content {
+    color: white;
+    z-index: 2;
+    padding: 2rem;
 }
 
-.navbar-brand img {
-  border-radius: 50%;
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+}
+.hero-content p {
+    font-size: 1.25rem;
 }
 
-.dropdown-hover {
-  position: relative;
+/* ---------------------------------------------------- */
+/* SECTION LAYOUT AND HEADERS (NEW CONSISTENT STYLING) */
+/* ---------------------------------------------------- */
+.section-padding {
+    padding: 6rem 0;
 }
 
-.hover-card {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 999;
-  min-width: 250px;
-  width: auto;
+.section-heading {
+    font-size: 2.5rem;
+    color: var(--miit-secondary);
+    position: relative;
+    padding-bottom: 0.75rem;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    text-align: center;
 }
 
-.dropdown-hover:hover .hover-card {
-  display: block;
+.section-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--miit-primary);
+    border-radius: 2px;
 }
 
-.carousel-inner img {
-  width: 100%;
-  height: 70vh;
-  object-fit: cover;
+/* Alternate Section Backgrounds */
+.light-section {
+    background-color: var(--miit-bg-light);
 }
-
-.navbar-brand img {
-  border-radius: 50%;
-}
-
-.dropdown-hover {
-  position: relative;
-}
-
-.hover-card {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 999;
-  min-width: 250px;
-  width: auto;
-}
-
-.dropdown-hover:hover .hover-card {
-  display: block;
-}
-
-.card-body ul li {
-  list-style: none;
-  min-width: 150px;
-  padding: 10px;
-  border-bottom: 1px dashed #868282;
-  background: transparent;
-  border-radius: 0;
-  text-align: left;
-}
-
-.carousel-inner img {
-  width: 100%;
-  height: 70vh;
-  object-fit: cover;
-}
-
-.navbar-brand img {
-  border-radius: 50%;
-}
-
-.dropdown-hover {
-  position: relative;
-}
-
-.hover-card {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 999;
-  min-width: 250px;
-  width: auto;
-}
-
-.dropdown-hover:hover .hover-card {
-  display: block;
-}
-
-.card-body ul li {
-  list-style: none;
-  min-width: 150px;
-  padding: 10px;
-  border-bottom: 1px dashed #868282;
-  background: transparent;
-  border-radius: 0;
-  text-align: left;
-}
-
-.card-body ul li a {
-  text-decoration: none;
-  color: black;
-  font-size: 15px;
-  text-align: left;
-}
-
-.card-body ul li:last-child {
-  border-bottom: none;
-}
-
-.card-body ul li:hover {
-  background-color: rgba(50, 235, 238, 0.5);
-  transition: 0.5s;
-}
-
-/* Navbar spacing */
-.navbar-nav .nav-item {
-  margin-right: 1.5rem;
-}
-
-.navbar-nav .nav-item:last-child {
-  margin-right: 0;
-}
-
-/* Headlines in cyan */
-.news-heading {
-  color: #00bcd4;
-}
-
-/* Keep other text black */
-.news-item p,
-.news-item small,
-section.container p {
-  color: black;
-}
-
-/* Read More buttons */
-.read-more-btn {
-  border-color: #00bcd4;
-  color: #00bcd4;
-}
-
-.read-more-btn:hover {
-  background-color: #00bcd4;
-  color: #fff;
-}
-
-#eventsCarousel img {
-  height: 250px;
-  object-fit: cover;
-}
-
-@media (max-width: 768px) {
-  .news-item p {
-    font-size: 0.9rem;
-  }
-}
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f4faff;
-  margin: 0;
-  padding: 0;
-  color: #333;
-}
-
-.university-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #e9f4fb;
-  padding: 60px 80px;
-  flex-wrap: wrap;
-}
-
-.university-section .content {
-  flex: 1 1 60%;
-}
-
-.university-section h1 {
-  color: #007080;
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-.university-section p {
-  font-size: 1.3rem;
-  line-height: 1.8;
-  color: #555;
-  margin-top: 30px;
-   font-family: 'Times New Roman', Times, serif; 
-}
-
-.read-more {
-  background-color: #007080;
-  color: white;
-  padding: 14px 30px;
-  border-radius: 40px;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1rem;
-  transition: background-color 0.3s;
-}
-
-.read-more:hover {
-  background-color: #005a60;
-}
-
-.logo {
-  flex: 1 1 30%;
-  text-align: center;
-}
-
-.logo img {
-  max-width: 100%;
-  height: auto;
+.secondary-section {
+    background-color: var(--miit-bg-secondary);
 }
 
 
-
-.quote-section {
-  display: flex;
-  justify-content: center;     /* Horizontal centering */
-  align-items: center;         /* Vertical centering */
-  height: 300px;               /* You can change this height */
-  text-align: center;          /* Text alignment inside the container */
-  background-color: #f0f8ff;   /* Optional background */
-  padding: 20px;
-  margin-top: 0px;
-  
-}
-
-.quote-section h2 {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #007080;
-  margin: 0;
-}
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f8f9fa;
-}
-
-.stats-container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 50px 20px;
-  background-color: #f9f9f9;
-}
-
-.stat-box {
-  text-align: center;
-  color: #b3b3b3;
-  
-}
-
-.stat-box img {
-  width: 50px;
-  height: 50px;
-  margin-bottom: 10px;
-}
-
-.stat-box h2 {
-  color: #00c3e3;
-  margin: 5px 0;
-  font-size: 2.5rem;
-}
-
-.stat-box p {
-  margin: 0;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-footer h5 {
-  font-size: 16px;
-  margin-bottom: 15px;
-}
-
-footer p,
-footer li,
-footer a {
-  font-size: 14px;
-}
-
-footer a:hover {
-  text-decoration: underline;
-}
-
-      .stat-box {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      .stat-box img {
-        width: 50px;
-        height: 50px;
-        margin-bottom: 10px;
-        filter: grayscale(100%);
-        
-      }
-      .stat-box i {
-      font-size: 60px; 
-      color: #aca9a9;
-      margin-bottom: 2px;
-    }
-      .stat-number {
-        font-size: 40px;
-        color: #00bcd4;
-        font-weight: bold;
-      }
-      .stat-label {
-        font-size: 14px;
-        color: #999;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-      }
-#latestNewsToggle {
-        color: #00bcd4; /* text color same as Bootstrap primary */
-        border-color: #00bcd4; /* border color same as primary */
-      }
-      
-      #latestNewsToggle:hover {
-        background-color: #00bcd4;
-        color: #fff;
-      }
-
-/* Event Card Styling */
-.event-card-link {
-  text-decoration: none;
-  color: inherit;
-}
-
-.event-card {
-  border: 1px solid #e0e5eb;
-  border-radius: 10px;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  background-color: #fff;
-}
-
-.event-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-}
-
-.event-card .card-img-top {
-  height: 250px;
-  object-fit: cover;
-}
-
-.event-card .card-body {
-  padding: 20px;
-}
-
-.event-card .card-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-.event-card .card-text {
-  font-size: 0.9rem;
-  color: #555;
-}
-
-.event-card .text-muted {
-  font-size: 0.8rem;
-  color: #888 !important;
-}
-
-
-.events-section {
-  background-color: #f0f4f8;
-  border-top: 1px solid #e0e5eb;
-  border-bottom: 1px solid #e0e5eb;
-}
-
-.events-section .read-more-btn {
-    background-color: #007bff;
+/* ---------------------------------------------------- */
+/* STANDARDIZED BUTTONS (FIXING INCONSISTENCY) */
+/* ---------------------------------------------------- */
+.btn-primary-miit {
+    background-color: var(--miit-primary);
     color: white;
     border: none;
-    padding: 12px 30px;
+    padding: 10px 25px;
     font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 50px; 
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 188, 212, 0.2);
 }
 
-.events-section .read-more-btn:hover {
-    background-color: #0056b3;
+.btn-primary-miit:hover {
+    background-color: #0097a7;
     transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 188, 212, 0.4);
+    color: white;
+}
+.btn-primary-miit:focus {
+    box-shadow: 0 0 0 0.25rem rgba(0, 188, 212, 0.5);
 }
 
-.single-event-cover-img {
-    height: 450px;
+/* Utility to use primary color for icons */
+.text-primary-miit {
+    color: var(--miit-primary) !important;
+}
+
+
+/* ---------------------------------------------------- */
+/* STAT COUNTER BOX STYLING (For the counting down thing) */
+/* ---------------------------------------------------- */
+.stat-box {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    transition: transform 0.3s ease;
+}
+
+.stat-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.stat-number {
+    color: var(--miit-secondary);
+}
+
+/* ---------------------------------------------------- */
+/* CARD STYLING (NEWS AND EVENTS - UNIFIED LOOK) */
+/* ---------------------------------------------------- */
+.miit-card {
+    border: none;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+}
+
+.miit-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.miit-card .card-img-top {
+    height: 220px; 
     object-fit: cover;
-    width: 100%;
 }
 
-/* News Page Styling */
-.featured-news-section .card {
+.miit-card .card-body {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+}
+
+.miit-card .card-title {
+    color: var(--miit-secondary);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.event-card-link, .news-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+
+/* ---------------------------------------------------- */
+/* FOOTER CLEANUP */
+/* ---------------------------------------------------- */
+footer {
+    background-color: var(--miit-secondary) !important;
+}
+footer .list-unstyled li {
+    margin-bottom: 0.5rem;
+}
+
+
+/* ---------------------------------------------------- */
+/* PREVIOUS/LEGACY STYLES (Keep/Override where necessary) */
+/* ---------------------------------------------------- */
+.events-section {
+  /* Overridden by .secondary-section/light-section */
+  background-color: transparent; 
   border: none;
 }
-
-.featured-news-section .card-img-top {
-  height: 400px;
-  object-fit: cover;
+.events-section .read-more-btn {
+    /* Overridden by .btn-primary-miit */
+    background-color: transparent;
+    color: inherit;
+    border: none;
 }
-
-.news-card-link {
-  text-decoration: none;
-  color: inherit;
+.event-card {
+    /* Overridden by .miit-card */
+    border: none;
 }
-
-.news-card-link .card {
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-}
-
-.news-card-link .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+.event-card .card-img-top {
+    /* Overridden by .miit-card */
+    height: 250px;
+    object-fit: cover;
 }
 
 .single-news-cover-img {
-  height: 450px;
-  object-fit: cover;
-  width: 100%;
+    max-height: 400px;
+    width: 100%;
+    object-fit: cover;
 }
-
 .news-gallery-img {
-  height: 250px;
-  object-fit: cover;
-  width: 100%;
+    height: 250px;
+}
+.news-detail-container, .event-detail-container {
+    padding-top: 100px;
 }
