@@ -232,13 +232,57 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0.5rem;
 }
 
-.event-card-link, .news-card-link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
+/* --- STICKY FOOTER CSS --- */
+
+/* 1. Sets the minimum height of the body to the viewport height */
+html.h-100, body.h-100 {
+    min-height: 100vh;
 }
 
+/* 2. Styles the main content area to expand and fill available vertical space */
+main.flex-grow-1 {
+    flex-grow: 1;
+}
 
+/* --- HORIZONTAL CARD IMAGE CSS (Ensures images look sharp and fill the height) --- */
+
+.event-list-img-horizontal {
+    height: 100%;
+    width: 100%;
+    object-fit: cover; 
+    
+    /* Ensure rounded corners are only on the left side on desktop */
+    border-top-right-radius: 0;
+    border-bottom-left-radius: var(--bs-card-border-radius);
+    
+    /* On mobile, stack vertically, so we need rounded corners on top */
+    border-top-left-radius: var(--bs-card-border-radius); 
+}
+
+/* Fix for medium screens and up to ensure only left corners are rounded */
+@media (min-width: 768px) {
+    .event-list-img-horizontal {
+        border-top-right-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+        border-top-left-radius: var(--bs-card-border-radius) !important;
+    }
+}
+
+/* --- HOVER EFFECTS --- */
+.transition-300ms {
+    transition: all 0.3s ease-in-out;
+}
+.hover-shadow-lg:hover {
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important; 
+    transform: translateY(-3px); 
+}
+.event-card-link {
+    color: inherit;
+    text-decoration: none;
+}
+.event-card-link:hover .card-title {
+    color: var(--bs-primary); /* Use your theme's primary color */
+}
 /* ---------------------------------------------------- */
 /* FOOTER CLEANUP */
 /* ---------------------------------------------------- */
