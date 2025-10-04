@@ -329,3 +329,4 @@ footer .list-unstyled li {
 .news-detail-container, .event-detail-container {
     padding-top: 100px;
 }
+.event-list-img-horizontal { height: 200px; object-fit: cover; }

@@ -66,25 +66,15 @@ document.addEventListener('DOMContentLoaded', () => {
               const eventDescription = rawDescription.substring(0, 200).trim();
 
               const eventCardHtml = `
-              <div class="col-12">
+              <div class="col-md-6 g-4">
                 <a href="events.html?id=${event.id}" class="event-card-link text-decoration-none">
                   <div class="card event-horizontal-card shadow transition-300ms hover-shadow-lg">
-                    <div class="row g-0">
-                      
-                      <div class="col-md-4">
                         <img src="${event.cover_url}" class="img-fluid event-list-img-horizontal" alt="${event.title}">
-                      </div>
-                      
-                      <div class="col-md-8">
-                        <div class="card-body d-flex flex-column h-100">
+                        <div class="card-body d-flex flex-column">
                           <p class="card-text mb-2"><small class="text-muted text-uppercase fw-medium"><i class="far fa-calendar-alt me-1"></i> ${eventDate}</small></p>
                           <h4 class="card-title fw-bold fs-5 mb-3">${event.title}</h4>
-                          <p class="card-text text-secondary mb-3 flex-grow-1">${eventDescription}${rawDescription.length > 200 ? '...' : ''}</p>
                           <button class="btn btn-sm btn-outline-primary mt-auto text-decoration-none align-self-start">Read More</button>
                         </div>
-                      </div>
-                      
-                    </div>
                   </div>
                 </a>
               </div>
