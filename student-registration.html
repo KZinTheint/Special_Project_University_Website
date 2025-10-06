@@ -599,6 +599,84 @@
     .form-select:focus ~ .dropdown-menu {
       z-index: 1050;
     }
+    /* Custom Modal Styling */
+    .modal-dialog-centered {
+      display: flex;
+      align-items: center;
+      min-height: calc(100% - 1rem);
+    }
+
+    .modal-content {
+      border-radius: 15px;
+      border: none;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    }
+
+    .modal-header {
+      background: linear-gradient(135deg, #27a3bf 0%, #9774bb 100%);
+      color: white;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      border-bottom: none;
+      padding: 20px 30px;
+    }
+
+    .modal-header .modal-title {
+      font-weight: 600;
+      font-size: 1.3rem;
+    }
+
+    .modal-header .btn-close {
+      filter: invert(1) grayscale(100%) brightness(200%);
+    }
+
+    .modal-body {
+      padding: 30px;
+      text-align: center;
+    }
+
+    .modal-body .modal-icon {
+      font-size: 4rem;
+      margin-bottom: 20px;
+    }
+
+    .modal-body .modal-icon .fa-check-circle {
+      color: #28a745;
+    }
+
+    .modal-body .modal-icon .fa-times-circle {
+      color: #dc3545;
+    }
+
+    .modal-body p {
+      font-size: 1.1rem;
+      color: #495057;
+      line-height: 1.6;
+    }
+
+    .modal-footer {
+      border-top: none;
+      padding: 0 30px 30px;
+      justify-content: center;
+    }
+
+    .modal-footer .btn {
+      border-radius: 25px;
+      padding: 12px 30px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .modal-footer .btn-primary {
+      background: linear-gradient(135deg, #27a3bf 0%, #9774bb 100%);
+      border: none;
+    }
+
+    .modal-footer .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(39, 163, 191, 0.3);
+    }
   </style>
 </head>
 <body>
@@ -1340,6 +1418,27 @@
     </div>
   </div>
 
+  <!-- Modal -->
+  <div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="messageModalLabel"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-icon">
+            <i class="" id="modalIcon"></i>
+          </div>
+          <p id="messageModalBody"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer class="bg-dark text-light pt-5 pb-4 mt-5">
     <div class="container text-center text-md-start">
@@ -1458,8 +1557,12 @@
           button.innerHTML = '<i class="fas fa-check me-2"></i>Registration Submitted Successfully!';
           button.style.backgroundColor = '#28a745';
           
-          // Show success alert
-          alert('Thank you for your registration! We will review your application and contact you soon.');
+          // Show success modal
+          const messageModal = new bootstrap.Modal(document.getElementById('messageModal'));
+          document.getElementById('messageModalLabel').textContent = 'Registration Submitted Successfully!';
+          document.getElementById('modalIcon').className = 'fas fa-check-circle';
+          document.getElementById('messageModalBody').innerHTML = `Thank you for your registration! Your registration ID is: <strong>${result.data.form_id}</strong>. We will review your application and contact you soon.`;
+          messageModal.show();
           
           // Reset form after 3 seconds
           setTimeout(() => {
@@ -1470,32 +1573,24 @@
           }, 3000);
           
         } else {
-          const errorText = await response.text();
-          throw new Error(`Server error: ${response.status} - ${errorText}`);
+          const errorData = await response.json().catch(() => ({ message: 'Something went wrong' }));
+          const errorMessage = errorData.message || 'Something went wrong';
+          throw new Error(errorMessage);
         }
         
       } catch (error) {
         console.error('Registration submission error:', error);
         
-        // Determine error type and show appropriate message
-        let errorMessage = 'Sorry, there was an error submitting your registration.';
-        
-        if (error.name === 'TypeError' && error.message.includes('fetch')) {
-          errorMessage = 'Unable to connect to the server. Please check your internet connection and try again.';
-        } else if (error.message.includes('404')) {
-          errorMessage = 'Registration endpoint not found. Please contact support.';
-        } else if (error.message.includes('500')) {
-          errorMessage = 'Server error occurred. Please try again later or contact support.';
-        } else if (error.message.includes('CORS')) {
-          errorMessage = 'CORS error: Please ensure the server is running and configured properly.';
-        }
-        
         // Show error message
         button.innerHTML = '<i class="fas fa-exclamation-triangle me-2"></i>Submission Failed';
         button.style.backgroundColor = '#dc3545';
         
-        // Show error alert
-        alert(errorMessage);
+        // Show error modal
+        const messageModal = new bootstrap.Modal(document.getElementById('messageModal'));
+        document.getElementById('messageModalLabel').textContent = 'Submission Failed';
+        document.getElementById('modalIcon').className = 'fas fa-times-circle';
+        document.getElementById('messageModalBody').textContent = error.message;
+        messageModal.show();
         
         // Reset button after 3 seconds
         setTimeout(() => {
