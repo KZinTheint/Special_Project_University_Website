@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navbar Test | Myanmar Institute Of Information Technology</title>
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="./components/navbar.css">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Reusable Navbar Component -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top" id="mainNavbar">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="main.html">
+        <img src="images/MIIT_Logo.png" alt="MIIT Logo" width="50" height="50" class="me-2" id="miitLogo" />
+        <strong class="navbar-title">Myanmar Institute of Information Technology</strong>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown-hover">
+            <a class="nav-link" href="main.html">Home</a>
+          </li>
+          <li class="nav-item dropdown-hover">
+            <a class="nav-link" href="#">About</a>
+            <div class="hover-card">
+              <div class="card">
+                <div class="card-body">
+                  <ul>
+                    <li><a href="history.html">History</a></li>
+                    <li><a href="./vision-mission.html">Vision & Mission</a></li>
+                    <li><a href="./contact-us.html">Contact Us</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item dropdown-hover">
+            <a class="nav-link" href="admission.html">Admission</a>
+          </li>
+          <li class="nav-item dropdown-hover">
+            <a class="nav-link" href="#">Academic</a>
+            <div class="hover-card">
+              <div class="card">
+                <div class="card-body">
+                  <ul>
+                    <li><a href="./academic-calendar.html">Academic Calendar</a></li>
+                    <li><a href="./academic-programs.html">Academic Programs</a></li>
+                    <li><a href="./academic-rules.html">Academic Rules</a></li>
+                    <li><a href="./lms-moodle.html">LMS Moodle</a></li>
+                    <li><a href="./student-registration.html">Student Registration</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item dropdown-hover">
+            <a class="nav-link" href="faculties.html">Faculties</a>
+          </li>
+          <li class="nav-item dropdown-hover">
+            <a class="nav-link" href="library.html">Library</a>
+            <div class="hover-card">
+              <div class="card">
+                <div class="card-body">
+                  <ul>
+                    <li><a href="library.html#digital-design">Digital Design</a></li>
+                    <li><a href="library.html#control-system">Control System</a></li>
+                    <li><a href="library.html#computer-architecture">Computer Architecture</a></li>
+                    <li><a href="library.html#data-structures">Data Structures & Algorithms</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item dropdown-hover">
+            <a class="nav-link active" href="test-navbar.html">Test</a>
+          </li>
+          <li class="nav-item dropdown-hover">
+            <a class="nav-link" href="./Collaboration1.html">Collaboration</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Push content down because navbar is fixed -->
+  <div style="height: 70px;"></div>
+
+  <!-- Test Content -->
+  <div class="container mt-5">
+    <h1>Navbar Component Test</h1>
+    <p>This page tests the reusable navbar component.</p>
+    
+    <h2>Test Instructions:</h2>
+    <ol>
+      <li><strong>Scroll Test:</strong> Scroll down to see the logo animation and title fade out</li>
+      <li><strong>Hover Test:</strong> Hover over "About", "Academic", and "Library" to see dropdown menus</li>
+      <li><strong>Active Link:</strong> The "Test" link should be highlighted as active</li>
+      <li><strong>Mobile Test:</strong> Resize the window to see the mobile hamburger menu</li>
+      <li><strong>Logo Link:</strong> Click the logo to navigate to main.html</li>
+    </ol>
+    
+    <h2>Animation Features:</h2>
+    <ul>
+      <li>✅ Logo scales to 1.5x when scrolled past 100px</li>
+      <li>✅ Title fades out when scrolled</li>
+      <li>✅ Dropdown menus appear on hover</li>
+      <li>✅ Smooth transitions for all animations</li>
+      <li>✅ Responsive design</li>
+    </ul>
+    
+    <!-- Add some content to enable scrolling -->
+    <div style="height: 2000px; background: linear-gradient(to bottom, #f8f9fa, #e9ecef);" class="mt-5 p-4">
+      <h3>Scroll down to test the navbar animations!</h3>
+      <p>This is a tall section to enable scrolling and test the navbar scroll animations.</p>
+      <p>Keep scrolling to see the logo scale up and the title disappear.</p>
+      <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+        <h4>Middle of the page</h4>
+        <p>Scroll back up to see the animations reverse.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Navbar Component JS -->
+  <script src="./components/navbar.js"></script>
+  
+  <!-- Test Script -->
+  <script>
+    console.log('Navbar test page loaded');
+    console.log('Navbar animations should work when scrolling');
+  </script>
+</body>
+</html>

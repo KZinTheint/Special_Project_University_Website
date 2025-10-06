@@ -1,0 +1,111 @@
+/* Reusable Navbar Component Styles */
+
+/* Import main variables and fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Use Poppins font for navbar */
+.navbar {
+  font-family: 'Poppins', sans-serif;
+}
+
+.navbar-brand strong {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+.nav-link {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+}
+
+/* Navbar Brand Logo */
+.navbar-brand img {
+  border-radius: 50%;
+  width: 70px !important;
+  height: 70px !important;
+  margin-right: 1rem;
+}
+
+.navbar-brand strong {
+  margin-right: 2.5rem;
+  font-size: 1.3rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+/* Logo Animation on Scroll */
+#miitLogo {
+  transform: scale(1) translateY(0px);
+  transition: transform 0.3s ease-out;
+  transform-origin: top center;
+  margin-top: 0px;
+  height: 50px;
+  width: 50px;
+  object-fit: contain;
+}
+
+.scrolled #miitLogo {
+  transform: scale(1.5) translateY(15px);
+}
+
+.scrolled .navbar-brand .navbar-title {
+  opacity: 0;
+  transform: translateX(20px);
+  pointer-events: none;
+}
+
+/* Dropdown Hover Effects */
+.dropdown-hover {
+  position: relative;
+}
+
+.hover-card {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  min-width: 200px;
+}
+
+.dropdown-hover:hover .hover-card {
+  display: block;
+}
+
+.hover-card .card {
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.hover-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hover-card ul li a {
+  display: block;
+  padding: 8px 15px;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.hover-card ul li a:hover {
+  background-color: #f8f9fa;
+  color: var(--miit-primary, #00bcd4);
+}
+
+/* Navbar Positioning */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+}
+
+/* Active Link Styling */
+.nav-link.active {
+  font-weight: 600;
+  color: var(--miit-primary, #00bcd4) !important;
+}

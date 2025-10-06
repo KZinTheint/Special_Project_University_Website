@@ -10,6 +10,7 @@
   
   <!-- Your Custom CSS -->
   <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="./components/navbar.css">
   <link rel="stylesheet" href="./faculties.css">
   
   <!-- Font Awesome -->
@@ -20,10 +21,10 @@
 </head>
 <body>
 
-  <!-- Navbar copied from main.html -->
+  <!-- Reusable Navbar Component -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top" id="mainNavbar">
     <div class="container">
-      <a class="navbar-brand d-flex align-items-center" href="#">
+      <a class="navbar-brand d-flex align-items-center" href="main.html">
         <img src="images/MIIT_Logo.png" alt="MIIT Logo" width="50" height="50" class="me-2" id="miitLogo" />
         <strong class="navbar-title">Myanmar Institute of Information Technology</strong>
       </a>
@@ -35,24 +36,25 @@
           <li class="nav-item dropdown-hover">
             <a class="nav-link" href="main.html">Home</a>
           </li>
-          <li class="nav-item dropdown-hover"><a class="nav-link" href="#">About</a>
+          <li class="nav-item dropdown-hover">
+            <a class="nav-link" href="#">About</a>
             <div class="hover-card">
               <div class="card">
                 <div class="card-body">
                   <ul>
                     <li><a href="history.html">History</a></li>
                     <li><a href="./vision-mission.html">Vision & Mission</a></li>
-                    
                     <li><a href="./contact-us.html">Contact Us</a></li>
                   </ul>
                 </div>
               </div>
             </div>
           </li>
-          <li class="nav-item dropdown-hover"><a class="nav-link" href="./admission.html">Admission</a>
-            
+          <li class="nav-item dropdown-hover">
+            <a class="nav-link" href="admission.html">Admission</a>
           </li>
-          <li class="nav-item dropdown-hover"><a class="nav-link" href="./academic-calendar.html">Academic</a>
+          <li class="nav-item dropdown-hover">
+            <a class="nav-link" href="#">Academic</a>
             <div class="hover-card">
               <div class="card">
                 <div class="card-body">
@@ -67,10 +69,11 @@
               </div>
             </div>
           </li>
-          <li class="nav-item dropdown-hover"><a class="nav-link active" href="./faculties.html">Faculties</a>
-            
+          <li class="nav-item dropdown-hover">
+            <a class="nav-link active" href="faculties.html">Faculties</a>
           </li>
-          <li class="nav-item dropdown-hover"><a class="nav-link" href="library.html">Library</a>
+          <li class="nav-item dropdown-hover">
+            <a class="nav-link" href="library.html">Library</a>
             <div class="hover-card">
               <div class="card">
                 <div class="card-body">
@@ -84,7 +87,9 @@
               </div>
             </div>
           </li>
-          <li class="nav-item dropdown-hover"><a class="nav-link" href="./Collaboration1.html">Collaboration</a></li>
+          <li class="nav-item dropdown-hover">
+            <a class="nav-link" href="./Collaboration1.html">Collaboration</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -272,6 +277,9 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Navbar Component JS -->
+  <script src="./components/navbar.js"></script>
   
   <!-- Your JS -->
   <script src="./script.js"></script>
