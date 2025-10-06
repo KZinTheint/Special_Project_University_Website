@@ -737,6 +737,217 @@ main.flex-grow-1 {
     }
 }
 
+/* ================================================== */
+/* SECTION ORGANIZATION & STRUCTURE */
+/* ================================================== */
+
+/* Common Section Styling */
+section {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Section Headers */
+.section-header {
+    margin-bottom: 3rem;
+}
+
+.section-heading {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--miit-secondary);
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.section-divider {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--miit-primary) 0%, var(--miit-accent) 100%);
+    margin: 1rem auto 1.5rem;
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.section-content {
+    position: relative;
+}
+
+.section-cta {
+    margin-top: 3rem !important;
+}
+
+/* Alternating Section Backgrounds */
+.hero-section {
+    background: url("images/Miit_Main_Building.jpg") no-repeat center center/cover;
+    min-height: 100vh;
+    color: white;
+    position: relative;
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Dark overlay for better text readability */
+}
+
+.achievements-section {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.why-choose-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    position: relative;
+}
+
+.why-choose-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--miit-primary) 50%, transparent 100%);
+}
+
+.events-section {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.news-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* ---------------------------------------------------- */
+/* ACHIEVEMENTS SECTION */
+/* ---------------------------------------------------- */
+
+.achievement-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.achievement-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--miit-primary) 0%, var(--miit-accent) 100%);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.achievement-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 188, 212, 0.15);
+    border-color: var(--miit-primary);
+}
+
+.achievement-card:hover::before {
+    transform: scaleX(1);
+}
+
+.achievement-icon {
+    transition: transform 0.4s ease;
+}
+
+.achievement-card:hover .achievement-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.achievement-label {
+    color: var(--miit-secondary);
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
+.stat-number {
+    color: var(--miit-primary);
+    font-weight: 800;
+    margin: 1rem 0;
+}
+
+/* ---------------------------------------------------- */
+/* WHY CHOOSE MIIT SECTION */
+/* ---------------------------------------------------- */
+
+
+.feature-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    height: 100%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 188, 212, 0.1);
+    border-color: var(--miit-primary);
+}
+
+.feature-icon {
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover .feature-icon {
+    transform: scale(1.1);
+}
+
+.feature-card h5 {
+    color: var(--miit-secondary);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.info-highlight {
+    background: white;
+    border-left: 4px solid var(--miit-primary);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.info-highlight:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(0, 188, 212, 0.1);
+}
+
+.info-highlight h6 {
+    color: var(--miit-secondary);
+    font-weight: 600;
+}
+
+.info-highlight .text-muted {
+    color: var(--miit-primary) !important;
+    font-weight: 500;
+}
+
 /* Legacy horizontal card styles (keeping for backward compatibility) */
 .event-list-img-horizontal {
     height: 100%;
