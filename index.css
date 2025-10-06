@@ -244,22 +244,509 @@ main.flex-grow-1 {
     flex-grow: 1;
 }
 
-/* --- HORIZONTAL CARD IMAGE CSS (Ensures images look sharp and fill the height) --- */
+/* ---------------------------------------------------- */
+/* ENHANCED EVENTS & NEWS SECTIONS - MULTIPLE LAYOUTS */
+/* ---------------------------------------------------- */
 
+/* Events Section Styling */
+.events-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    position: relative;
+}
+
+.events-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--miit-primary) 0%, var(--miit-accent) 100%);
+}
+
+/* LAYOUT 1: Compact Vertical Grid (3x2 for 6 items) */
+.events-grid-vertical {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* LAYOUT 2: Horizontal Cards (2 columns, 3 rows) */
+.events-grid-horizontal {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* LAYOUT 3: Mixed Grid Layout */
+.events-grid-mixed {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, auto);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Default grid (keeping original for compatibility) */
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* COMPACT VERTICAL CARD (for 3x2 grid) */
+.event-card-vertical {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: all 0.25s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    height: 200px;
+}
+
+.event-card-vertical::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--miit-primary) 0%, var(--miit-accent) 100%);
+    transform: scaleX(0);
+    transition: transform 0.25s ease;
+}
+
+.event-card-vertical:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 188, 212, 0.08);
+    border-color: var(--miit-primary);
+}
+
+.event-card-vertical:hover::before {
+    transform: scaleX(1);
+}
+
+.event-card-vertical .card-body {
+    padding: 0.75rem;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.event-card-vertical .card-title {
+    color: var(--miit-secondary);
+    font-size: 0.85rem;
+    line-height: 1.2;
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.event-card-vertical .card-text small {
+    color: var(--miit-primary);
+    font-weight: 500;
+    font-size: 0.7rem;
+}
+
+.event-card-vertical img {
+    height: 120px;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.25s ease;
+}
+
+.event-card-vertical:hover img {
+    transform: scale(1.03);
+}
+
+/* HORIZONTAL CARD (for 2 column layout) */
+.event-card-horizontal {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+    position: relative;
+    display: flex;
+    height: 140px;
+}
+
+.event-card-horizontal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--miit-primary) 0%, var(--miit-accent) 100%);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.event-card-horizontal:hover {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 12px 25px rgba(0, 188, 212, 0.12);
+    border-color: var(--miit-primary);
+}
+
+.event-card-horizontal:hover::before {
+    transform: scaleX(1);
+}
+
+.event-card-horizontal .card-image {
+    width: 140px;
+    flex-shrink: 0;
+}
+
+.event-card-horizontal .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.event-card-horizontal:hover .card-image img {
+    transform: scale(1.05);
+}
+
+.event-card-horizontal .card-body {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.event-card-horizontal .card-title {
+    color: var(--miit-secondary);
+    font-size: 1rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.event-card-horizontal .card-text small {
+    color: var(--miit-primary);
+    font-weight: 500;
+    font-size: 0.85rem;
+}
+
+/* MIXED GRID CARDS (different sizes) */
+.event-card-large {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+    position: relative;
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.event-card-medium {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+    position: relative;
+    grid-column: span 2;
+}
+
+.event-card-small {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+    position: relative;
+}
+
+/* Common styles for mixed grid cards */
+.event-card-large::before,
+.event-card-medium::before,
+.event-card-small::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--miit-primary) 0%, var(--miit-accent) 100%);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.event-card-large:hover,
+.event-card-medium:hover,
+.event-card-small:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 188, 212, 0.15);
+    border-color: var(--miit-primary);
+}
+
+.event-card-large:hover::before,
+.event-card-medium:hover::before,
+.event-card-small:hover::before {
+    transform: scaleX(1);
+}
+
+/* Compact small event cards for 6 items */
+.event-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: all 0.25s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    height: 200px;
+}
+
+.event-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--miit-primary) 0%, var(--miit-accent) 100%);
+    transform: scaleX(0);
+    transition: transform 0.25s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 188, 212, 0.08);
+    border-color: var(--miit-primary);
+}
+
+.event-card:hover::before {
+    transform: scaleX(1);
+}
+
+.event-card .card-body {
+    padding: 0.75rem;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.event-card .card-title {
+    color: var(--miit-secondary);
+    font-size: 0.85rem;
+    line-height: 1.2;
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.event-card .card-text small {
+    color: var(--miit-primary);
+    font-weight: 500;
+    font-size: 0.7rem;
+}
+
+.event-card img {
+    height: 120px;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.25s ease;
+}
+
+.event-card:hover img {
+    transform: scale(1.03);
+}
+
+/* News Section Styling */
+.news-section {
+    background: var(--miit-bg-secondary);
+    position: relative;
+}
+
+.news-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--miit-secondary) 0%, var(--miit-primary) 100%);
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.news-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: all 0.25s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    height: 200px;
+}
+
+.news-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--miit-secondary) 0%, var(--miit-primary) 100%);
+    transform: scaleX(0);
+    transition: transform 0.25s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(24, 58, 94, 0.08);
+    border-color: var(--miit-secondary);
+}
+
+.news-card:hover::before {
+    transform: scaleX(1);
+}
+
+.news-card .card-body {
+    padding: 0.75rem;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.news-card .card-title {
+    color: var(--miit-secondary);
+    font-size: 0.85rem;
+    line-height: 1.2;
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.news-card .card-text small {
+    color: var(--miit-primary);
+    font-weight: 500;
+    font-size: 0.7rem;
+}
+
+.news-card img {
+    height: 120px;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.25s ease;
+}
+
+.news-card:hover img {
+    transform: scale(1.03);
+}
+
+/* Enhanced Link Styling */
+.event-card-link, 
+.news-card-link {
+    text-decoration: none !important;
+    color: inherit;
+    display: block;
+}
+
+.event-card-link:hover,
+.news-card-link:hover {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Responsive adjustments for smaller cards */
+@media (max-width: 576px) {
+    .events-grid,
+    .news-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .event-card,
+    .news-card {
+        height: 180px;
+    }
+    
+    .event-card img,
+    .news-card img {
+        height: 100px;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+    .events-grid,
+    .news-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .events-grid,
+    .news-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+    }
+}
+
+@media (min-width: 1025px) {
+    .events-grid,
+    .news-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .events-grid,
+    .news-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+/* Legacy horizontal card styles (keeping for backward compatibility) */
 .event-list-img-horizontal {
     height: 100%;
     width: 100%;
     object-fit: cover; 
-    
-    /* Ensure rounded corners are only on the left side on desktop */
     border-top-right-radius: 0;
     border-bottom-left-radius: var(--bs-card-border-radius);
-    
-    /* On mobile, stack vertically, so we need rounded corners on top */
     border-top-left-radius: var(--bs-card-border-radius); 
 }
 
-/* Fix for medium screens and up to ensure only left corners are rounded */
 @media (min-width: 768px) {
     .event-list-img-horizontal {
         border-top-right-radius: 0 !important;

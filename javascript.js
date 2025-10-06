@@ -37,35 +37,73 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const eventsContainer = document.getElementById('events-container');
 
+  // Function to create different card layouts
+  function createEventCard(event, layout = 'vertical', index = 0) {
+    const eventDate = new Date(event.event_date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    const eventDescription = event.content && event.content.length > 0 ? event.content[0].description : '';
+    
+    switch(layout) {
+      case 'horizontal':
+        return `
+          <a href="events.html?id=${event.id}" class="event-card-link">
+            <div class="event-card-horizontal">
+              <div class="card-image">
+                <img src="${event.cover_url}" alt="${event.title}">
+              </div>
+              <div class="card-body">
+                <p class="card-text"><small>${eventDate}</small></p>
+                <h5 class="card-title">${event.title}</h5>
+              </div>
+            </div>
+          </a>
+        `;
+      
+      case 'mixed':
+        let cardClass = 'event-card-small';
+        if (index === 0) cardClass = 'event-card-large';
+        else if (index === 1 || index === 2) cardClass = 'event-card-medium';
+        
+        return `
+          <a href="events.html?id=${event.id}" class="event-card-link">
+            <div class="${cardClass}">
+              <img src="${event.cover_url}" alt="${event.title}" style="height: ${cardClass === 'event-card-large' ? '200px' : cardClass === 'event-card-medium' ? '120px' : '100px'}; width: 100%; object-fit: cover;">
+              <div class="card-body" style="padding: ${cardClass === 'event-card-large' ? '1.5rem' : '1rem'}">
+                <p class="card-text"><small>${eventDate}</small></p>
+                <h5 class="card-title" style="font-size: ${cardClass === 'event-card-large' ? '1.1rem' : '0.9rem'}">${event.title}</h5>
+              </div>
+            </div>
+          </a>
+        `;
+      
+      case 'vertical':
+      default:
+        return `
+          <a href="events.html?id=${event.id}" class="event-card-link">
+            <div class="event-card">
+              <img src="${event.cover_url}" alt="${event.title}">
+              <div class="card-body">
+                <p class="card-text"><small>${eventDate}</small></p>
+                <h5 class="card-title">${event.title}</h5>
+              </div>
+            </div>
+          </a>
+        `;
+    }
+  }
+
   if (eventsContainer) {
+    // Get layout from container class or default to vertical
+    const layoutType = eventsContainer.className.includes('horizontal') ? 'horizontal' : 
+                      eventsContainer.className.includes('mixed') ? 'mixed' : 'vertical';
+    
     fetch('http://localhost:3000/events')
       .then(response => response.json())
       .then(data => {
         if (data.success) {
-          const events = data.data.slice(0, 4);
+          const events = data.data.slice(0, 6); // Show 6 events instead of 4
           eventsContainer.innerHTML = ''; // Clear existing content
-          events.forEach(event => {
-            const eventDate = new Date(event.event_date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-            const eventDescription = event.content && event.content.length > 0 ? event.content[0].description : '';
-            const eventCard = `
-              <div class="col-lg-6 mb-4">
-                <a href="events.html?id=${event.id}" class="event-card-link text-decoration-none text-dark">
-                  <div class="card h-100 event-card shadow-sm transition-300ms hover-shadow-lg overflow-hidden">
-                    <div class="row g-0 h-100">
-                      <div class="col-4">
-                        <img src="${event.cover_url}" class="img-fluid rounded-start h-100" style="object-fit: cover;" alt="${event.title}">
-                      </div>
-                      <div class="col-8">
-                        <div class="card-body d-flex flex-column">
-                          <p class="card-text mb-1"><small class="text-muted">${eventDate}</small></p>
-                          <h6 class="card-title fw-bold flex-grow-1">${event.title}</h6>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            `;
+          events.forEach((event, index) => {
+            const eventCard = createEventCard(event, layoutType, index);
             eventsContainer.innerHTML += eventCard;
           });
         }
@@ -73,10 +111,67 @@ document.addEventListener('DOMContentLoaded', () => {
       .catch(error => console.error('Error fetching events:', error));
   }
 
-// --- NEWS PREVIEW LOGIC (Latest 4 News, Minimal Horizontal Style) ---
+// Function to create different news card layouts
+function createNewsCard(newsItem, layout = 'vertical', index = 0) {
+  const newsDate = new Date(newsItem.created_at || newsItem.news_date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  
+  switch(layout) {
+    case 'horizontal':
+      return `
+        <a href="news-detail.html?id=${newsItem.id}" class="news-card-link">
+          <div class="event-card-horizontal news-card">
+            <div class="card-image">
+              <img src="${newsItem.images[0] || newsItem.cover_url}" alt="${newsItem.title}">
+            </div>
+            <div class="card-body">
+              <p class="card-text"><small>${newsDate}</small></p>
+              <h5 class="card-title">${newsItem.title}</h5>
+            </div>
+          </div>
+        </a>
+      `;
+    
+    case 'mixed':
+      let cardClass = 'event-card-small';
+      if (index === 0) cardClass = 'event-card-large';
+      else if (index === 1 || index === 2) cardClass = 'event-card-medium';
+      
+      return `
+        <a href="news-detail.html?id=${newsItem.id}" class="news-card-link">
+          <div class="${cardClass} news-card">
+            <img src="${newsItem.images[0] || newsItem.cover_url}" alt="${newsItem.title}" style="height: ${cardClass === 'event-card-large' ? '200px' : cardClass === 'event-card-medium' ? '120px' : '100px'}; width: 100%; object-fit: cover;">
+            <div class="card-body" style="padding: ${cardClass === 'event-card-large' ? '1.5rem' : '1rem'}">
+              <p class="card-text"><small>${newsDate}</small></p>
+              <h5 class="card-title" style="font-size: ${cardClass === 'event-card-large' ? '1.1rem' : '0.9rem'}">${newsItem.title}</h5>
+            </div>
+          </div>
+        </a>
+      `;
+    
+    case 'vertical':
+    default:
+      return `
+        <a href="news-detail.html?id=${newsItem.id}" class="news-card-link">
+          <div class="news-card">
+            <img src="${newsItem.images[0] || newsItem.cover_url}" alt="${newsItem.title}">
+            <div class="card-body">
+              <p class="card-text"><small>${newsDate}</small></p>
+              <h5 class="card-title">${newsItem.title}</h5>
+            </div>
+          </div>
+        </a>
+      `;
+  }
+}
+
+// --- NEWS PREVIEW LOGIC (Latest 6 News with Multiple Layouts) ---
 const newsContainer = document.getElementById('latest-news-container');
 
 if (newsContainer) {
+    // Get layout from container class or default to vertical
+    const newsLayoutType = newsContainer.className.includes('horizontal') ? 'horizontal' : 
+                          newsContainer.className.includes('mixed') ? 'mixed' : 'vertical';
+    
     // Fetch data from the news API endpoint
     fetch('http://localhost:3000/news') 
         .then(response => response.json())
@@ -84,48 +179,21 @@ if (newsContainer) {
             // Assuming the news articles are in data.data.news
             if (data.success && data.data && data.data.news && data.data.news.length > 0) {
                 
-                // Limit to the latest 4 news items to match the events section
-                const latestNews = data.data.news.slice(0, 4); 
+                // Limit to the latest 6 news items
+                const latestNews = data.data.news.slice(0, 6); 
                 newsContainer.innerHTML = ''; 
 
-                latestNews.forEach(newsItem => {
-                    // Use 'created_at' or 'news_date' for the date
-                    const newsDate = new Date(newsItem.created_at || newsItem.news_date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-                    
-                    // Use col-lg-6 to enforce a 2x2 grid layout (2 cards per row)
-                    const newsCard = `
-                        <div class="col-lg-6 mb-4">
-                            <a href="news-detail.html?id=${newsItem.id}" class="news-card-link text-decoration-none text-dark">
-                                <div class="card h-100 news-card shadow-sm transition-300ms hover-shadow-lg overflow-hidden">
-                                    <div class="row g-0 h-100">
-                                        
-                                        <div class="col-4">
-                                            <img src="${newsItem.images[0] || newsItem.cover_url}" 
-                                                 class="img-fluid rounded-start h-100" 
-                                                 style="object-fit: cover;" 
-                                                 alt="${newsItem.title}">
-                                        </div>
-                                        
-                                        <div class="col-8">
-                                            <div class="card-body d-flex flex-column">
-                                                <p class="card-text mb-1"><small class="text-muted">${newsDate}</small></p>
-                                                <h6 class="card-title fw-bold flex-grow-1">${newsItem.title}</h6>
-                                                </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    `;
+                latestNews.forEach((newsItem, index) => {
+                    const newsCard = createNewsCard(newsItem, newsLayoutType, index);
                     newsContainer.innerHTML += newsCard;
                 });
             } else {
-                newsContainer.innerHTML = '<div class="col-12 text-center py-5"><p class="lead text-muted">No recent news available.</p></div>';
+                newsContainer.innerHTML = '<div class="text-center py-5"><p class="lead text-muted">No recent news available.</p></div>';
             }
         })
         .catch(error => {
             console.error('Error fetching latest news:', error);
-            newsContainer.innerHTML = '<div class="col-12 text-center py-5"><p class="lead text-danger">Error loading news. Please check the server connection.</p></div>';
+            newsContainer.innerHTML = '<div class="text-center py-5"><p class="lead text-danger">Error loading news. Please check the server connection.</p></div>';
         });
 }
 // --- END OF NEWS PREVIEW LOGIC
