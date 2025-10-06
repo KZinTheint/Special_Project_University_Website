@@ -46,25 +46,62 @@ body {
     object-fit: contain;
 }
 
-/* Hero Section */
-.hero-section {
+/* Clean Hero Section (like Academic Calendar) */
+.faculties-hero {
+    padding: 100px 0 40px 0;
+    background: linear-gradient(135deg, #27a3bf 0%, #9774bb 100%);
+    color: white;
     position: relative;
-    background-attachment: fixed;
+    overflow: hidden;
 }
 
-.hero-section::before {
-    content: "";
+.faculties-hero::before {
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(0, 163, 196, 0.3), rgba(0, 0, 0, 0.6));
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--miit-primary) 0%, var(--miit-secondary) 100%);
+    opacity: 0.9;
 }
 
-.hero-section .container {
+.faculties-hero .container {
     position: relative;
     z-index: 2;
+}
+
+.faculties-hero .breadcrumb {
+    background: transparent;
+    padding: 0;
+    margin-bottom: 1rem;
+}
+
+.faculties-hero .breadcrumb-item a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.faculties-hero .breadcrumb-item a:hover {
+    color: white;
+}
+
+.faculties-hero .breadcrumb-item.active {
+    color: white;
+}
+
+.faculties-hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.faculties-hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 /* Faculty Header Section */
