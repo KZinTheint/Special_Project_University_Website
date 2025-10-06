@@ -27,14 +27,45 @@ document.addEventListener('DOMContentLoaded', function() {
     const currentPage = window.location.pathname.split('/').pop() || 'main.html';
     const navLinks = document.querySelectorAll('.nav-link');
     
+    // Define page categories
+    const aboutPages = ['history.html', 'vision-mission.html', 'contact-us.html'];
+    const academicPages = ['academic-calendar.html', 'academic-programs.html', 'academic-rules.html', 'lms-moodle.html', 'lms-module.html', 'student-registration.html'];
+    const libraryPages = ['library.html'];
+    
     navLinks.forEach(link => {
       link.classList.remove('active');
       
-      // Check if the link href matches current page
       const linkHref = link.getAttribute('href');
+      const linkText = link.textContent.trim();
+      
+      // Direct page matches
       if (linkHref === currentPage || 
           (currentPage === '' && linkHref === 'main.html') ||
           (currentPage === 'index.html' && linkHref === 'main.html')) {
+        link.classList.add('active');
+      }
+      // About dropdown pages
+      else if (aboutPages.includes(currentPage) && linkText === 'About') {
+        link.classList.add('active');
+      }
+      // Academic dropdown pages
+      else if (academicPages.includes(currentPage) && linkText === 'Academic') {
+        link.classList.add('active');
+      }
+      // Library pages
+      else if (libraryPages.includes(currentPage) && linkText === 'Library') {
+        link.classList.add('active');
+      }
+      // Faculties page
+      else if (currentPage === 'faculties.html' && linkText === 'Faculties') {
+        link.classList.add('active');
+      }
+      // Admission page
+      else if (currentPage === 'admission.html' && linkText === 'Admission') {
+        link.classList.add('active');
+      }
+      // Collaboration page
+      else if (currentPage === 'Collaboration1.html' && linkText === 'Collaboration') {
         link.classList.add('active');
       }
     });
@@ -78,9 +109,23 @@ document.addEventListener('DOMContentLoaded', function() {
 window.NavbarComponent = {
   setActiveLink: function(pageName) {
     const navLinks = document.querySelectorAll('.nav-link');
+    const aboutPages = ['history.html', 'vision-mission.html', 'contact-us.html'];
+    const academicPages = ['academic-calendar.html', 'academic-programs.html', 'academic-rules.html', 'lms-moodle.html', 'lms-module.html', 'student-registration.html'];
+    
     navLinks.forEach(link => {
       link.classList.remove('active');
-      if (link.getAttribute('href') === pageName) {
+      const linkHref = link.getAttribute('href');
+      const linkText = link.textContent.trim();
+      
+      // Direct matches
+      if (linkHref === pageName) {
+        link.classList.add('active');
+      }
+      // Category matches
+      else if (aboutPages.includes(pageName) && linkText === 'About') {
+        link.classList.add('active');
+      }
+      else if (academicPages.includes(pageName) && linkText === 'Academic') {
         link.classList.add('active');
       }
     });

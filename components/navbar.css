@@ -104,6 +104,16 @@
   z-index: 1030;
 }
 
+/* Body padding to account for fixed navbar - only when needed */
+body.navbar-padding {
+  padding-top: 70px;
+}
+
+/* Alternative: Add top margin to first content element */
+.navbar-spacer {
+  height: 70px;
+}
+
 /* Active Link Styling */
 .nav-link.active {
   font-weight: 600;

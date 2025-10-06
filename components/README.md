@@ -113,8 +113,8 @@ Replace the existing navbar with this standardized structure:
   </div>
 </nav>
 
-<!-- Push content down because navbar is fixed -->
-<div style="height: 70px;"></div>
+<!-- Only add spacer if your page doesn't have a header with top padding -->
+<!-- <div style="height: 70px;"></div> -->
 ```
 
 ### 3. Set Active Link
@@ -129,6 +129,21 @@ Add the navbar script before your other JavaScript files:
 ```html
 <!-- Navbar Component JS -->
 <script src="./components/navbar.js"></script>
+```
+
+### 5. Handle Fixed Navbar Spacing
+**IMPORTANT:** Since the navbar is `fixed-top`, you need to account for its height:
+
+**Option A (Recommended):** If your page has a header section, add top padding to it:
+```css
+.your-header {
+  padding-top: 80px; /* Accounts for navbar height */
+}
+```
+
+**Option B:** If your page doesn't have a header, add a spacer div:
+```html
+<div style="height: 70px;"></div>
 ```
 
 ## Features
