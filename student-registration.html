@@ -1567,6 +1567,7 @@
           // Reset form after 3 seconds
           setTimeout(() => {
             this.reset();
+            resetFileUploads();
             button.innerHTML = originalText;
             button.disabled = false;
             button.style.backgroundColor = '';
@@ -1841,6 +1842,49 @@
       addDragAndDrop();
       initializeNationalIdSystem() 
     });
+
+    function resetFileUploads() {
+      const fileInputs = document.querySelectorAll('input[type="file"]');
+      fileInputs.forEach(input => {
+        const uploadCard = input.closest('.upload-card, .photo-upload-controls');
+        if (uploadCard) {
+          uploadCard.classList.remove('has-file');
+          const formText = uploadCard.querySelector('.form-text');
+          const formControl = uploadCard.querySelector('.form-control');
+          if(formControl) {
+            formControl.classList.remove('upload-error', 'upload-success');
+          }
+          
+          if (input.id === 'passportPhotos') {
+            if(formText) {
+              formText.textContent = 'Upload your recent passport-sized photo (35mm x 45mm)';
+              formText.style.color = '#6c757d';
+            }
+            const photoSlot = document.querySelector('.photo-slot');
+            if (photoSlot) {
+              photoSlot.classList.remove('has-photo');
+              const frame = photoSlot.querySelector('.photo-frame');
+              if(frame) {
+                frame.innerHTML = '<i class="fas fa-plus photo-placeholder"></i>';
+              }
+            }
+          } else {
+            const originalTexts = {
+              'highSchoolCertificate': 'Upload your high school completion certificate',
+              'grade12Results': 'Upload your Grade 12 examination results',
+              'nationalIdCard': 'Upload a clear copy of your National ID Card',
+              'birthCertificate': 'Upload your birth certificate',
+              'medicalCertificate': 'Upload your medical fitness certificate',
+              'characterCertificate': 'Upload your character certificate from previous institution'
+            };
+            if (formText) {
+              formText.textContent = originalTexts[input.id] || 'Upload file';
+              formText.style.color = '#6c757d';
+            }
+          }
+        }
+      });
+    }
 
 
 
