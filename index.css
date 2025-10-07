@@ -938,6 +938,124 @@ section {
     font-weight: 500;
 }
 
+/* ---------------------------------------------------- */
+/* NEWS DETAIL FILES SECTION */
+/* ---------------------------------------------------- */
+
+.files-section {
+    margin-top: 3rem;
+}
+
+.files-section h2 {
+    color: var(--miit-secondary);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.files-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 600px;
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.file-item:last-child {
+    border-bottom: none;
+}
+
+.file-item:hover {
+    background-color: #f8f9fa;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 5px;
+    transition: all 0.2s ease;
+}
+
+.file-left {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.file-icon {
+    margin-right: 0.75rem;
+    transition: all 0.2s ease;
+}
+
+.file-item:hover .file-icon {
+    transform: scale(1.05);
+}
+
+.file-icon i {
+    color: var(--miit-primary);
+    font-size: 1.2rem;
+}
+
+.file-name {
+    color: var(--miit-secondary);
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin: 0;
+    word-break: break-word;
+}
+
+.file-item .btn {
+    background-color: var(--miit-primary);
+    border: none;
+    border-radius: 4px;
+    padding: 0.35rem 0.75rem;
+    font-weight: 500;
+    font-size: 0.75rem;
+    transition: all 0.2s ease;
+    color: white;
+    flex-shrink: 0;
+}
+
+.file-item .btn:hover {
+    background-color: var(--miit-secondary);
+    color: white;
+}
+
+.file-item .btn i {
+    color: white;
+    margin-right: 0.4rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .files-section {
+        padding: 1.5rem;
+    }
+    
+    .file-card {
+        padding: 1.5rem 1rem;
+    }
+    
+    .file-icon i {
+        font-size: 2.5rem !important;
+    }
+    
+    .file-name {
+        font-size: 0.9rem;
+        min-height: 2rem;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 991px) {
+    .files-section .col-lg-4 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
 /* Legacy horizontal card styles (keeping for backward compatibility) */
 .event-list-img-horizontal {
     height: 100%;
