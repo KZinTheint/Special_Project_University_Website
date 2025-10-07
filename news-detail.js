@@ -36,8 +36,22 @@ document.addEventListener('DOMContentLoaded', () => {
                   <p class="text-muted mb-4"><strong>News Date:</strong> ${new Date(news.created_at).toLocaleDateString()}</p>
                   <img src="${news.images[0]}" class="img-fluid rounded-3 mb-4 single-news-cover-img" alt="${news.title}">
                   ${newsContentHtml}
-                  ${news.files && news.files.length > 0 ? `<a href="${news.files[0]}" class="btn btn-primary mt-3" target="_blank">View File</a>` : ''}
-                </div>
+                  ${news.files && news.files.length > 0 ? `
+                    <div class="mt-4">
+                      <h5 class="fw-semibold mb-3">Attached Files</h5>
+                      <ul class="list-group">
+                        ${news.files.map(file => `
+                          <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>${file.filename}</span>
+                            <a href="${file.url}" download class="btn btn-outline-primary btn-sm">
+                              <i class="bi bi-download"></i> Download
+                            </a>
+                          </li>
+                        `).join('')}
+                      </ul>
+                    </div>
+                  ` : ''}
+                  </div>
                 ${newsImagesHtml}
               </div>
             `;
