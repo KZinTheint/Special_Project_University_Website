@@ -1,15 +1,44 @@
 // Function to handle file downloads
-function downloadFile(url, filename) {
-  // Create a temporary anchor element
-  const link = document.createElement('a');
-  link.href = url;
-  link.download = filename || 'download';
-  link.target = '_blank';
-  
-  // Add to DOM, click, and remove
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+async function downloadFile(event, url, filename) {
+  const downloadButton = event.target.closest('button');
+  const originalButtonText = downloadButton.innerHTML;
+
+  try {
+    // Optional: Provide user feedback
+    downloadButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Downloading...';
+    downloadButton.disabled = true;
+
+    // Fetch the file
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Network response was not ok: ${response.statusText}`);
+    }
+    const blob = await response.blob();
+
+    // Create a temporary URL for the blob
+    const blobUrl = window.URL.createObjectURL(blob);
+
+    // Create a temporary anchor element to trigger the download
+    const link = document.createElement('a');
+    link.href = blobUrl;
+    link.download = filename || 'download';
+    
+    // Add to DOM, click, and remove
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    // Clean up the blob URL
+    window.URL.revokeObjectURL(blobUrl);
+
+  } catch (error) {
+    console.error('Download failed:', error);
+    alert('Failed to download file. Please try again later.');
+  } finally {
+    // Restore button state
+    downloadButton.innerHTML = originalButtonText;
+    downloadButton.disabled = false;
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -65,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                         <h6 class="file-name">${file.filename}</h6>
                       </div>
-                      <button class="btn btn-sm" onclick="downloadFile('${file.url}', '${file.filename}')">
+                      <button class="btn btn-sm" onclick="downloadFile(event, '${file.url}', '${file.filename}')">
                         <i class="fas fa-download"></i>Download
                       </button>
                     </div>
