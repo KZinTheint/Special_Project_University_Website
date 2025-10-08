@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const eventContentHtml = (event.content && event.content.length > 0) ?
               event.content.map(c => `
                 ${c.subheading ? `<h4 class="fw-semibold mt-4">${c.subheading}</h4>` : ''}
-                <p>${c.description}</p>
+                ${c.description ? `<p>${c.description}</p>` : ''}
               `).join('') : '';
 
             const eventImagesHtml = (event.images && event.images.length > 0) ?
@@ -76,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
       fetch('http://localhost:3000/events')
         .then(response => response.json())
         .then(data => {
+          console.log('Fetched events data:', data);
           if (data.success) {
             const events = data.data;
             allEventsContainer.innerHTML = '';
@@ -83,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
             events.forEach(event => {
               const eventDate = new Date(event.event_date).toLocaleDateString();
               const rawDescription = event.content && event.content.length > 0 ? event.content[0].description : '';
-              const eventDescription = rawDescription.substring(0, 200).trim();
+              //const eventDescription = rawDescription.substring(0, 200).trim();
 
               const eventCardHtml = `
               <div class="col-md-6 g-4">

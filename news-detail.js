@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             newsDetailContainer.innerHTML = `
               <div class="col-12 col-lg-10 offset-lg-1">
-                <div class="mb-5">
+                <div class="mb-5 border-bottom pb-4">
                   <h1 class="display-4 fw-bold mb-3">${news.title}</h1>
                   <p class="text-muted mb-4"><strong>News Date:</strong> ${new Date(news.created_at).toLocaleDateString()}</p>
                   ${news.images && news.images.length > 0 ? `<img src="${news.images[0]}" class="img-fluid rounded-3 mb-4 single-news-cover-img" alt="${news.title}">` : ''}
@@ -112,6 +112,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 ${newsImagesHtml}
                 ${newsFilesHtml}
+                <div class="text-center mt-5">
+                  <a href="latest-news.html" class="btn btn-outline-secondary"><i class="fas fa-arrow-left me-2"></i> Back to All News</a>
+                </div>
               </div>
             `;
           } else {
