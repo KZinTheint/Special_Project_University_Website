@@ -8,6 +8,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (eventId) {
       // --- Event Detail View (Centering is now handled by the outer wrapper for consistency) ---
       if (eventsPageHeading) eventsPageHeading.style.display = 'none';
+      
+      // Show loading spinner for event details
+      allEventsContainer.innerHTML = `
+        <div class="col-12 text-center py-5">
+          <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <p class="mt-3 text-muted">Loading event details...</p>
+        </div>
+      `;
 
       fetch(`http://localhost:3000/events/${eventId}`)
         .then(response => response.json())
@@ -52,6 +62,16 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       // --- All Events List View (Horizontal Card Layout) ---
       if (eventsPageHeading) eventsPageHeading.style.display = 'block';
+      
+      // Show loading spinner for events list
+      allEventsContainer.innerHTML = `
+        <div class="col-12 text-center py-5">
+          <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <p class="mt-3 text-muted">Loading events...</p>
+        </div>
+      `;
 
       fetch('http://localhost:3000/events')
         .then(response => response.json())

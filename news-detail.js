@@ -18,6 +18,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const newsId = urlParams.get('id');
 
   if (newsDetailContainer && newsId) {
+    // Show loading spinner
+    newsDetailContainer.innerHTML = `
+      <div class="col-12 text-center py-5">
+        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <p class="mt-3 text-muted">Loading news details...</p>
+      </div>
+    `;
+    
     fetch(`http://localhost:3000/news/${newsId}`)
       .then(response => response.json())
       .then(data => {

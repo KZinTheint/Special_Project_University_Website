@@ -2,6 +2,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const newsPageContainer = document.getElementById('news-page-container');
 
   if (newsPageContainer) {
+    // Show loading spinner
+    newsPageContainer.innerHTML = `
+      <div class="text-center py-5">
+        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <p class="mt-3 text-muted">Loading news articles...</p>
+      </div>
+    `;
+    
     // Fetch and display all news articles
     fetch('http://localhost:3000/news')
       .then(response => response.json())
