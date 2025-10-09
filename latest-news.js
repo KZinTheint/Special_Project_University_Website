@@ -31,7 +31,14 @@ document.addEventListener('DOMContentLoaded', () => {
               <div class="col-md-6 col-lg-4 mb-4">
                 <a href="news-detail.html?id=${newsItem.id}" class="news-card-link">
                   <div class="card h-100">
-                    <img src="${newsItem.images[0]}" class="card-img-top" alt="${newsItem.title}">
+                    ${newsItem.cover_url ? 
+                      `<img src="${newsItem.cover_url}" class="card-img-top" alt="${newsItem.title}">` : 
+                      newsItem.images && newsItem.images.length > 0 ? 
+                        `<img src="${newsItem.images[0]}" class="card-img-top" alt="${newsItem.title}">` :
+                        `<div class="card-img-top d-flex align-items-center justify-content-center bg-light" style="height: 200px;">
+                          <i class="fas fa-image fa-3x text-muted"></i>
+                        </div>`
+                    }
                     <div class="card-body d-flex flex-column">
                       <h5 class="card-title">${newsItem.title}</h5>
                       ${description ? `<p class="card-text flex-grow-1">${description}</p>` : ''}

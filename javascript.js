@@ -121,7 +121,7 @@ function createNewsCard(newsItem, layout = 'vertical', index = 0) {
         <a href="news-detail.html?id=${newsItem.id}" class="news-card-link">
           <div class="event-card-horizontal news-card">
             <div class="card-image">
-              <img src="${newsItem.images[0] || newsItem.cover_url}" alt="${newsItem.title}">
+              <img src="${newsItem.cover_url || (newsItem.images && newsItem.images[0])}" alt="${newsItem.title}">
             </div>
             <div class="card-body">
               <p class="card-text"><small>${newsDate}</small></p>
@@ -139,7 +139,7 @@ function createNewsCard(newsItem, layout = 'vertical', index = 0) {
       return `
         <a href="news-detail.html?id=${newsItem.id}" class="news-card-link">
           <div class="${cardClass} news-card">
-            <img src="${newsItem.images[0] || newsItem.cover_url}" alt="${newsItem.title}" style="height: ${cardClass === 'event-card-large' ? '200px' : cardClass === 'event-card-medium' ? '120px' : '100px'}; width: 100%; object-fit: cover;">
+            <img src="${newsItem.cover_url || (newsItem.images && newsItem.images[0])}" alt="${newsItem.title}" style="height: ${cardClass === 'event-card-large' ? '200px' : cardClass === 'event-card-medium' ? '120px' : '100px'}; width: 100%; object-fit: cover;">
             <div class="card-body" style="padding: ${cardClass === 'event-card-large' ? '1.5rem' : '1rem'}">
               <p class="card-text"><small>${newsDate}</small></p>
               <h5 class="card-title" style="font-size: ${cardClass === 'event-card-large' ? '1.1rem' : '0.9rem'}">${newsItem.title}</h5>
@@ -153,7 +153,7 @@ function createNewsCard(newsItem, layout = 'vertical', index = 0) {
       return `
         <a href="news-detail.html?id=${newsItem.id}" class="news-card-link">
           <div class="news-card">
-            <img src="${newsItem.images[0] || newsItem.cover_url}" alt="${newsItem.title}">
+            <img src="${newsItem.cover_url || (newsItem.images && newsItem.images[0])}" alt="${newsItem.title}">
             <div class="card-body">
               <p class="card-text"><small>${newsDate}</small></p>
               <h5 class="card-title">${newsItem.title}</h5>

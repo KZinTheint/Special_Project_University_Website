@@ -1131,6 +1131,14 @@ footer .list-unstyled li {
 }
 .news-gallery-img {
     height: 250px;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.news-gallery-img:hover {
+    transform: scale(1.05);
 }
 .news-detail-container, .event-detail-container {
     padding-top: 100px;

@@ -107,7 +107,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="mb-5 border-bottom pb-4">
                   <h1 class="display-4 fw-bold mb-3">${news.title}</h1>
                   <p class="text-muted mb-4"><strong>News Date:</strong> ${new Date(news.created_at).toLocaleDateString()}</p>
-                  ${news.images && news.images.length > 0 ? `<img src="${news.images[0]}" class="img-fluid rounded-3 mb-4 single-news-cover-img" alt="${news.title}">` : ''}
+                  ${news.cover_url ? 
+                    `<img src="${news.cover_url}" class="img-fluid rounded-3 mb-4 single-news-cover-img" alt="${news.title}">` : 
+                    news.images && news.images.length > 0 ? 
+                      `<img src="${news.images[0]}" class="img-fluid rounded-3 mb-4 single-news-cover-img" alt="${news.title}">` : 
+                      ''
+                  }
                   ${newsContentHtml}
                 </div>
                 ${newsImagesHtml}
