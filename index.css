@@ -296,7 +296,7 @@ main.flex-grow-1 {
     transition: all 0.25s ease;
     border: 1px solid rgba(0, 0, 0, 0.05);
     position: relative;
-    height: 200px;
+    height: 260px;
 }
 
 .event-card-vertical::before {
@@ -348,7 +348,7 @@ main.flex-grow-1 {
 }
 
 .event-card-vertical img {
-    height: 120px;
+    height: 180px;
     width: 100%;
     object-fit: cover;
     transition: transform 0.25s ease;
@@ -507,7 +507,7 @@ main.flex-grow-1 {
     transition: all 0.25s ease;
     border: 1px solid rgba(0, 0, 0, 0.05);
     position: relative;
-    height: 200px;
+    height: 260px;
 }
 
 .event-card::before {
@@ -559,7 +559,7 @@ main.flex-grow-1 {
 }
 
 .event-card img {
-    height: 120px;
+    height: 180px;
     width: 100%;
     object-fit: cover;
     transition: transform 0.25s ease;
@@ -600,7 +600,7 @@ main.flex-grow-1 {
     transition: all 0.25s ease;
     border: 1px solid rgba(0, 0, 0, 0.05);
     position: relative;
-    height: 200px;
+    height: 260px;
 }
 
 .news-card::before {
@@ -652,7 +652,7 @@ main.flex-grow-1 {
 }
 
 .news-card img {
-    height: 120px;
+    height: 180px;
     width: 100%;
     object-fit: cover;
     transition: transform 0.25s ease;
@@ -686,12 +686,12 @@ main.flex-grow-1 {
     
     .event-card,
     .news-card {
-        height: 180px;
+        height: 220px;
     }
     
     .event-card img,
     .news-card img {
-        height: 100px;
+        height: 140px;
     }
 }
 
